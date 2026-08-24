@@ -544,7 +544,7 @@ fragment = f"""
   <div class="sub">전국 AI·AX 정책사업을 공약 단계부터 추적하여, 발주 이전의 기획제안 기회를 선제적으로 포착합니다.</div>
 </div>
 <div class="kpi-refresh-note">최근 갱신: {esc(kpi["updated_at"])} · 신규 리서치·공고 반영 시 지표가 자동 갱신됩니다</div>
-<div class="kpi-grid pledge-kpi-grid">{pledge_kpi_html}</div>
+<div class="kpi-grid pledge-kpi-grid kpi-grid-5">{pledge_kpi_html}</div>
 
 <div class="section-head"><h2>기획제안형 BD 프로세스</h2></div>
 <div class="process-strip">{bd_process_strip_html}</div>

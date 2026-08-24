@@ -171,9 +171,9 @@
   .kpi:hover { border-color: var(--border-strong); }
   .kpi.active-filter { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
   .kpi.emph { background: var(--ink); border-color: var(--ink); }
-  .kpi .label { font-size: 12px; font-weight: 700; color: var(--ink-muted); letter-spacing: 0.01em; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .kpi .label { font-size: 13px; font-weight: 700; color: var(--ink-muted); letter-spacing: 0.01em; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .kpi.emph .label { color: #C9BEAE; }
-  .kpi .value { font-family: ui-monospace, 'SF Mono', Consolas, monospace; font-size: 24px; font-weight: 700; letter-spacing: -0.01em; line-height: 1; color: var(--ink); }
+  .kpi .value { font-family: ui-monospace, 'SF Mono', Consolas, monospace; font-size: 27px; font-weight: 700; letter-spacing: -0.01em; line-height: 1; color: var(--ink); }
   .kpi.emph .value { color: var(--accent); }
   .kpi .value .unit { font-size: 14px; font-weight: 700; color: var(--ink-muted); margin-left: 3px; }
   .kpi.emph .value .unit { color: #8F8576; }
@@ -466,6 +466,9 @@
   .pledge-kpi-grid { grid-template-columns: repeat(6, 1fr); }
   @media (max-width: 1200px) { .pledge-kpi-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 700px) { .pledge-kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  .kpi-grid-5 { grid-template-columns: repeat(5, 1fr); }
+  @media (max-width: 1200px) { .kpi-grid-5 { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px) { .kpi-grid-5 { grid-template-columns: repeat(2, 1fr); } }
   .kpi-delta { display: inline-block; margin-top: 6px; font-size: 12.5px; font-weight: 800; }
   .kpi-delta.up { color: var(--good); }
   .kpi-delta.down { color: var(--accent); }
@@ -757,8 +760,8 @@
   <h1>전국 AI·AX 정책사업 Pipeline</h1>
   <div class="sub">전국 AI·AX 정책사업을 공약 단계부터 추적하여, 발주 이전의 기획제안 기회를 선제적으로 포착합니다.</div>
 </div>
-<div class="kpi-refresh-note">최근 갱신: 2026-08-24 17:13 · 신규 리서치·공고 반영 시 지표가 자동 갱신됩니다</div>
-<div class="kpi-grid pledge-kpi-grid">
+<div class="kpi-refresh-note">최근 갱신: 2026-08-24 17:16 · 신규 리서치·공고 반영 시 지표가 자동 갱신됩니다</div>
+<div class="kpi-grid pledge-kpi-grid kpi-grid-5">
     <div class="kpi " data-kpi-action="filter-grade" data-kpi-value="">
       <div class="label">전체 트래킹 사업</div>
       <div class="value tabular">109<span class="unit">건</span></div>
@@ -1037,7 +1040,7 @@
 <div class="ai-insight-panel" id="aiInsightPanel">
   <div class="aip-head">
     <span class="aip-ic">▤</span> 핵심 지표 요약
-    <span class="aip-updated">2026-08-24 17:13 기준</span>
+    <span class="aip-updated">2026-08-24 17:16 기준</span>
   </div>
   <ul class="aip-list">
     <li><b>수도권</b> 권역이 선제 제안 대상 <b>18건</b>으로 가장 많아 우선 접촉 후보 지역입니다.</li><li>전체 트래킹 사업 중 <b>제조AX</b> 유형이 <b>15건</b>으로 가장 큰 비중을 차지합니다.</li><li>예비타당성조사 대상/진행 사업이 <b>9건</b> 확인되어 초기 자문 진입 여지가 있습니다.</li><li>앵커기업 <b>12개사</b> 중 <b>12개사</b>가 기존 PwC 계정과 매핑되어 관계 기반 접근이 가능합니다.</li><li>예산 규모가 텍스트에서 확인된 사업은 <b>37/109건</b>이며, 나머지는 근거자료 확인이 필요합니다.</li>
