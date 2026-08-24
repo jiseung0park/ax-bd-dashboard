@@ -548,7 +548,7 @@ a4_rows = "".join(f"""
 
 fragment = f"""
 <div class="exec-head">
-  <h1>정책·사업 파이프라인</h1>
+  <h1>전국 AI·AX 정책사업 Pipeline</h1>
   <div class="sub">전국 AI·AX 정책사업을 공약 단계부터 추적하여, 발주 이전의 기획제안 기회를 선제적으로 포착합니다.</div>
 </div>
 <div class="kpi-grid pledge-kpi-grid">{pledge_kpi_html}</div>
