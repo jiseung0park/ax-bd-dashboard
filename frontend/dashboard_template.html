@@ -35,6 +35,10 @@ __FONT_FACE_CSS__
     --stage-compete-soft: #FBEAE9;
     --stage-done: #6B7280;
     --stage-done-soft: #F1F2F4;
+    /* map only — deliberately warm/orange, distinct from the blue --accent used
+       everywhere else in the UI, so the map reads as its own visual moment */
+    --map-accent: #D9730D;
+    --map-accent-line: #F3D6B0;
   }
   :root[data-theme="dark"] {
     --bg: #0B1120;
@@ -56,6 +60,7 @@ __FONT_FACE_CSS__
     --neutral-badge-ink: #ABB6C6;
     --stage-plan: #5B9CFF; --stage-plan-soft: #17263F; --stage-notice: #E0A040; --stage-notice-soft: #2E2311;
     --stage-compete: #E5665C; --stage-compete-soft: #2E1917; --stage-done: #8B93A3; --stage-done-soft: #1B2029;
+    --map-accent: #F0A050; --map-accent-line: #5A3A1C;
     --shadow: 0 10px 28px rgba(0,0,0,0.45);
     --chart-bar: #5B9CFF;
     --chart-grid: #202B3F;
@@ -73,6 +78,7 @@ __FONT_FACE_CSS__
       --radius: 14px; --radius-sm: 9px; --radius-pill: 999px;
       --stage-plan: #5B9CFF; --stage-plan-soft: #17263F; --stage-notice: #E0A040; --stage-notice-soft: #2E2311;
       --stage-compete: #E5665C; --stage-compete-soft: #2E1917; --stage-done: #8B93A3; --stage-done-soft: #1B2029;
+      --map-accent: #F0A050; --map-accent-line: #5A3A1C;
     }
   }
 
@@ -393,9 +399,9 @@ __FONT_FACE_CSS__
   .map-stage { position: relative; filter: drop-shadow(0 14px 18px rgba(30,20,5,0.16)) drop-shadow(0 2px 4px rgba(30,20,5,0.10)); }
   .map-tile { cursor: pointer; }
   .map-tile-inset .map-rect { stroke-dasharray: 3 2; }
-  .map-rect { fill: color-mix(in srgb, var(--accent) calc(var(--intensity) * 96%), var(--surface-raised)); stroke: var(--surface); stroke-width: 2; }
-  .map-tile:hover .map-rect { stroke: var(--accent); }
-  .map-tile:focus-visible .map-rect { stroke: var(--accent); stroke-width: 2.5; }
+  .map-rect { fill: color-mix(in srgb, var(--map-accent) calc(var(--intensity) * 96%), var(--surface-raised)); stroke: var(--surface); stroke-width: 2; }
+  .map-tile:hover .map-rect { stroke: var(--map-accent); }
+  .map-tile:focus-visible .map-rect { stroke: var(--map-accent); stroke-width: 2.5; }
 
   /* fixed-size HTML pin overlay — size never scales with map width */
   .map-pin-layer { position: absolute; inset: 0; pointer-events: none; }
@@ -408,9 +414,9 @@ __FONT_FACE_CSS__
     background: var(--neutral-badge); border: 2px solid var(--surface); box-shadow: 0 2px 5px rgba(30,20,5,0.35);
     color: var(--ink-secondary); font-size: 11px; font-weight: 800;
   }
-  .map-pin.lo .mp-dot { background: var(--accent-line); color: var(--ink); }
-  .map-pin.mid .mp-dot { background: color-mix(in srgb, var(--accent) 65%, var(--surface)); color: var(--accent-ink); }
-  .map-pin.hi .mp-dot { width: 30px; height: 30px; font-size: 12.5px; background: var(--accent); color: var(--accent-ink); }
+  .map-pin.lo .mp-dot { background: var(--map-accent-line); color: var(--ink); }
+  .map-pin.mid .mp-dot { background: color-mix(in srgb, var(--map-accent) 65%, var(--surface)); color: var(--accent-ink); }
+  .map-pin.hi .mp-dot { width: 30px; height: 30px; font-size: 12.5px; background: var(--map-accent); color: var(--accent-ink); }
   .map-pin.has-grade1 .mp-dot { box-shadow: 0 0 0 2px var(--accent), 0 2px 5px rgba(30,20,5,0.35); }
   .map-pin .mp-label {
     font-size: 11px; font-weight: 800; color: var(--ink); background: var(--surface); padding: 1px 6px; border-radius: 999px;
@@ -459,7 +465,7 @@ __FONT_FACE_CSS__
   /* ===== map legend ===== */
   .map-legend { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
   .ml-item { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--ink-secondary); }
-  .ml-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--border-strong); background: color-mix(in srgb, var(--accent) calc(var(--i) * 96%), var(--surface-raised)); }
+  .ml-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--border-strong); background: color-mix(in srgb, var(--map-accent) calc(var(--i) * 96%), var(--surface-raised)); }
   .map-legend-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
 
   /* ===== pledge main 2-col layout w/ AI insight side panel ===== */
