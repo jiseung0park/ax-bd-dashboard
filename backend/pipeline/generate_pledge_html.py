@@ -721,13 +721,16 @@ def next_action_label(grade):
     return BD_PROCESS_STEPS[current] if current < len(BD_PROCESS_STEPS) else "본사업·PMO 수주"
 
 
-def opportunity_card(p, extra=False):
+def opportunity_card(p, extra=False, inline_slot=False):
     grade = p["entry_grade"]
     gclass = GRADE_CLASS.get(grade, "grade0")
     tags_html = "".join(f'<span class="reason-tag">{esc(t)}</span>' for t in entry_reason_tags(p))
     missing = undetermined_items(p)
     missing_html = f'미정: {esc("·".join(missing))}' if missing else '주요 정보 확인됨'
     extra_cls = " opp-extra" if extra else ""
+    # inline_slot=True (메인 리스트에서만) — 클릭 시 다른 탭으로 이동하지 않고, 카드
+    # 바로 아래에 상세페이지가 그대로 펼쳐지도록 빈 슬롯을 같이 렌더링해둔다.
+    slot_html = f'<div class="opp-detail-slot" data-slot-no="{p["no"]}"></div>' if inline_slot else ""
     return f'''
 <div class="opp-card{extra_cls}" data-jump-no="{p['no']}" data-executor-undecided="{1 if (not p.get('executor') or p.get('executor')=='미정') else 0}" data-anchor="{1 if p.get('anchor') else 0}" data-budget-undecided="{1 if not p.get('budget_text') else 0}" data-stage-undecided="{1 if p.get('stage')=='미정' else 0}" data-filing-soon="{1 if p.get('filing_estimate') else 0}" data-grade="{gclass}">
   <div class="opp-card-top">
@@ -741,14 +744,14 @@ def opportunity_card(p, extra=False):
     <span class="opp-filing">{esc(p.get('filing_estimate') or '공고시점 미정')}</span>
     <span class="opp-next">→ {esc(next_action_label(grade))}</span>
   </div>
-</div>'''
+</div>{slot_html}'''
 
 
 # 첫 화면에는 대표 항목(선제 제안 대상 우선 정렬 기준 상위 N건)만 노출 — 나머지는
 # "전체 보기" 클릭 시 펼침. 발표 화면에서 카드가 한꺼번에 다 쏟아지지 않도록.
 OPP_INITIAL_VISIBLE = 8
 opportunity_cards_html = "".join(
-    opportunity_card(p, extra=(i >= OPP_INITIAL_VISIBLE)) for i, p in enumerate(opportunity_projects)
+    opportunity_card(p, extra=(i >= OPP_INITIAL_VISIBLE), inline_slot=True) for i, p in enumerate(opportunity_projects)
 ) or '<div class="empty-state" style="padding:24px;">조건에 맞는 사업이 없습니다.</div>'
 opp_extra_count = max(0, len(opportunity_projects) - OPP_INITIAL_VISIBLE)
 opp_show_all_html = (

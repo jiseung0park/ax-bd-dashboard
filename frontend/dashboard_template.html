@@ -561,6 +561,9 @@ __FONT_FACE_CSS__
   .opp-card:hover { border-color: var(--accent-line); }
   .opp-card.opp-hidden { display: none; }
   .opp-card.opp-extra { display: none; }
+  .opp-detail-slot { grid-column: 1 / -1; }
+  .opp-detail-slot:empty { display: none; }
+  .opp-detail-slot:not(:empty) { margin: -2px 0 4px; background: var(--bg-sunken); border-radius: var(--radius); }
   #oppCardGrid.show-all .opp-card.opp-extra { display: block; }
   .opp-show-all-btn {
     display: block; width: 100%; margin-top: 12px; border: 1.5px dashed var(--border-strong); background: var(--surface-raised);
@@ -1341,34 +1344,56 @@ function renderPledgeTable() {
   document.querySelectorAll('.pledge-row[data-no]').forEach(el => {
     el.addEventListener('click', () => showPledgeDetail(el.dataset.no));
   });
-  // re-attach the currently-open detail card (if it survived this filter) into its slot —
-  // the node itself always lives in #pledgeDetails at this point (showPledgeDetail parks it
-  // there before triggering a re-render), so it's safe from the innerHTML reset above.
+  // re-attach the currently-open detail card into its pledge-table slot — but only if
+  // it's still parked at home (#pledgeDetails). If it's currently open somewhere else
+  // (e.g. inline under an opportunity card on another tab), leave it there — don't steal it.
   if (openPledgeNo) {
     const slot = document.querySelector(`.pledge-detail-slot[data-slot-no="${CSS.escape(openPledgeNo)}"]`);
     const detail = document.getElementById('pd-' + openPledgeNo);
-    if (slot && detail) {
+    const detailIsHome = detail && detail.parentElement && detail.parentElement.id === 'pledgeDetails';
+    if (slot && detail && detailIsHome) {
       slot.appendChild(detail);
       detail.classList.add('open');
-    } else {
+    } else if (!detail || !slot) {
       openPledgeNo = null;
     }
   }
 }
 
 let openPledgeNo = null;
-function showPledgeDetail(no) {
-  no = String(no);
+function parkOpenPledgeDetail() {
   const pledgeDetailsHome = document.getElementById('pledgeDetails');
   document.querySelectorAll('.pledge-detail.open').forEach(d => {
     d.classList.remove('open');
     pledgeDetailsHome.appendChild(d); // park back in the safe home before any re-render
   });
+}
+function showPledgeDetail(no) {
+  no = String(no);
+  parkOpenPledgeDetail();
   openPledgeNo = (openPledgeNo === no) ? null : no;
   renderPledgeTable();
   if (openPledgeNo) {
     const target = document.getElementById('pd-' + openPledgeNo);
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+// 선제 진입 기회 탭 전용 — 클릭한 카드 바로 아래에 상세페이지를 그대로 펼치고,
+// 다른 탭으로 이동하지 않는다. 같은 pd-{no} 노드를 재사용(복제 아님).
+function showOpportunityDetail(no) {
+  no = String(no);
+  parkOpenPledgeDetail();
+  openPledgeNo = (openPledgeNo === no) ? null : no;
+  if (openPledgeNo) {
+    const slot = document.querySelector(`.opp-detail-slot[data-slot-no="${CSS.escape(openPledgeNo)}"]`);
+    const detail = document.getElementById('pd-' + openPledgeNo);
+    if (slot && detail) {
+      slot.appendChild(detail);
+      detail.classList.add('open');
+      detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      openPledgeNo = null;
+    }
   }
 }
 
@@ -1522,7 +1547,14 @@ function jumpToAnchor(name) {
 }
 
 document.querySelectorAll('[data-jump-no]').forEach(el => {
-  el.addEventListener('click', () => jumpToPledge(el.dataset.jumpNo));
+  // 선제 진입 기회 탭(메인 카드 그리드 + 대표 Opportunity 패널)에서는 탭 이동 없이
+  // 카드 바로 아래에 상세페이지를 펼친다. 그 외(지도 옆 동향, 앵커기업, 검색 등)는
+  // 기존처럼 파이프라인 탭으로 이동해서 연다.
+  if (el.closest('#oppCardGrid') || el.closest('#topOppPanel')) {
+    el.addEventListener('click', () => showOpportunityDetail(el.dataset.jumpNo));
+  } else {
+    el.addEventListener('click', () => jumpToPledge(el.dataset.jumpNo));
+  }
 });
 document.querySelectorAll('.anchor-chip[data-anchor-name]').forEach(el => {
   el.addEventListener('click', () => jumpToAnchor(el.dataset.anchorName));

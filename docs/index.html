@@ -575,6 +575,9 @@
   .opp-card:hover { border-color: var(--accent-line); }
   .opp-card.opp-hidden { display: none; }
   .opp-card.opp-extra { display: none; }
+  .opp-detail-slot { grid-column: 1 / -1; }
+  .opp-detail-slot:empty { display: none; }
+  .opp-detail-slot:not(:empty) { margin: -2px 0 4px; background: var(--bg-sunken); border-radius: var(--radius); }
   #oppCardGrid.show-all .opp-card.opp-extra { display: block; }
   .opp-show-all-btn {
     display: block; width: 100%; margin-top: 12px; border: 1.5px dashed var(--border-strong); background: var(--surface-raised);
@@ -760,7 +763,7 @@
   <h1>전국 AI·AX 정책사업 Pipeline</h1>
   <div class="sub">전국 AI·AX 정책사업을 공약 단계부터 추적하여, 발주 이전의 기획제안 기회를 선제적으로 포착합니다.</div>
 </div>
-<div class="kpi-refresh-note">최근 갱신: 2026-08-24 17:16 · 신규 리서치·공고 반영 시 지표가 자동 갱신됩니다</div>
+<div class="kpi-refresh-note">최근 갱신: 2026-08-24 17:28 · 신규 리서치·공고 반영 시 지표가 자동 갱신됩니다</div>
 <div class="kpi-grid pledge-kpi-grid kpi-grid-5">
     <div class="kpi " data-kpi-action="filter-grade" data-kpi-value="">
       <div class="label">전체 트래킹 사업</div>
@@ -1040,7 +1043,7 @@
 <div class="ai-insight-panel" id="aiInsightPanel">
   <div class="aip-head">
     <span class="aip-ic">▤</span> 핵심 지표 요약
-    <span class="aip-updated">2026-08-24 17:16 기준</span>
+    <span class="aip-updated">2026-08-24 17:28 기준</span>
   </div>
   <ul class="aip-list">
     <li><b>수도권</b> 권역이 선제 제안 대상 <b>18건</b>으로 가장 많아 우선 접촉 후보 지역입니다.</li><li>전체 트래킹 사업 중 <b>제조AX</b> 유형이 <b>15건</b>으로 가장 큰 비중을 차지합니다.</li><li>예비타당성조사 대상/진행 사업이 <b>9건</b> 확인되어 초기 자문 진입 여지가 있습니다.</li><li>앵커기업 <b>12개사</b> 중 <b>12개사</b>가 기존 PwC 계정과 매핑되어 관계 기반 접근이 가능합니다.</li><li>예산 규모가 텍스트에서 확인된 사업은 <b>37/109건</b>이며, 나머지는 근거자료 확인이 필요합니다.</li>
@@ -13366,7 +13369,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="1"></div>
 <div class="opp-card" data-jump-no="2" data-executor-undecided="0" data-anchor="0" data-budget-undecided="0" data-stage-undecided="1" data-filing-soon="1" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13379,7 +13382,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">2028년 예정(추정)</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="2"></div>
 <div class="opp-card" data-jump-no="5" data-executor-undecided="1" data-anchor="0" data-budget-undecided="0" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13392,7 +13395,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="5"></div>
 <div class="opp-card" data-jump-no="7" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13405,7 +13408,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="7"></div>
 <div class="opp-card" data-jump-no="8" data-executor-undecided="1" data-anchor="0" data-budget-undecided="0" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13418,7 +13421,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="8"></div>
 <div class="opp-card" data-jump-no="10" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13431,7 +13434,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="10"></div>
 <div class="opp-card" data-jump-no="12" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13444,7 +13447,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="12"></div>
 <div class="opp-card" data-jump-no="13" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13458,7 +13461,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="13"></div>
 <div class="opp-card opp-extra" data-jump-no="14" data-executor-undecided="0" data-anchor="0" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13471,7 +13474,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="14"></div>
 <div class="opp-card opp-extra" data-jump-no="23" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13484,7 +13487,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="23"></div>
 <div class="opp-card opp-extra" data-jump-no="25" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13497,7 +13500,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="25"></div>
 <div class="opp-card opp-extra" data-jump-no="29" data-executor-undecided="0" data-anchor="0" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13510,7 +13513,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="29"></div>
 <div class="opp-card opp-extra" data-jump-no="30" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13523,7 +13526,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="30"></div>
 <div class="opp-card opp-extra" data-jump-no="33" data-executor-undecided="1" data-anchor="0" data-budget-undecided="0" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13536,7 +13539,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="33"></div>
 <div class="opp-card opp-extra" data-jump-no="40" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13549,7 +13552,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="40"></div>
 <div class="opp-card opp-extra" data-jump-no="41" data-executor-undecided="1" data-anchor="1" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13562,7 +13565,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="41"></div>
 <div class="opp-card opp-extra" data-jump-no="42" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13575,7 +13578,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="42"></div>
 <div class="opp-card opp-extra" data-jump-no="44" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13588,7 +13591,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="44"></div>
 <div class="opp-card opp-extra" data-jump-no="45" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13601,7 +13604,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="45"></div>
 <div class="opp-card opp-extra" data-jump-no="47" data-executor-undecided="1" data-anchor="1" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13614,7 +13617,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="47"></div>
 <div class="opp-card opp-extra" data-jump-no="49" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13627,7 +13630,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="49"></div>
 <div class="opp-card opp-extra" data-jump-no="51" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13640,7 +13643,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="51"></div>
 <div class="opp-card opp-extra" data-jump-no="52" data-executor-undecided="1" data-anchor="0" data-budget-undecided="0" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13653,7 +13656,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="52"></div>
 <div class="opp-card opp-extra" data-jump-no="53" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13666,7 +13669,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="53"></div>
 <div class="opp-card opp-extra" data-jump-no="54" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13679,7 +13682,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="54"></div>
 <div class="opp-card opp-extra" data-jump-no="55" data-executor-undecided="0" data-anchor="0" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="1" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13692,7 +13695,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">2027년 예정(추정)</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="55"></div>
 <div class="opp-card opp-extra" data-jump-no="58" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13705,7 +13708,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="58"></div>
 <div class="opp-card opp-extra" data-jump-no="59" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="1" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13718,7 +13721,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">2027년 예정(추정)</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="59"></div>
 <div class="opp-card opp-extra" data-jump-no="60" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13731,7 +13734,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="60"></div>
 <div class="opp-card opp-extra" data-jump-no="66" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13744,7 +13747,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="66"></div>
 <div class="opp-card opp-extra" data-jump-no="67" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13757,7 +13760,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="67"></div>
 <div class="opp-card opp-extra" data-jump-no="68" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13770,7 +13773,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="68"></div>
 <div class="opp-card opp-extra" data-jump-no="69" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13783,7 +13786,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="69"></div>
 <div class="opp-card opp-extra" data-jump-no="70" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="1" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13796,7 +13799,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">2027년 예정(추정)</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="70"></div>
 <div class="opp-card opp-extra" data-jump-no="72" data-executor-undecided="1" data-anchor="0" data-budget-undecided="0" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13809,7 +13812,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="72"></div>
 <div class="opp-card opp-extra" data-jump-no="73" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13822,7 +13825,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="73"></div>
 <div class="opp-card opp-extra" data-jump-no="74" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13835,7 +13838,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="74"></div>
 <div class="opp-card opp-extra" data-jump-no="75" data-executor-undecided="1" data-anchor="1" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13848,7 +13851,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="75"></div>
 <div class="opp-card opp-extra" data-jump-no="76" data-executor-undecided="1" data-anchor="1" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13861,7 +13864,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="76"></div>
 <div class="opp-card opp-extra" data-jump-no="83" data-executor-undecided="1" data-anchor="0" data-budget-undecided="0" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13874,7 +13877,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="83"></div>
 <div class="opp-card opp-extra" data-jump-no="84" data-executor-undecided="1" data-anchor="1" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13887,7 +13890,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="84"></div>
 <div class="opp-card opp-extra" data-jump-no="86" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="1" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13900,7 +13903,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">2032년 예정(추정)</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="86"></div>
 <div class="opp-card opp-extra" data-jump-no="90" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13913,7 +13916,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="90"></div>
 <div class="opp-card opp-extra" data-jump-no="93" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13926,7 +13929,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="93"></div>
 <div class="opp-card opp-extra" data-jump-no="95" data-executor-undecided="0" data-anchor="0" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13939,7 +13942,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="95"></div>
 <div class="opp-card opp-extra" data-jump-no="97" data-executor-undecided="0" data-anchor="1" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="1" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13952,7 +13955,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">2028년 예정(추정)</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="97"></div>
 <div class="opp-card opp-extra" data-jump-no="100" data-executor-undecided="0" data-anchor="0" data-budget-undecided="0" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13965,7 +13968,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="100"></div>
 <div class="opp-card opp-extra" data-jump-no="101" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13978,7 +13981,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="101"></div>
 <div class="opp-card opp-extra" data-jump-no="102" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -13991,7 +13994,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="102"></div>
 <div class="opp-card opp-extra" data-jump-no="103" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -14004,7 +14007,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="103"></div>
 <div class="opp-card opp-extra" data-jump-no="104" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -14017,7 +14020,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="104"></div>
 <div class="opp-card opp-extra" data-jump-no="900" data-executor-undecided="1" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -14030,7 +14033,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="900"></div>
 <div class="opp-card opp-extra" data-jump-no="901" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -14043,7 +14046,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="901"></div>
 <div class="opp-card opp-extra" data-jump-no="902" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -14057,7 +14060,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="902"></div>
 <div class="opp-card opp-extra" data-jump-no="903" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade1">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade1" style="margin-left:0;">기획단계</span>
@@ -14070,7 +14073,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 앵커기업·기관 컨텍</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="903"></div>
 <div class="opp-card opp-extra" data-jump-no="3" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14083,7 +14086,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="3"></div>
 <div class="opp-card opp-extra" data-jump-no="4" data-executor-undecided="0" data-anchor="1" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14096,7 +14099,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="4"></div>
 <div class="opp-card opp-extra" data-jump-no="9" data-executor-undecided="0" data-anchor="0" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="1" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14109,7 +14112,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">2027년 예정(추정)</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="9"></div>
 <div class="opp-card opp-extra" data-jump-no="16" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14122,7 +14125,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="16"></div>
 <div class="opp-card opp-extra" data-jump-no="17" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14136,7 +14139,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="17"></div>
 <div class="opp-card opp-extra" data-jump-no="18" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14149,7 +14152,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="18"></div>
 <div class="opp-card opp-extra" data-jump-no="19" data-executor-undecided="0" data-anchor="0" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14162,7 +14165,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="19"></div>
 <div class="opp-card opp-extra" data-jump-no="27" data-executor-undecided="0" data-anchor="0" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14175,7 +14178,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="27"></div>
 <div class="opp-card opp-extra" data-jump-no="28" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14188,7 +14191,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="28"></div>
 <div class="opp-card opp-extra" data-jump-no="31" data-executor-undecided="0" data-anchor="1" data-budget-undecided="0" data-stage-undecided="1" data-filing-soon="1" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14201,7 +14204,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">2029년 예정(추정)</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="31"></div>
 <div class="opp-card opp-extra" data-jump-no="35" data-executor-undecided="0" data-anchor="0" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14214,7 +14217,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="35"></div>
 <div class="opp-card opp-extra" data-jump-no="37" data-executor-undecided="0" data-anchor="1" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14228,7 +14231,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="37"></div>
 <div class="opp-card opp-extra" data-jump-no="46" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14241,7 +14244,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="46"></div>
 <div class="opp-card opp-extra" data-jump-no="56" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14254,7 +14257,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="56"></div>
 <div class="opp-card opp-extra" data-jump-no="57" data-executor-undecided="0" data-anchor="1" data-budget-undecided="0" data-stage-undecided="1" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14267,7 +14270,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="57"></div>
 <div class="opp-card opp-extra" data-jump-no="63" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="1" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14280,7 +14283,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="63"></div>
 <div class="opp-card opp-extra" data-jump-no="64" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14293,7 +14296,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="64"></div>
 <div class="opp-card opp-extra" data-jump-no="78" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14306,7 +14309,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="78"></div>
 <div class="opp-card opp-extra" data-jump-no="79" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="1" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14319,7 +14322,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">2028년 예정(추정)</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="79"></div>
 <div class="opp-card opp-extra" data-jump-no="85" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14332,7 +14335,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="85"></div>
 <div class="opp-card opp-extra" data-jump-no="88" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14345,7 +14348,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="88"></div>
 <div class="opp-card opp-extra" data-jump-no="91" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14358,7 +14361,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="91"></div>
 <div class="opp-card opp-extra" data-jump-no="92" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14371,7 +14374,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="92"></div>
 <div class="opp-card opp-extra" data-jump-no="94" data-executor-undecided="0" data-anchor="1" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14384,7 +14387,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="94"></div>
 <div class="opp-card opp-extra" data-jump-no="96" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14397,7 +14400,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="96"></div>
 <div class="opp-card opp-extra" data-jump-no="98" data-executor-undecided="0" data-anchor="1" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14410,7 +14413,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="98"></div>
 <div class="opp-card opp-extra" data-jump-no="904" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14423,7 +14426,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="904"></div>
 <div class="opp-card opp-extra" data-jump-no="905" data-executor-undecided="0" data-anchor="0" data-budget-undecided="0" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14436,7 +14439,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div>
+</div><div class="opp-detail-slot" data-slot-no="905"></div>
 <div class="opp-card opp-extra" data-jump-no="906" data-executor-undecided="0" data-anchor="0" data-budget-undecided="1" data-stage-undecided="0" data-filing-soon="0" data-grade="grade2">
   <div class="opp-card-top">
     <span class="entry-grade-badge grade2" style="margin-left:0;">공고단계</span>
@@ -14449,7 +14452,7 @@ https://www.sedaily.com/article/20077281" target="_blank" rel="noopener">근거 
     <span class="opp-filing">공고시점 미정</span>
     <span class="opp-next">→ 본사업·PMO 수주</span>
   </div>
-</div></div>
+</div><div class="opp-detail-slot" data-slot-no="906"></div></div>
     <button type="button" class="opp-show-all-btn" id="oppShowAllBtn" data-extra-count="76">전체 84건 보기 (+76건)</button>
 
     <div class="section-head" style="margin-top:30px;"><h2>예상 사업화·공고 시점</h2><div class="hint">선제 접촉 및 기획제안 시점 판단</div></div>
@@ -15228,34 +15231,56 @@ function renderPledgeTable() {
   document.querySelectorAll('.pledge-row[data-no]').forEach(el => {
     el.addEventListener('click', () => showPledgeDetail(el.dataset.no));
   });
-  // re-attach the currently-open detail card (if it survived this filter) into its slot —
-  // the node itself always lives in #pledgeDetails at this point (showPledgeDetail parks it
-  // there before triggering a re-render), so it's safe from the innerHTML reset above.
+  // re-attach the currently-open detail card into its pledge-table slot — but only if
+  // it's still parked at home (#pledgeDetails). If it's currently open somewhere else
+  // (e.g. inline under an opportunity card on another tab), leave it there — don't steal it.
   if (openPledgeNo) {
     const slot = document.querySelector(`.pledge-detail-slot[data-slot-no="${CSS.escape(openPledgeNo)}"]`);
     const detail = document.getElementById('pd-' + openPledgeNo);
-    if (slot && detail) {
+    const detailIsHome = detail && detail.parentElement && detail.parentElement.id === 'pledgeDetails';
+    if (slot && detail && detailIsHome) {
       slot.appendChild(detail);
       detail.classList.add('open');
-    } else {
+    } else if (!detail || !slot) {
       openPledgeNo = null;
     }
   }
 }
 
 let openPledgeNo = null;
-function showPledgeDetail(no) {
-  no = String(no);
+function parkOpenPledgeDetail() {
   const pledgeDetailsHome = document.getElementById('pledgeDetails');
   document.querySelectorAll('.pledge-detail.open').forEach(d => {
     d.classList.remove('open');
     pledgeDetailsHome.appendChild(d); // park back in the safe home before any re-render
   });
+}
+function showPledgeDetail(no) {
+  no = String(no);
+  parkOpenPledgeDetail();
   openPledgeNo = (openPledgeNo === no) ? null : no;
   renderPledgeTable();
   if (openPledgeNo) {
     const target = document.getElementById('pd-' + openPledgeNo);
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+// 선제 진입 기회 탭 전용 — 클릭한 카드 바로 아래에 상세페이지를 그대로 펼치고,
+// 다른 탭으로 이동하지 않는다. 같은 pd-{no} 노드를 재사용(복제 아님).
+function showOpportunityDetail(no) {
+  no = String(no);
+  parkOpenPledgeDetail();
+  openPledgeNo = (openPledgeNo === no) ? null : no;
+  if (openPledgeNo) {
+    const slot = document.querySelector(`.opp-detail-slot[data-slot-no="${CSS.escape(openPledgeNo)}"]`);
+    const detail = document.getElementById('pd-' + openPledgeNo);
+    if (slot && detail) {
+      slot.appendChild(detail);
+      detail.classList.add('open');
+      detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      openPledgeNo = null;
+    }
   }
 }
 
@@ -15409,7 +15434,14 @@ function jumpToAnchor(name) {
 }
 
 document.querySelectorAll('[data-jump-no]').forEach(el => {
-  el.addEventListener('click', () => jumpToPledge(el.dataset.jumpNo));
+  // 선제 진입 기회 탭(메인 카드 그리드 + 대표 Opportunity 패널)에서는 탭 이동 없이
+  // 카드 바로 아래에 상세페이지를 펼친다. 그 외(지도 옆 동향, 앵커기업, 검색 등)는
+  // 기존처럼 파이프라인 탭으로 이동해서 연다.
+  if (el.closest('#oppCardGrid') || el.closest('#topOppPanel')) {
+    el.addEventListener('click', () => showOpportunityDetail(el.dataset.jumpNo));
+  } else {
+    el.addEventListener('click', () => jumpToPledge(el.dataset.jumpNo));
+  }
 });
 document.querySelectorAll('.anchor-chip[data-anchor-name]').forEach(el => {
   el.addEventListener('click', () => jumpToAnchor(el.dataset.anchorName));
