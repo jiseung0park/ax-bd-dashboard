@@ -83,9 +83,10 @@ def build_svg(counts_by_region):
         counts = counts_by_region.get(name, {})
         total = counts.get('total', 0)
         grade1 = counts.get('grade1', 0)
-        # power curve (<1) lifts low/mid counts so differences read clearly
-        # instead of everything below the top region looking pale/same-ish
-        intensity = (total / max_total) ** 0.55 if total and max_total else 0
+        # power curve (>1) keeps most regions near-white and reserves visible
+        # blue for the genuinely high-count few — white base, color only on
+        # what matters, instead of a blue wash across the whole map
+        intensity = (total / max_total) ** 4 if total and max_total else 0
 
         parts.append(f'''
     <g{group_attrs} data-region="{name}" tabindex="0" role="button" aria-label="{name}: {total}건">
