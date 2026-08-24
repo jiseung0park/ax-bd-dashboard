@@ -287,16 +287,10 @@ def delta_html(key):
     return '<span class="kpi-delta flat">변동없음</span>'
 
 KPI_TILES = [
-    ("grade1", "기획단계 · 선제제안", "emph"), ("grade2", "공고단계 · RFP진행", ""),
-    ("grade3", "경쟁단계 · 후발진입", ""), ("total", "전체 트래킹 사업", ""),
-    ("anchors", "매핑된 앵커기업", ""), ("has_source", "원문 출처 보유", ""),
+    ("total", "전체 트래킹 사업", ""), ("grade1", "기획단계 · 선제제안", "emph"),
+    ("grade2", "공고단계 · RFP진행", ""), ("grade3", "경쟁단계 · 후발진입", ""),
+    ("anchors", "매핑된 앵커기업", ""),
 ]
-
-def kpi_unit_suffix(key):
-    if key != "has_source" or not kpi["counts"].get("total"):
-        return ""
-    pct = round(kpi["counts"]["has_source"] / kpi["counts"]["total"] * 100)
-    return f' ({pct}%)'
 
 # clicking a KPI tile filters the list below to just that slice, reusing the
 # same pledgeFilter state the quick-filter chips already drive
@@ -310,14 +304,12 @@ def kpi_click_attrs(key):
         return f'data-kpi-action="filter-grade" data-kpi-value="{esc(KPI_GRADE_FILTER[key])}"'
     if key == "anchors":
         return 'data-kpi-action="goto-anchors"'
-    if key == "has_source":
-        return 'data-kpi-action="filter-has-source"'
     return ''
 
 pledge_kpi_html = "".join(f'''
     <div class="kpi {emph}" {kpi_click_attrs(key)}>
       <div class="label">{esc(label)}</div>
-      <div class="value tabular">{kpi["counts"][key]}<span class="unit">건{kpi_unit_suffix(key)}</span></div>
+      <div class="value tabular">{kpi["counts"][key]}<span class="unit">건</span></div>
       {delta_html(key)}
     </div>''' for key, label, emph in KPI_TILES)
 
@@ -551,6 +543,7 @@ fragment = f"""
   <h1>전국 AI·AX 정책사업 Pipeline</h1>
   <div class="sub">전국 AI·AX 정책사업을 공약 단계부터 추적하여, 발주 이전의 기획제안 기회를 선제적으로 포착합니다.</div>
 </div>
+<div class="kpi-refresh-note">최근 갱신: {esc(kpi["updated_at"])} · 신규 리서치·공고 반영 시 지표가 자동 갱신됩니다</div>
 <div class="kpi-grid pledge-kpi-grid">{pledge_kpi_html}</div>
 
 <div class="section-head"><h2>기획제안형 BD 프로세스</h2></div>
