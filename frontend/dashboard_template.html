@@ -1,0 +1,1626 @@
+<title>지역 AX 기획제안형 BD</title>
+<style>
+__FONT_FACE_CSS__
+  :root {
+    --bg: #F4F6F9;
+    --bg-sunken: #EBEEF3;
+    --surface: #FFFFFF;
+    --surface-raised: #F8F9FC;
+    --border: #E3E7EE;
+    --border-strong: #CDD5E0;
+    --ink: #111827;
+    --ink-secondary: #4B5563;
+    --ink-muted: #94A0B2;
+    --accent: #2563EB;
+    --accent-ink: #FFFFFF;
+    --accent-soft: #EAF1FE;
+    --accent-line: #BFDBFE;
+    --good: #16A34A;
+    --good-soft: #E7F7ED;
+    --neutral-badge: #F1F3F7;
+    --neutral-badge-ink: #64748B;
+    --shadow: 0 4px 14px rgba(17,24,39,0.06);
+    --chart-bar: #2563EB;
+    --chart-grid: #EEF1F6;
+    --radius: 14px;
+    --radius-sm: 9px;
+    --radius-pill: 999px;
+    /* status colors — one meaning each, used only for stage badges (not for
+       emphasis/selection, which stays --accent blue) */
+    --stage-plan: #2563EB;
+    --stage-plan-soft: #EAF1FE;
+    --stage-notice: #C2680A;
+    --stage-notice-soft: #FDF1E1;
+    --stage-compete: #B42318;
+    --stage-compete-soft: #FBEAE9;
+    --stage-done: #6B7280;
+    --stage-done-soft: #F1F2F4;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0B1120;
+    --bg-sunken: #111827;
+    --surface: #151E30;
+    --surface-raised: #1B2537;
+    --border: #253046;
+    --border-strong: #33415C;
+    --ink: #EEF2F8;
+    --ink-secondary: #ABB6C6;
+    --ink-muted: #6B7690;
+    --accent: #5B9CFF;
+    --accent-ink: #08121F;
+    --accent-soft: #17263F;
+    --accent-line: #2B4066;
+    --good: #4ADE80;
+    --good-soft: #123321;
+    --neutral-badge: #202B3F;
+    --neutral-badge-ink: #ABB6C6;
+    --stage-plan: #5B9CFF; --stage-plan-soft: #17263F; --stage-notice: #E0A040; --stage-notice-soft: #2E2311;
+    --stage-compete: #E5665C; --stage-compete-soft: #2E1917; --stage-done: #8B93A3; --stage-done-soft: #1B2029;
+    --shadow: 0 10px 28px rgba(0,0,0,0.45);
+    --chart-bar: #5B9CFF;
+    --chart-grid: #202B3F;
+    --radius: 14px;
+    --radius-sm: 9px;
+    --radius-pill: 999px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0B1120; --bg-sunken: #111827; --surface: #151E30; --surface-raised: #1B2537;
+      --border: #253046; --border-strong: #33415C; --ink: #EEF2F8; --ink-secondary: #ABB6C6;
+      --ink-muted: #6B7690; --accent: #5B9CFF; --accent-ink: #08121F; --accent-soft: #17263F;
+      --accent-line: #2B4066; --good: #4ADE80; --good-soft: #123321; --neutral-badge: #202B3F;
+      --neutral-badge-ink: #ABB6C6; --shadow: 0 10px 28px rgba(0,0,0,0.45); --chart-bar: #5B9CFF; --chart-grid: #202B3F;
+      --radius: 14px; --radius-sm: 9px; --radius-pill: 999px;
+      --stage-plan: #5B9CFF; --stage-plan-soft: #17263F; --stage-notice: #E0A040; --stage-notice-soft: #2E2311;
+      --stage-compete: #E5665C; --stage-compete-soft: #2E1917; --stage-done: #8B93A3; --stage-done-soft: #1B2029;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: 'PretendardEmbed', 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased;
+  }
+  .tabular { font-variant-numeric: tabular-nums; font-family: ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas, monospace; }
+  .font-display { font-family: Georgia, 'Noto Serif KR', serif; }
+  .rule { border: none; border-top: 1px solid var(--border); margin: 0; }
+  a { color: var(--accent); }
+  button, input, select { font-family: inherit; }
+  button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ===== top bar ===== */
+  .topbar { position: sticky; top: 0; z-index: 40; background: var(--surface); border-bottom: 1px solid var(--border); }
+  .topbar-inner { max-width: 1400px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+  .pwc-mark { display: block; }
+  .brand-div { width: 1px; height: 30px; background: var(--border-strong); }
+  .brand-text { line-height: 1.2; }
+  .brand-text .proj { font-size: 14.5px; font-weight: 800; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-text .sub { font-size: 12.5px; color: var(--ink-muted); font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
+
+  .nav-tabs { display: flex; gap: 4px; flex: 1; }
+  .nav-tab {
+    border: 1px solid transparent; background: none; color: var(--ink-muted); font-weight: 700; font-size: 14px;
+    padding: 9px 16px; border-radius: var(--radius-pill); cursor: pointer;
+  }
+  .nav-tab:hover { color: var(--ink); background: var(--bg-sunken); }
+  .nav-tab.active { color: var(--accent); background: none; border-color: transparent; box-shadow: inset 0 -2px 0 var(--accent); border-radius: var(--radius-sm); }
+
+  .nav-chapter { position: relative; }
+  .nav-chapter-btn {
+    border: 1px solid transparent; background: none; color: var(--ink-muted); font-weight: 800; font-size: 14px;
+    padding: 9px 14px; border-radius: var(--radius-pill); cursor: pointer; display: flex; align-items: center; gap: 5px;
+  }
+  .nav-chapter-btn .caret { font-size: 9px; opacity: 0.6; }
+  .nav-chapter-btn:hover { color: var(--ink); background: var(--bg-sunken); }
+  .nav-chapter.active .nav-chapter-btn { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-line); }
+  .nav-chapter-menu {
+    display: none; position: absolute; top: 100%; left: 0; margin-top: 4px; min-width: 210px; z-index: 55;
+    flex-direction: column; gap: 2px; background: var(--surface); border: 1px solid var(--border-strong);
+    border-radius: var(--radius); box-shadow: var(--shadow); padding: 6px;
+  }
+  .nav-chapter:hover .nav-chapter-menu, .nav-chapter.open .nav-chapter-menu { display: flex; }
+  .nav-chapter-menu .nav-tab { text-align: left; width: 100%; border-radius: var(--radius-sm); }
+  .theme-toggle {
+    border: 1px solid var(--border); background: var(--surface-raised); color: var(--ink-muted);
+    border-radius: var(--radius-pill); padding: 7px 13px; font-size: 14px; cursor: pointer; font-weight: 700;
+  }
+
+  .app { max-width: 1400px; margin: 0 auto; padding: 26px 24px 72px; }
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* ===== executive header ===== */
+  .exec-head { margin-bottom: 18px; }
+  .exec-head h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 4px; text-wrap: balance; }
+  .exec-head .sub { font-size: 15.5px; color: var(--ink-secondary); }
+
+  .insight-banner {
+    display: flex; gap: 12px; align-items: flex-start; background: var(--accent-soft); border: 1px solid var(--accent-line);
+    border-radius: var(--radius); padding: 14px 18px; margin-bottom: 22px; font-size: 15.5px; color: var(--ink);
+  }
+  .insight-banner .ic { font-size: 18px; line-height: 1.3; }
+  .insight-banner b { color: var(--accent); }
+
+  /* ===== KPI grid ===== */
+  .kpi-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-bottom: 26px; }
+  @media (max-width: 1200px) { .kpi-grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 700px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  .kpi {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px;
+    cursor: pointer; box-shadow: var(--shadow);
+  }
+  .kpi:hover { border-color: var(--border-strong); }
+  .kpi.active-filter { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+  .kpi.emph { background: var(--ink); border-color: var(--ink); }
+  .kpi .label { font-size: 12px; font-weight: 700; color: var(--ink-muted); letter-spacing: 0.01em; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .kpi.emph .label { color: #C9BEAE; }
+  .kpi .value { font-family: ui-monospace, 'SF Mono', Consolas, monospace; font-size: 24px; font-weight: 700; letter-spacing: -0.01em; line-height: 1; color: var(--ink); }
+  .kpi.emph .value { color: var(--accent); }
+  .kpi .value .unit { font-size: 14px; font-weight: 700; color: var(--ink-muted); margin-left: 3px; }
+  .kpi.emph .value .unit { color: #8F8576; }
+
+  /* ===== section head ===== */
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin: 8px 0 14px; }
+  .section-head h2 { font-size: 19px; font-weight: 800; letter-spacing: -0.01em; margin: 0; }
+  .section-head .hint { font-size: 14.5px; color: var(--ink-muted); }
+  .section-block { margin-bottom: 34px; }
+
+  /* ===== region / industry cards ===== */
+  .card-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  @media (max-width: 1200px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+  .info-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px;
+    cursor: pointer; display: flex; flex-direction: column; gap: 8px; text-align: left; box-shadow: var(--shadow);
+  }
+  .info-card:hover { border-color: var(--accent); }
+  .info-card .ic-title { font-size: 15px; font-weight: 800; }
+  .info-card .ic-count { font-size: 24px; font-weight: 800; color: var(--accent); line-height: 1; }
+  .info-card .ic-count .u { font-size: 13.5px; color: var(--ink-muted); font-weight: 700; }
+  .info-card .ic-row { font-size: 13.5px; color: var(--ink-secondary); display: flex; justify-content: space-between; gap: 6px; }
+  .info-card .ic-row .k { color: var(--ink-muted); }
+  .info-card .ic-row .v { font-weight: 700; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 62%; }
+  .info-card .ic-pwc { font-size: 13px; font-weight: 800; color: var(--good); }
+
+  /* ===== explorer: quick filters + panel ===== */
+  .quick-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .quick-filter {
+    border: 1.5px solid var(--border-strong); background: var(--surface); color: var(--ink);
+    border-radius: var(--radius-pill); padding: 10px 16px; font-size: 15.5px; font-weight: 800; cursor: pointer;
+  }
+  .quick-filter .qf-count { color: var(--ink-muted); font-weight: 700; margin-left: 4px; }
+  .quick-filter.active { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .quick-filter.active .qf-count { color: var(--bg); opacity: 0.85; }
+
+  .filter-panel {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px;
+    margin-bottom: 16px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; box-shadow: var(--shadow);
+  }
+  @media (max-width: 1100px) { .filter-panel { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 640px) { .filter-panel { grid-template-columns: repeat(2, 1fr); } }
+  .filter-panel .f-item { display: flex; flex-direction: column; gap: 4px; }
+  .filter-panel label { font-size: 12.5px; font-weight: 800; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+  .filter-panel input[type="text"], .filter-panel select {
+    background: var(--surface-raised); border: 1px solid var(--border); color: var(--ink);
+    border-radius: var(--radius-sm); padding: 8px 10px; font-size: 15px;
+  }
+  .filter-panel .f-full { grid-column: 1 / -1; }
+  .filter-actions { display: flex; justify-content: flex-end; grid-column: 1 / -1; }
+  .filter-actions button {
+    border: none; background: none; color: var(--ink-muted); font-size: 14.5px; font-weight: 700;
+    cursor: pointer; text-decoration: underline;
+  }
+
+  .detail-summary { font-size: 14px; color: var(--ink-secondary); margin-bottom: 12px; font-weight: 700; }
+  .detail-summary strong { color: var(--accent); font-size: 18px; }
+
+  /* ===== table ===== */
+  .table-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 980px; }
+  thead th {
+    position: sticky; top: 0; background: var(--surface-raised); text-align: left; font-weight: 800;
+    padding: 10px 13px; border-bottom: 1px solid var(--border); color: var(--ink-secondary);
+    cursor: pointer; white-space: nowrap; user-select: none;
+  }
+  thead th.num, tbody td.num { text-align: right; }
+  thead th .sort-arrow { opacity: 0.35; margin-left: 3px; font-size: 12px; }
+  thead th.sorted .sort-arrow { opacity: 1; color: var(--accent); }
+  tbody tr { border-bottom: 1px solid var(--border); cursor: pointer; }
+  tbody tr:hover { background: var(--bg-sunken); }
+  tbody td { padding: 9px 13px; vertical-align: top; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px; font-weight: 500; }
+  tbody td.wrap { white-space: normal; }
+  tbody td:first-child { font-weight: 800; }
+
+  .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 800; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .badge.client { background: var(--good-soft); color: var(--good); }
+  .badge.none { background: var(--neutral-badge); color: var(--neutral-badge-ink); }
+  .badge.listed { background: var(--accent-soft); color: var(--accent); }
+  .badge.anchor { background: var(--neutral-badge); color: var(--ink-secondary); }
+
+  .pager { display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 14.5px; color: var(--ink-secondary); font-weight: 700; }
+  .pager button { border: 1px solid var(--border); background: var(--surface-raised); color: var(--ink); border-radius: var(--radius-sm); padding: 5px 11px; font-size: 14px; cursor: pointer; font-weight: 700; }
+  .pager button:disabled { opacity: 0.4; cursor: default; }
+
+  /* ===== modal / detail flow ===== */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(20,14,6,0.45); display: none; align-items: flex-start; justify-content: center; padding: 40px 16px; z-index: 60; overflow-y: auto; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); max-width: 680px; width: 100%; box-shadow: var(--shadow); padding: 26px 28px; }
+  .modal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 4px; }
+  .modal-head h2 { font-size: 22px; margin: 0; font-weight: 800; letter-spacing: -0.01em; }
+  .modal-head .close { background: none; border: none; font-size: 20px; color: var(--ink-muted); cursor: pointer; line-height: 1; }
+  .modal .modal-sub { color: var(--ink-secondary); font-size: 14.5px; margin-bottom: 6px; font-weight: 700; }
+
+  .flow { margin: 18px 0; }
+  .flow-step { display: flex; gap: 12px; }
+  .flow-rail { display: flex; flex-direction: column; align-items: center; width: 20px; flex: 0 0 20px; }
+  .flow-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex: 0 0 auto; margin-top: 5px; }
+  .flow-line { width: 2px; flex: 1; background: var(--border-strong); min-height: 24px; }
+  .flow-body { flex: 1; padding-bottom: 18px; }
+  .flow-body h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin: 0 0 8px; font-weight: 800; }
+  .kv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; font-size: 15px; }
+  .kv-grid .k { color: var(--ink-muted); font-size: 13px; font-weight: 700; }
+  .kv-grid .v { font-weight: 700; }
+  .modal-proj-list { font-size: 14.5px; color: var(--ink-secondary); line-height: 1.8; font-weight: 600; margin-top: 8px; }
+  .service-badges { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+  .service-badge { font-size: 13px; font-weight: 800; padding: 3px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+
+  .empty-state { padding: 56px 16px; text-align: center; color: var(--ink-muted); font-size: 15.5px; font-weight: 700; }
+
+  /* ===== pledge tracker ===== */
+  .process-strip { display: flex; align-items: stretch; gap: 0; margin-bottom: 24px; overflow-x: auto; overflow-y: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+  .process-strip-details { margin-bottom: 24px; }
+  .process-strip-details summary { cursor: pointer; font-size: 13.5px; font-weight: 700; color: var(--ink-muted); list-style: none; }
+  .process-strip-details summary::-webkit-details-marker { display: none; }
+  .process-strip-details summary::before { content: '▸ '; }
+  .process-strip-details[open] summary::before { content: '▾ '; }
+  .process-strip-details summary:hover { color: var(--ink); }
+  .process-strip-details .process-strip { margin-bottom: 0; }
+  .process-step {
+    flex: 1 0 120px; padding: 14px 12px; border-right: 1px solid var(--border); text-align: center;
+    font-size: 14px; color: var(--ink-muted); font-weight: 700; position: relative;
+  }
+  .process-step:last-child { border-right: none; }
+  .process-step .pn { font-family: ui-monospace, 'SF Mono', Consolas, monospace; font-size: 13px; color: var(--accent); display: block; margin-bottom: 4px; }
+  .process-step.on { background: var(--accent-soft); color: var(--ink); }
+
+  .stage-funnel { display: flex; gap: 10px; margin-bottom: 26px; }
+  .stage-block { flex: 1; border: 1px solid var(--border); padding: 14px 16px; cursor: pointer; }
+  .stage-block[data-stage="확정"] { border-left: 3px solid var(--good); }
+  .stage-block[data-stage="유력"] { border-left: 3px solid var(--accent); }
+  .stage-block[data-stage="미정"] { border-left: 3px solid var(--ink-muted); }
+  .stage-block.active { background: var(--bg-sunken); }
+  .stage-block .sb-label { font-size: 13px; font-weight: 800; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 6px; }
+  .stage-block .sb-value { font-family: ui-monospace, 'SF Mono', Consolas, monospace; font-size: 26px; font-weight: 700; }
+
+  .pledge-table-card { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
+  .pledge-row {
+    display: grid; grid-template-columns: 80px 1.2fr 70px 92px 0.8fr 0.8fr 2fr; gap: 14px; align-items: center;
+    padding: 12px 16px; border-bottom: 1px solid var(--border); cursor: pointer; font-size: 14.5px;
+  }
+  .pledge-row.head { font-weight: 800; color: var(--ink-muted); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.03em; cursor: default; background: var(--surface-raised); }
+  .pledge-row:hover:not(.head) { background: var(--bg-sunken); }
+  .pledge-row .pn-name { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pledge-row .pn-news { color: var(--ink-secondary); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13.5px; }
+  .stage-badge { display: inline-flex; font-size: 15px; font-weight: 800; padding: 5px 13px; border-radius: var(--radius-pill); }
+  .stage-badge.확정 { background: var(--good-soft); color: var(--good); }
+  .stage-badge.유력 { background: var(--accent-soft); color: var(--accent); }
+  .stage-badge.미정 { background: var(--neutral-badge); color: var(--neutral-badge-ink); }
+
+  .pledge-detail { display: none; padding: 24px 20px 22px; scroll-margin-top: 90px; }
+  .pledge-detail-slot:empty { display: none; }
+  .pledge-detail-slot { background: var(--bg-sunken); border-bottom: 1px solid var(--border); }
+  .pledge-detail.open { display: block; }
+  .pd-head { margin-bottom: 18px; }
+  .pd-head .pd-region { font-size: 13.5px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 4px; }
+  .pd-head h3 { font-size: 27px; font-weight: 800; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .pd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 22px; }
+  @media (max-width: 800px) { .pd-grid { grid-template-columns: 1fr; } }
+  .pd-panel { border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+  .pd-panel h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-muted); margin: 0 0 10px; font-weight: 800; }
+
+  .log-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .log-entry { border-left: 2px solid var(--border-strong); padding: 2px 0 2px 12px; }
+  .log-entry .le-text { font-size: 14.5px; color: var(--ink); font-weight: 500; }
+  .log-entry .le-url { font-size: 13px; }
+  .log-add-form { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .log-add-form input {
+    background: var(--surface-raised); border: 1px solid var(--border); color: var(--ink); border-radius: var(--radius-sm);
+    padding: 7px 9px; font-size: 14.5px; font-family: inherit;
+  }
+  .log-add-form button {
+    border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); border-radius: var(--radius-sm);
+    padding: 7px 10px; font-size: 14px; font-weight: 800; cursor: pointer; font-family: inherit;
+  }
+  .readonly-note { font-size: 13px; color: var(--ink-muted); font-style: italic; }
+  [artifact-sync-state="off"] { outline: 1px dashed var(--ink-muted); }
+
+  /* entry-grade badges + dimming */
+  .entry-grade-badge { display: inline-flex; font-size: 15px; font-weight: 800; padding: 5px 13px; margin-left: 6px; border-radius: var(--radius-pill); }
+  .entry-grade-badge.grade1 { background: var(--stage-plan-soft); color: var(--stage-plan); }
+  .entry-grade-badge.grade2 { background: var(--stage-notice-soft); color: var(--stage-notice); }
+  .entry-grade-badge.grade3 { background: var(--stage-compete-soft); color: var(--stage-compete); }
+  .entry-grade-badge.grade0 { background: var(--stage-done-soft); color: var(--stage-done); }
+  .yeta-badge { display: inline-flex; font-size: 12.5px; font-weight: 800; padding: 3px 9px; margin-left: 6px; border-radius: var(--radius-pill); background: var(--good-soft); color: var(--good); }
+  .pledge-row.grade3-row { opacity: 0.5; }
+  .pledge-row.grade3-row:hover { opacity: 0.85; }
+  .pledge-detail.grade3 .pd-head h3 { color: var(--ink-secondary); }
+
+  .reason-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+  .reason-tag { font-size: 14.5px; font-weight: 700; padding: 6px 13px; border-radius: var(--radius-pill); background: var(--neutral-badge); color: var(--ink-secondary); }
+
+  .mini-stepper { display: flex; align-items: flex-start; gap: 2px; overflow-x: auto; padding: 8px 0 4px; }
+  .mini-step { display: flex; flex-direction: column; align-items: center; gap: 7px; flex: 1 0 88px; position: relative; font-size: 13.5px; font-weight: 700; text-align: center; color: var(--ink-secondary); }
+  .mini-step .ms-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--surface-raised); border: 3px solid var(--border-strong); flex: 0 0 auto; }
+  .mini-step:not(:last-child)::after { content: ''; position: absolute; top: 8px; left: 60%; width: 80%; height: 3px; background: var(--border-strong); z-index: -1; }
+  .mini-step.ps-done { color: var(--ink-secondary); }
+  .mini-step.ps-done .ms-dot { background: var(--good); border-color: var(--good); }
+  .mini-step.ps-done:not(:last-child)::after { background: var(--good); }
+  .mini-step.ps-current { color: var(--accent); font-weight: 800; }
+  .mini-step.ps-current .ms-dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 5px var(--accent-soft); }
+  .mini-step-next { margin-top: 12px; font-size: 17px; font-weight: 700; color: var(--ink); background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: var(--radius-sm); padding: 11px 15px; }
+
+  .sh-chain { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .sh-node { border: 1px solid var(--border); background: var(--surface-raised); border-radius: var(--radius-sm); padding: 8px 12px; min-width: 92px; }
+  .sh-node-k { font-size: 10.5px; font-weight: 800; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 3px; }
+  .sh-node-v { font-size: 13.5px; font-weight: 700; }
+  .sh-arrow { color: var(--ink-muted); font-size: 16px; flex: 0 0 auto; }
+
+  /* korea map */
+  .map-watch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; margin-bottom: 26px; }
+  @media (max-width: 900px) { .map-watch-grid { grid-template-columns: 1fr; } }
+  .korea-map-wrap { border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; margin-bottom: 0; overflow-x: auto; background: var(--surface); box-shadow: var(--shadow); }
+  .watch-panel { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); padding: 16px; display: flex; flex-direction: column; }
+  .watch-panel-head { font-size: 15px; font-weight: 800; margin-bottom: 10px; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .watch-panel-head .hint { font-size: 12px; color: var(--ink-muted); }
+  .watch-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; }
+  .watch-row { border: 1px solid var(--border); background: var(--surface-raised); border-radius: var(--radius-sm); padding: 10px 12px; cursor: pointer; }
+  .watch-row:hover { border-color: var(--accent); }
+  .wr-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 5px; }
+  .wr-region { font-size: 12px; font-weight: 700; color: var(--ink-muted); }
+  .wr-region-name { font-size: 14.5px; font-weight: 800; }
+  .wr-count { font-size: 13px; font-weight: 800; color: var(--ink-secondary); }
+  .wr-examples { font-size: 12.5px; color: var(--ink-muted); margin-top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .wr-name { font-weight: 700; font-size: 14px; margin-bottom: 3px; }
+  .wr-signal { display: inline-block; font-size: 11.5px; font-weight: 800; color: var(--accent); background: var(--accent-soft); padding: 2px 8px; border-radius: 999px; margin-bottom: 5px; }
+  .wr-news { font-size: 13px; color: var(--ink-secondary); overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .korea-map-svg { width: 100%; max-width: 460px; height: auto; display: block; margin: 0 auto; }
+  .map-credit { text-align: center; font-size: 13.5px; color: var(--ink-muted); margin-top: 10px; }
+  .map-credit a { color: var(--ink-muted); }
+  .map-stage { position: relative; filter: drop-shadow(0 14px 18px rgba(30,20,5,0.16)) drop-shadow(0 2px 4px rgba(30,20,5,0.10)); }
+  .map-tile { cursor: pointer; }
+  .map-tile-inset .map-rect { stroke-dasharray: 3 2; }
+  .map-rect { fill: color-mix(in srgb, var(--accent) calc(var(--intensity) * 96%), var(--surface-raised)); stroke: var(--surface); stroke-width: 2; }
+  .map-tile:hover .map-rect { stroke: var(--accent); }
+  .map-tile:focus-visible .map-rect { stroke: var(--accent); stroke-width: 2.5; }
+
+  /* fixed-size HTML pin overlay — size never scales with map width */
+  .map-pin-layer { position: absolute; inset: 0; pointer-events: none; }
+  .map-pin {
+    position: absolute; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 3px;
+    background: none; border: none; padding: 0; cursor: pointer; pointer-events: auto;
+  }
+  .mp-dot {
+    width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: var(--neutral-badge); border: 2px solid var(--surface); box-shadow: 0 2px 5px rgba(30,20,5,0.35);
+    color: var(--ink-secondary); font-size: 11px; font-weight: 800;
+  }
+  .map-pin.lo .mp-dot { background: var(--accent-line); color: var(--ink); }
+  .map-pin.mid .mp-dot { background: color-mix(in srgb, var(--accent) 65%, var(--surface)); color: var(--accent-ink); }
+  .map-pin.hi .mp-dot { width: 30px; height: 30px; font-size: 12.5px; background: var(--accent); color: var(--accent-ink); }
+  .map-pin.has-grade1 .mp-dot { box-shadow: 0 0 0 2px var(--accent), 0 2px 5px rgba(30,20,5,0.35); }
+  .map-pin .mp-label {
+    font-size: 11px; font-weight: 800; color: var(--ink); background: var(--surface); padding: 1px 6px; border-radius: 999px;
+    border: 1px solid var(--border); white-space: nowrap; box-shadow: 0 1px 3px rgba(30,20,5,0.15);
+  }
+  .map-pin:hover .mp-dot, .map-pin:focus-visible .mp-dot { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  /* A4 reference list */
+  .a4-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 20px; background: var(--surface); box-shadow: var(--shadow); }
+  .a4-row { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 14.5px; }
+  .a4-row:last-child { border-bottom: none; }
+  .a4-row.hidden-by-search { display: none; }
+  .a4-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .a4-sido { font-weight: 800; color: var(--accent); font-size: 13px; text-transform: uppercase; }
+  .a4-politician { font-size: 13.5px; color: var(--ink-muted); font-weight: 700; }
+  .a4-title { font-weight: 700; margin-bottom: 3px; }
+  .a4-goal { color: var(--ink-secondary); font-size: 14px; }
+  .a4-idea { color: var(--accent); font-size: 13.5px; margin-top: 5px; font-weight: 600; }
+
+  /* ===== topbar decorative icons ===== */
+  .topbar-icons { display: flex; gap: 4px; flex: 0 0 auto; }
+  .icon-btn {
+    width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface-raised);
+    color: var(--ink-muted); font-size: 14px; cursor: default; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ===== process step icons + connectors ===== */
+  .process-step { position: relative; }
+  .ps-icon { width: 22px; height: 22px; color: var(--accent); display: block; margin: 0 auto 6px; }
+  .process-step:not(:last-child)::after {
+    content: '→'; position: absolute; right: -9px; top: 38%; transform: translateY(-50%);
+    width: 18px; height: 18px; background: var(--surface); color: var(--ink-muted); border: 1px solid var(--border);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; z-index: 2;
+  }
+
+  /* ===== pledge KPI + delta ===== */
+  .pledge-kpi-grid { grid-template-columns: repeat(6, 1fr); }
+  @media (max-width: 1200px) { .pledge-kpi-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px) { .pledge-kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  .kpi-delta { display: inline-block; margin-top: 6px; font-size: 12.5px; font-weight: 800; }
+  .kpi-delta.up { color: var(--good); }
+  .kpi-delta.down { color: var(--accent); }
+  .kpi-delta.flat { color: var(--ink-muted); }
+  .kpi-delta.new { color: var(--ink-muted); background: var(--neutral-badge); padding: 1px 6px; border-radius: 999px; }
+
+  /* ===== map legend ===== */
+  .map-legend { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .ml-item { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--ink-secondary); }
+  .ml-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--border-strong); background: color-mix(in srgb, var(--accent) calc(var(--i) * 96%), var(--surface-raised)); }
+  .map-legend-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+  /* ===== pledge main 2-col layout w/ AI insight side panel ===== */
+  .pledge-main-grid { display: grid; grid-template-columns: 1fr 300px; gap: 20px; align-items: start; }
+  @media (max-width: 1100px) { .pledge-main-grid { grid-template-columns: 1fr; } }
+  .pledge-side-col { position: sticky; top: 70px; }
+  .ai-insight-panel { background: var(--surface); border: 1px solid var(--accent-line); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+  .aip-head { font-size: 14px; font-weight: 800; color: var(--accent); display: flex; align-items: center; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+  .aip-ic { font-size: 15px; }
+  .aip-updated { font-size: 11.5px; color: var(--ink-muted); font-weight: 700; margin-left: auto; }
+  .aip-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .aip-list li { font-size: 14px; color: var(--ink); line-height: 1.55; padding-left: 12px; border-left: 2px solid var(--accent-line); }
+  .aip-note { font-size: 11.5px; color: var(--ink-muted); margin-top: 12px; font-style: italic; }
+
+  /* ===== pledge detail: header stat row, favorites, actions ===== */
+  .pd-head-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .pd-head-tools { display: flex; gap: 6px; }
+  .pd-tool-btn {
+    border: 1px solid var(--border); background: var(--surface-raised); color: var(--ink-secondary); border-radius: var(--radius-pill);
+    padding: 5px 10px; font-size: 13px; font-weight: 700; cursor: pointer;
+  }
+  .pd-fav-btn.active { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+  .pd-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 16px; }
+  @media (max-width: 900px) { .pd-stats { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .pd-stats { grid-template-columns: 1fr; } }
+  .stat-cell { border: 1px solid var(--border); background: var(--surface-raised); border-radius: var(--radius-sm); padding: 10px 12px; }
+  .stat-cell .sc-k { font-size: 11px; font-weight: 800; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 5px; }
+  .stat-cell .sc-v { font-size: 14.5px; font-weight: 700; }
+  .stat-asterisk { font-size: 11px; color: var(--ink-muted); font-weight: 600; }
+  .potential-badge { display: inline-flex; font-size: 15px; font-weight: 900; padding: 2px 10px; border-radius: var(--radius-pill); }
+  .potential-badge.pA { background: var(--accent); color: var(--accent-ink); }
+  .potential-badge.pB { background: var(--neutral-badge); color: var(--ink); }
+  .potential-badge.pC { background: var(--neutral-badge); color: var(--ink-muted); }
+  .potential-badge.pNone { background: var(--neutral-badge); color: var(--ink-muted); font-size: 13px; }
+
+  .anchor-chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .anchor-chip {
+    display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--border-strong); background: var(--surface-raised);
+    color: var(--ink); border-radius: 999px; padding: 4px 10px 4px 4px; font-size: 13.5px; font-weight: 700; cursor: pointer;
+  }
+  .anchor-chip:hover { border-color: var(--accent); color: var(--accent); }
+  .ac-initial { width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+
+  .pd-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  @media (max-width: 800px) { .pd-actions { grid-template-columns: repeat(2, 1fr); } }
+  .pd-action {
+    border: 1px solid var(--border); background: var(--surface-raised); color: var(--ink); border-radius: var(--radius-sm);
+    padding: 12px 10px; font-size: 13.5px; font-weight: 700; cursor: pointer; text-align: left; display: flex; align-items: center; gap: 8px;
+  }
+  .pd-action:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .pd-action:disabled { opacity: 0.4; cursor: default; }
+  .pa-ic { font-size: 14px; }
+
+  /* ===== anchor tab ===== */
+  .anchor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 900px) { .anchor-grid { grid-template-columns: 1fr; } }
+  .anchor-card { border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); scroll-margin-top: 90px; }
+  .anchor-card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .ac-initial-lg { width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+  .anchor-card-head h3 { margin: 0 0 3px; font-size: 17px; font-weight: 800; letter-spacing: -0.01em; }
+  .anchor-meta { font-size: 13px; color: var(--ink-muted); font-weight: 700; }
+  .anchor-acc-block { background: var(--bg-sunken); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; margin-bottom: 12px; }
+  .anchor-acc-badge { font-size: 12.5px; font-weight: 800; color: var(--good); }
+  .anchor-acc-none { font-size: 13.5px; font-weight: 700; color: var(--ink-muted); }
+  .anchor-proj-head { font-size: 11px; font-weight: 800; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 8px; }
+  .anchor-proj-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--border); font-size: 13.5px; cursor: pointer; }
+  .anchor-proj-row:hover { color: var(--accent); }
+  .apr-name { flex: 1; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .apr-region { color: var(--ink-muted); font-size: 12.5px; flex: 0 0 auto; }
+
+  /* ===== opportunity intelligence tab ===== */
+  .intel-panel { border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+  .intel-bar-row { display: grid; grid-template-columns: 140px 1fr 56px; align-items: center; gap: 10px; padding: 7px 0; font-size: 13.5px; }
+  .ibr-label { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ibr-track { background: var(--bg-sunken); height: 8px; border-radius: 999px; overflow: hidden; }
+  .ibr-fill { height: 100%; background: var(--accent); border-radius: 999px; }
+  .ibr-value { text-align: right; font-weight: 700; color: var(--ink-secondary); }
+  .intel-rank-panel { padding: 0; overflow: hidden; }
+  .intel-rank-row { display: grid; grid-template-columns: 32px 1fr 100px 110px; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--border); font-size: 13.5px; cursor: pointer; }
+  .intel-rank-row:last-child { border-bottom: none; }
+  .intel-rank-row:hover:not(.intel-rank-head) { background: var(--bg-sunken); }
+  .intel-rank-row.intel-rank-head { font-weight: 800; color: var(--ink-muted); font-size: 11.5px; text-transform: uppercase; cursor: default; }
+  .irr-rank { color: var(--accent); font-weight: 800; }
+  .irr-name { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .irr-region { color: var(--ink-muted); }
+  .irr-budget { font-weight: 700; text-align: right; }
+
+  /* ===== 선제 진입 기회 — opportunity cards ===== */
+  .opp-main-grid { display: grid; grid-template-columns: 1fr 300px; gap: 20px; align-items: start; }
+  @media (max-width: 1100px) { .opp-main-grid { grid-template-columns: 1fr; } }
+  .opp-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (max-width: 800px) { .opp-card-grid { grid-template-columns: 1fr; } }
+  .opp-card { border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius); padding: 14px 16px; cursor: pointer; box-shadow: var(--shadow); }
+  .opp-card:hover { border-color: var(--accent-line); }
+  .opp-card.opp-hidden { display: none; }
+  .opp-card.opp-extra { display: none; }
+  #oppCardGrid.show-all .opp-card.opp-extra { display: block; }
+  .opp-show-all-btn {
+    display: block; width: 100%; margin-top: 12px; border: 1.5px dashed var(--border-strong); background: var(--surface-raised);
+    color: var(--ink-secondary); border-radius: var(--radius-sm); padding: 12px; font-size: 14.5px; font-weight: 800; cursor: pointer;
+  }
+  .opp-show-all-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .opp-show-all-btn.is-expanded { display: none; }
+  .opp-card-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .opp-region { font-size: 12.5px; font-weight: 700; color: var(--ink-muted); }
+  .opp-name { font-weight: 800; font-size: 17px; margin-bottom: 9px; letter-spacing: -0.01em; }
+  .opp-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+  .opp-missing { font-size: 13px; color: var(--ink-secondary); margin-bottom: 10px; }
+  .opp-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 10px; border-top: 1px dashed var(--border); }
+  .opp-filing { font-size: 12px; color: var(--ink-muted); font-weight: 700; }
+  .opp-next { font-size: 14.5px; font-weight: 800; color: var(--accent); }
+
+  .top-opp-list { display: flex; flex-direction: column; gap: 10px; }
+  .top-opp-item { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px; cursor: pointer; background: var(--surface-raised); }
+  .top-opp-item:hover { border-color: var(--accent-line); }
+  .top-opp-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .top-opp-name { font-weight: 800; font-size: 15px; margin-bottom: 7px; letter-spacing: -0.01em; }
+  .top-opp-next { font-size: 13px; font-weight: 800; color: var(--accent); }
+
+  .timeline-bucket { margin-bottom: 22px; }
+  .timeline-bucket-head { font-size: 14px; font-weight: 800; margin-bottom: 10px; display: flex; align-items: baseline; gap: 8px; }
+  .timeline-bucket-head .hint { font-size: 12.5px; color: var(--ink-muted); font-weight: 700; }
+  .timeline-bucket-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (max-width: 800px) { .timeline-bucket-cards { grid-template-columns: 1fr; } }
+
+  /* ===== global omnibox search ===== */
+  .topbar-search { position: relative; flex: 0 0 auto; }
+  .omni-panel {
+    display: none; position: absolute; top: 42px; right: 0; width: 340px; background: var(--surface);
+    border: 1px solid var(--border-strong); border-radius: var(--radius); box-shadow: var(--shadow); padding: 10px; z-index: 50;
+  }
+  .omni-panel.open { display: block; }
+  .omni-panel input {
+    width: 100%; background: var(--surface-raised); border: 1px solid var(--border); color: var(--ink);
+    border-radius: var(--radius-sm); padding: 8px 10px; font-size: 14.5px; font-family: inherit;
+  }
+  .omni-results { margin-top: 8px; max-height: 320px; overflow-y: auto; }
+  .omni-result {
+    width: 100%; display: flex; align-items: center; gap: 8px; border: none; background: none; text-align: left;
+    padding: 8px 6px; cursor: pointer; border-radius: var(--radius-sm); font-size: 13.5px;
+  }
+  .omni-result:hover { background: var(--bg-sunken); }
+  .or-type { font-size: 11px; font-weight: 800; color: var(--accent); background: var(--accent-soft); padding: 2px 6px; border-radius: 999px; flex: 0 0 auto; }
+  .or-label { font-weight: 700; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .or-sub { color: var(--ink-muted); font-size: 12px; flex: 0 0 auto; }
+  .omni-empty { padding: 10px 6px; color: var(--ink-muted); font-size: 13.5px; }
+
+  /* ===== trust indicators ===== */
+  .trust-badge { display: inline-flex; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 999px; margin-left: 8px; vertical-align: middle; }
+  .trust-badge.verified { background: var(--good-soft); color: var(--good); }
+  .trust-badge.unverified { background: var(--neutral-badge); color: var(--neutral-badge-ink); }
+  .trust-badge.unresearched { background: var(--neutral-badge); color: var(--ink-muted); }
+  .row-trust-dot { font-size: 8px; margin-right: 6px; vertical-align: middle; }
+  .row-trust-dot.verified { color: var(--good); }
+  .row-trust-dot.unverified { color: var(--ink-muted); }
+  .row-trust-dot.unresearched { color: var(--border-strong); }
+  .strategy-box {
+    background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: var(--radius-sm); padding: 12px 14px;
+    font-size: 14.5px; font-weight: 600; color: var(--ink); margin-bottom: 14px; line-height: 1.55;
+  }
+  .strategy-box.grade3 { background: var(--bg-sunken); border-color: var(--border); color: var(--ink-secondary); }
+  .strategy-box.grade0 { background: var(--bg-sunken); border-color: var(--border); color: var(--ink-muted); font-style: italic; }
+
+  /* ===== print view ===== */
+  @media print {
+    .topbar, .pledge-side-col, .quick-filters, .filter-panel, .log-add-form, .pd-head-tools,
+    .pledge-table-card, .a4-list, .a4Search, .theme-toggle, .pd-actions { display: none !important; }
+    .pledge-detail { display: block !important; }
+    body { font-size: 12px; }
+  }
+</style>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <img class="pwc-mark" width="68" height="34" alt="PwC"
+        src="data:image/png;base64,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">
+      <div class="brand-div"></div>
+      <div class="brand-text">
+        <div class="proj">지역 AX 기획제안형 BD</div>
+      </div>
+    </div>
+    <div class="nav-tabs">
+      <div class="nav-chapter active" data-chapter="bd">
+        <button class="nav-chapter-btn" type="button">기획제안형 BD<span class="caret">▾</span></button>
+        <div class="nav-chapter-menu">
+          <button class="nav-tab active" data-view="pledges" type="button">01 정책·사업 파이프라인</button>
+          <button class="nav-tab" data-view="intel" type="button">02 선제 진입 기회</button>
+          <button class="nav-tab" data-view="anchors" type="button">앵커기업 탐색</button>
+        </div>
+      </div>
+      <div class="nav-chapter" data-chapter="pool">
+        <button class="nav-chapter-btn" type="button">충남 AX 기업 Pool<span class="caret">▾</span></button>
+        <div class="nav-chapter-menu">
+          <button class="nav-tab" data-view="overview" type="button">기업 Pool 현황</button>
+          <button class="nav-tab" data-view="explorer" type="button">기업 탐색</button>
+        </div>
+      </div>
+    </div>
+    <div class="topbar-search">
+      <button class="icon-btn" type="button" id="omniSearchBtn" title="통합검색">⌕</button>
+      <div class="omni-panel" id="omniPanel">
+        <input type="text" id="omniInput" placeholder="사업명, 지역, 기업명 검색..." />
+        <div class="omni-results" id="omniResults"></div>
+      </div>
+    </div>
+    <div class="topbar-icons">
+      <button class="icon-btn" type="button" title="알림" disabled>⚉</button>
+      <button class="icon-btn" type="button" title="프로필" disabled>◐</button>
+    </div>
+    <button class="theme-toggle" id="themeToggle" type="button">다크모드</button>
+  </div>
+</div>
+
+<div class="app">
+
+  <!-- ===== OVERVIEW ===== -->
+  <div class="view" id="viewOverview">
+    <div class="exec-head">
+      <h1>충남 AX 기업 Pool</h1>
+      <div class="sub">기준일 2026-08-12 · 충남 산업단지 생산거점 보유기업 + DART·PwC 접점 통합 현황</div>
+    </div>
+
+    <div class="insight-banner">
+      <div class="ic">💡</div>
+      <div>충남 소재·생산거점 기업을 통합하여 정책사업 참여 및 PwC 서비스 기회를 탐색합니다.</div>
+    </div>
+
+    <div class="kpi-grid" id="kpiGrid"></div>
+
+    <div class="section-block">
+      <div class="section-head">
+        <h2>충남 지역별 현황</h2>
+        <div class="hint">클릭 시 해당 지역으로 기업 탐색</div>
+      </div>
+      <div class="card-grid" id="regionCards"></div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-head">
+        <h2>산업·제품별 기업 현황</h2>
+        <div class="hint">클릭 시 해당 산업으로 기업 탐색</div>
+      </div>
+      <div class="card-grid" id="industryCards"></div>
+    </div>
+  </div>
+
+  <!-- ===== EXPLORER ===== -->
+  <div class="view" id="viewExplorer">
+    <div class="exec-head">
+      <h1>기업 탐색</h1>
+      <div class="sub">조건을 조합해 사업 참여 후보기업과 PwC 접점을 확인하세요</div>
+    </div>
+
+    <div class="quick-filters" id="quickFilters"></div>
+
+    <div class="filter-panel" id="filterPanel"></div>
+
+    <div class="detail-summary" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+      <span><strong id="tableCount"></strong> 개 기업이 조건에 맞습니다</span>
+      <button id="exportCsv" type="button" style="border:1px solid var(--border-strong); background:var(--surface-raised); color:var(--ink); border-radius:8px; padding:8px 14px; font-size: 14.5px; font-weight:800; cursor:pointer;">⬇ 현재 조건 결과 CSV로 내보내기</button>
+    </div>
+
+    <div class="table-card">
+      <div class="table-scroll">
+        <table>
+          <thead><tr id="tableHeadRow"></tr></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+      <div class="pager" id="pager"></div>
+    </div>
+  </div>
+
+  <!-- ===== PLEDGES ===== -->
+  <div class="view active" id="viewPledges">
+    __PLEDGE_HTML__
+  </div>
+
+  <!-- ===== ANCHORS ===== -->
+  <div class="view" id="viewAnchors">
+    __ANCHOR_HTML__
+  </div>
+
+  <!-- ===== 선제 진입 기회 ===== -->
+  <div class="view" id="viewIntel">
+    __INTEL_HTML__
+  </div>
+
+
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<script>
+const DATA = __DATA_JSON__;
+const FIELDS = DATA.fields;
+const FI = {};
+FIELDS.forEach((f, i) => FI[f] = i);
+const ROWS = DATA.rows;
+
+function fmtWon(v) {
+  if (v === null || v === undefined) return '—';
+  const eok = v / 100000000;
+  if (Math.abs(eok) >= 10000) return (eok/10000).toLocaleString('ko-KR', {maximumFractionDigits:1}) + '조원';
+  return Math.round(eok).toLocaleString('ko-KR') + '억원';
+}
+function fmtNum(v) { return (v === null || v === undefined) ? '—' : Math.round(v).toLocaleString('ko-KR'); }
+function isHqOutsideChungnam(hqRegion) { return hqRegion && !hqRegion.startsWith('충청남도') && !hqRegion.startsWith('충남'); }
+function isAnchor(r) { return (r[FI.emp]||0) >= 100 || (r[FI.revenue]||0) >= 1e11; }
+
+/* ---------- nav ---------- */
+document.querySelectorAll('.nav-tab').forEach(btn => {
+  btn.addEventListener('click', () => switchView(btn.dataset.view));
+});
+const CHAPTER_OF_VIEW = { pledges: 'bd', intel: 'bd', anchors: 'bd', overview: 'pool', explorer: 'pool' };
+function switchView(view) {
+  document.querySelectorAll('.nav-tab').forEach(b => b.classList.toggle('active', b.dataset.view === view));
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  const ids = { overview: 'viewOverview', explorer: 'viewExplorer', pledges: 'viewPledges', anchors: 'viewAnchors', intel: 'viewIntel' };
+  document.getElementById(ids[view]).classList.add('active');
+  document.querySelectorAll('.nav-chapter').forEach(c => {
+    c.classList.toggle('active', c.dataset.chapter === CHAPTER_OF_VIEW[view]);
+    c.classList.remove('open');
+  });
+}
+/* chapter dropdown: hover works via CSS; click toggles for touch devices */
+document.querySelectorAll('.nav-chapter-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const chapter = btn.closest('.nav-chapter');
+    const wasOpen = chapter.classList.contains('open');
+    document.querySelectorAll('.nav-chapter').forEach(c => c.classList.remove('open'));
+    if (!wasOpen) chapter.classList.add('open');
+  });
+});
+document.addEventListener('click', () => document.querySelectorAll('.nav-chapter').forEach(c => c.classList.remove('open')));
+
+/* ---------- KPI ---------- */
+function renderKpis() {
+  const total = ROWS.length;
+  const siteSum = ROWS.reduce((a,r) => a + (r[FI.site_count]||0), 0);
+  const inComplex = ROWS.filter(r => r[FI.ind_complex]).length;
+  const outsideHq = ROWS.filter(r => isHqOutsideChungnam(r[FI.hq_region])).length;
+  const fin = ROWS.filter(r => r[FI.revenue] !== null).length;
+  const listed = ROWS.filter(r => r[FI.listed] === '상장').length;
+  const sf = ROWS.filter(r => r[FI.sf_client]).length;
+
+  const tiles = [
+    ['전체 기업 수', total.toLocaleString('ko-KR'), '개사', false],
+    ['충남 내 전체 생산거점', siteSum.toLocaleString('ko-KR'), '개소', false],
+    ['산업단지 입주기업', inComplex.toLocaleString('ko-KR'), '개사', false],
+    ['타지역 본사 + 충남 생산거점', outsideHq.toLocaleString('ko-KR'), '개사', false],
+    ['재무정보 확보', fin.toLocaleString('ko-KR'), '개사', false],
+    ['상장기업', listed.toLocaleString('ko-KR'), '개사', false],
+    ['PwC 접점 보유기업', sf.toLocaleString('ko-KR'), '개사', true],
+  ];
+  document.getElementById('kpiGrid').innerHTML = tiles.map(([label, value, unit, emph]) => `
+    <div class="kpi ${emph?'emph':''}">
+      <div class="label">${label}</div>
+      <div class="value tabular">${value}<span class="unit">${unit}</span></div>
+    </div>
+  `).join('');
+}
+
+/* ---------- region cards ---------- */
+function topByCount(arr, keyFn) {
+  const counts = {};
+  arr.forEach(v => { const k = keyFn(v); if (k) counts[k] = (counts[k]||0)+1; });
+  const entries = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+  return entries.length ? entries[0][0] : null;
+}
+function repCompany(arr) {
+  const withRev = arr.filter(r => r[FI.revenue] !== null).sort((a,b)=>b[FI.revenue]-a[FI.revenue]);
+  if (withRev.length) return withRev[0][FI.n];
+  const withEmp = arr.filter(r => r[FI.emp] !== null).sort((a,b)=>b[FI.emp]-a[FI.emp]);
+  return withEmp.length ? withEmp[0][FI.n] : (arr[0] ? arr[0][FI.n] : '—');
+}
+
+function renderRegionCards() {
+  const counts = {};
+  ROWS.forEach(r => { if (r[FI.region]) (counts[r[FI.region]] = counts[r[FI.region]]||[]).push(r); });
+  const regions = Object.entries(counts).sort((a,b)=>b[1].length-a[1].length).slice(0, 15);
+  document.getElementById('regionCards').innerHTML = regions.map(([name, arr]) => {
+    const sfCount = arr.filter(r => r[FI.sf_client]).length;
+    return `
+    <button class="info-card" data-filter-region="${name}">
+      <div class="ic-title">${name}</div>
+      <div class="ic-count tabular">${arr.length}<span class="u"> 개사</span></div>
+      <div class="ic-row"><span class="k">주요 산업</span><span class="v">${topByCount(arr, r=>r[FI.ind_cat])||'—'}</span></div>
+      <div class="ic-row"><span class="k">대표 기업</span><span class="v">${repCompany(arr)}</span></div>
+      <div class="ic-pwc">${sfCount>0 ? `PwC 접점 ${sfCount}개사` : 'PwC 접점 없음'}</div>
+    </button>`;
+  }).join('');
+  document.querySelectorAll('[data-filter-region]').forEach(el => {
+    el.addEventListener('click', () => { filterState.region = el.dataset.filterRegion; applyFiltersToUi(); switchView('explorer'); renderExplorer(); });
+  });
+}
+
+function renderIndustryCards() {
+  const counts = {};
+  ROWS.forEach(r => { (counts[r[FI.ind_cat]] = counts[r[FI.ind_cat]]||[]).push(r); });
+  const cats = Object.entries(counts).sort((a,b)=>b[1].length-a[1].length);
+  document.getElementById('industryCards').innerHTML = cats.map(([name, arr]) => {
+    const sfCount = arr.filter(r => r[FI.sf_client]).length;
+    const withRev = arr.filter(r => r[FI.revenue] !== null);
+    const avgRev = withRev.length ? withRev.reduce((a,r)=>a+r[FI.revenue],0)/withRev.length : null;
+    return `
+    <button class="info-card" data-filter-ind="${name}">
+      <div class="ic-title">${name}</div>
+      <div class="ic-count tabular">${arr.length}<span class="u"> 개사</span></div>
+      <div class="ic-row"><span class="k">주요 지역</span><span class="v">${topByCount(arr, r=>r[FI.region])||'—'}</span></div>
+      <div class="ic-row"><span class="k">대표 기업</span><span class="v">${repCompany(arr)}</span></div>
+      <div class="ic-row"><span class="k">평균 매출</span><span class="v">${avgRev?fmtWon(avgRev):'—'}</span></div>
+      <div class="ic-pwc">${sfCount>0 ? `PwC 접점 ${sfCount}개사` : 'PwC 접점 없음'}</div>
+    </button>`;
+  }).join('');
+  document.querySelectorAll('[data-filter-ind]').forEach(el => {
+    el.addEventListener('click', () => { filterState.indCat = el.dataset.filterInd; applyFiltersToUi(); switchView('explorer'); renderExplorer(); });
+  });
+}
+
+/* ---------- explorer: filters ---------- */
+let filterState = {
+  search: '', region: '', indCat: '', hqRegion: '', listed: '', sfOnly: false, service: '',
+  empMin: '', revMin: '', quick: null,
+  sortKey: null, sortDir: 1, page: 1, pageSize: 50,
+};
+
+function uniqueSorted(keyFn) {
+  const s = new Set();
+  ROWS.forEach(r => { const v = keyFn(r); if (v) s.add(v); });
+  return Array.from(s).sort();
+}
+
+function renderQuickFilters() {
+  const anchorCount = ROWS.filter(isAnchor).length;
+  const sfCount = ROWS.filter(r => r[FI.sf_client]).length;
+  const multiSiteCount = ROWS.filter(r => (r[FI.site_count]||0) >= 2).length;
+  const items = [
+    ['anchor', '주요 Anchor 후보', anchorCount],
+    ['pwc', 'PwC Connected', sfCount],
+    ['multisite', '충남 핵심 생산거점(복수공장)', multiSiteCount],
+  ];
+  document.getElementById('quickFilters').innerHTML = items.map(([key, label, count]) => `
+    <button class="quick-filter ${filterState.quick===key?'active':''}" data-quick="${key}">
+      ${label}<span class="qf-count">${count.toLocaleString('ko-KR')}</span>
+    </button>
+  `).join('');
+  document.querySelectorAll('[data-quick]').forEach(el => {
+    el.addEventListener('click', () => {
+      filterState.quick = (filterState.quick === el.dataset.quick) ? null : el.dataset.quick;
+      filterState.page = 1;
+      renderExplorer();
+    });
+  });
+}
+
+function renderFilterPanel() {
+  const regions = uniqueSorted(r => r[FI.region]);
+  const indCats = uniqueSorted(r => r[FI.ind_cat]);
+  const hqRegions = uniqueSorted(r => r[FI.hq_region]);
+  const opt = (arr, cur) => arr.map(v => `<option value="${v}" ${cur===v?'selected':''}>${v}</option>`).join('');
+  document.getElementById('filterPanel').innerHTML = `
+    <div class="f-item f-full">
+      <label>기업명 검색</label>
+      <input type="text" id="f-search" placeholder="기업명, 생산품 검색..." value="${filterState.search}" />
+    </div>
+    <div class="f-item"><label>시군</label>
+      <select id="f-region"><option value="">전체</option>${opt(regions, filterState.region)}</select>
+    </div>
+    <div class="f-item"><label>산업 대분류</label>
+      <select id="f-indcat"><option value="">전체</option>${opt(indCats, filterState.indCat)}</select>
+    </div>
+    <div class="f-item"><label>본사 소재지역</label>
+      <select id="f-hqregion"><option value="">전체</option>${opt(hqRegions, filterState.hqRegion)}</select>
+    </div>
+    <div class="f-item"><label>상장여부</label>
+      <select id="f-listed"><option value="">전체</option><option value="상장" ${filterState.listed==='상장'?'selected':''}>상장</option><option value="비상장" ${filterState.listed==='비상장'?'selected':''}>비상장</option></select>
+    </div>
+    <div class="f-item"><label>PwC 서비스 유형</label>
+      <select id="f-service"><option value="">전체</option>
+        <option value="Audit" ${filterState.service==='Audit'?'selected':''}>Audit</option>
+        <option value="Tax" ${filterState.service==='Tax'?'selected':''}>Tax</option>
+        <option value="Deals" ${filterState.service==='Deals'?'selected':''}>Deals</option>
+        <option value="Consulting" ${filterState.service==='Consulting'?'selected':''}>Consulting</option>
+      </select>
+    </div>
+    <div class="f-item"><label>종업원 최소</label>
+      <input type="text" id="f-empmin" placeholder="예: 100" value="${filterState.empMin}" />
+    </div>
+    <div class="f-item"><label>매출 최소(억원)</label>
+      <input type="text" id="f-revmin" placeholder="예: 1000" value="${filterState.revMin}" />
+    </div>
+    <div class="f-item"><label>&nbsp;</label>
+      <label class="quick-filter" style="text-align:center; font-size: 14.5px; padding:8px;">
+        <input type="checkbox" id="f-sfonly" ${filterState.sfOnly?'checked':''} style="accent-color:var(--accent); margin-right:6px;" />PwC 접점만
+      </label>
+    </div>
+    <div class="filter-actions"><button id="f-reset" type="button">필터 초기화</button></div>
+  `;
+  document.getElementById('f-search').addEventListener('input', e => { filterState.search = e.target.value; filterState.page=1; renderExplorer(); });
+  document.getElementById('f-region').addEventListener('change', e => { filterState.region = e.target.value; filterState.page=1; renderExplorer(); });
+  document.getElementById('f-indcat').addEventListener('change', e => { filterState.indCat = e.target.value; filterState.page=1; renderExplorer(); });
+  document.getElementById('f-hqregion').addEventListener('change', e => { filterState.hqRegion = e.target.value; filterState.page=1; renderExplorer(); });
+  document.getElementById('f-listed').addEventListener('change', e => { filterState.listed = e.target.value; filterState.page=1; renderExplorer(); });
+  document.getElementById('f-service').addEventListener('change', e => { filterState.service = e.target.value; filterState.page=1; renderExplorer(); });
+  document.getElementById('f-empmin').addEventListener('input', e => { filterState.empMin = e.target.value; filterState.page=1; renderExplorer(); });
+  document.getElementById('f-revmin').addEventListener('input', e => { filterState.revMin = e.target.value; filterState.page=1; renderExplorer(); });
+  document.getElementById('f-sfonly').addEventListener('change', e => { filterState.sfOnly = e.target.checked; filterState.page=1; renderExplorer(); });
+  document.getElementById('f-reset').addEventListener('click', () => {
+    filterState = {search:'', region:'', indCat:'', hqRegion:'', listed:'', sfOnly:false, service:'', empMin:'', revMin:'', quick:null, sortKey:null, sortDir:1, page:1, pageSize:50};
+    renderExplorer();
+  });
+}
+function applyFiltersToUi() { /* filterState already updated; panel re-renders on next renderExplorer() call */ }
+
+function getFiltered() {
+  const q = filterState.search.trim().toLowerCase();
+  const empMin = parseFloat(filterState.empMin) || null;
+  const revMin = filterState.revMin ? parseFloat(filterState.revMin) * 1e8 : null;
+  return ROWS.filter(r => {
+    if (q && !String(r[FI.n]).toLowerCase().includes(q) && !String(r[FI.product]||'').toLowerCase().includes(q)) return false;
+    if (filterState.region && r[FI.region] !== filterState.region) return false;
+    if (filterState.indCat && r[FI.ind_cat] !== filterState.indCat) return false;
+    if (filterState.hqRegion && r[FI.hq_region] !== filterState.hqRegion) return false;
+    if (filterState.listed === '상장' && r[FI.listed] !== '상장') return false;
+    if (filterState.listed === '비상장' && r[FI.listed] === '상장') return false;
+    if (filterState.service && !(r[FI.sf_services]||[]).includes(filterState.service)) return false;
+    if (filterState.sfOnly && !r[FI.sf_client]) return false;
+    if (empMin !== null && (r[FI.emp]||0) < empMin) return false;
+    if (revMin !== null && (r[FI.revenue]||0) < revMin) return false;
+    if (filterState.quick === 'anchor' && !isAnchor(r)) return false;
+    if (filterState.quick === 'pwc' && !r[FI.sf_client]) return false;
+    if (filterState.quick === 'multisite' && (r[FI.site_count]||0) < 2) return false;
+    return true;
+  });
+}
+
+const COLUMNS = [
+  {key: 'n', label: '기업명', num: false},
+  {key: 'region', label: '시군', num: false},
+  {key: 'ind_cat', label: '산업', num: false},
+  {key: 'hq_region', label: '본사지역', num: false},
+  {key: 'emp', label: '종업원', num: true},
+  {key: 'revenue', label: '매출액', num: true},
+  {key: 'sf_client', label: 'PwC접점', num: false},
+];
+
+function renderTableHead() {
+  document.getElementById('tableHeadRow').innerHTML = COLUMNS.map(c => `
+    <th class="${c.num?'num':''} ${filterState.sortKey===c.key?'sorted':''}" data-key="${c.key}">
+      ${c.label}<span class="sort-arrow">${filterState.sortKey===c.key ? (filterState.sortDir>0?'▲':'▼') : '▲'}</span>
+    </th>
+  `).join('');
+  document.querySelectorAll('#tableHeadRow th').forEach(th => {
+    th.onclick = () => {
+      const key = th.dataset.key;
+      if (filterState.sortKey === key) filterState.sortDir *= -1; else { filterState.sortKey = key; filterState.sortDir = 1; }
+      filterState.page = 1;
+      renderExplorer();
+    };
+  });
+}
+
+function renderTable(filtered) {
+  let rows = filtered.slice();
+  if (filterState.sortKey) {
+    const key = filterState.sortKey;
+    rows.sort((a, b) => {
+      let av = a[FI[key]], bv = b[FI[key]];
+      if (av === null || av === undefined) av = typeof bv === 'number' ? -Infinity : '';
+      if (bv === null || bv === undefined) bv = typeof av === 'number' ? -Infinity : '';
+      if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * filterState.sortDir;
+      return String(av).localeCompare(String(bv), 'ko') * filterState.sortDir;
+    });
+  }
+  document.getElementById('tableCount').textContent = rows.length.toLocaleString('ko-KR');
+
+  const totalPages = Math.max(1, Math.ceil(rows.length / filterState.pageSize));
+  filterState.page = Math.min(filterState.page, totalPages);
+  const startIdx = (filterState.page - 1) * filterState.pageSize;
+  const pageRows = rows.slice(startIdx, startIdx + filterState.pageSize);
+
+  const tbody = document.getElementById('tableBody');
+  if (pageRows.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="${COLUMNS.length}"><div class="empty-state">조건에 맞는 기업이 없습니다.</div></td></tr>`;
+  } else {
+    tbody.innerHTML = pageRows.map(r => {
+      const sfBadge = r[FI.sf_client] ? `<span class="badge client">접점 · ${r[FI.sf_proj_cnt]||0}건</span>` : `<span class="badge none">-</span>`;
+      return `<tr data-name="${encodeURIComponent(r[FI.n])}">
+        <td class="wrap">${r[FI.n]}</td>
+        <td>${r[FI.region]||'—'}</td>
+        <td>${r[FI.ind_cat]||'—'}</td>
+        <td>${r[FI.hq_region] ? (isHqOutsideChungnam(r[FI.hq_region]) ? `<span class="badge anchor">${r[FI.hq_region]}</span>` : r[FI.hq_region]) : '—'}</td>
+        <td class="num tabular">${fmtNum(r[FI.emp])}</td>
+        <td class="num tabular">${fmtWon(r[FI.revenue])}</td>
+        <td>${sfBadge}</td>
+      </tr>`;
+    }).join('');
+    tbody.querySelectorAll('tr').forEach(tr => { tr.onclick = () => openDetail(decodeURIComponent(tr.dataset.name)); });
+  }
+
+  document.getElementById('pager').innerHTML = `
+    <button id="prevPage" ${filterState.page<=1?'disabled':''}>이전</button>
+    <span class="tabular">${filterState.page} / ${totalPages}</span>
+    <button id="nextPage" ${filterState.page>=totalPages?'disabled':''}>다음</button>
+  `;
+  document.getElementById('prevPage').onclick = () => { filterState.page--; renderExplorer(); };
+  document.getElementById('nextPage').onclick = () => { filterState.page++; renderExplorer(); };
+}
+
+function renderExplorer() {
+  renderQuickFilters();
+  renderFilterPanel();
+  const filtered = getFiltered();
+  renderTableHead();
+  renderTable(filtered);
+}
+
+/* ---------- detail modal ---------- */
+function openDetail(name) {
+  const r = ROWS.find(row => row[FI.n] === name);
+  if (!r) return;
+  const projList = r[FI.sf_proj] ? r[FI.sf_proj].split('|').map(p => `<div>· ${p.trim()}</div>`).join('') : '';
+  const services = r[FI.sf_services] || [];
+  const outsideHq = isHqOutsideChungnam(r[FI.hq_region]);
+
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-head">
+      <div>
+        <h2>${r[FI.n]}</h2>
+        <div class="modal-sub">${r[FI.dart_corp] || r[FI.n]} ${r[FI.ceo] ? ('· 대표 ' + r[FI.ceo]) : ''}</div>
+      </div>
+      <button class="close" id="modalClose">✕</button>
+    </div>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-rail"><div class="flow-dot"></div><div class="flow-line"></div></div>
+        <div class="flow-body">
+          <h4>기업 개요 (본사)</h4>
+          <div class="kv-grid">
+            <div><div class="k">본사주소</div><div class="v">${r[FI.hq_addr] || (outsideHq===false && r[FI.hq_addr]===null ? '확인중' : '미확보')}</div></div>
+            <div><div class="k">대표자</div><div class="v">${r[FI.ceo]||'—'}</div></div>
+            <div><div class="k">상장여부</div><div class="v">${r[FI.listed]||'—'} ${r[FI.market]?('· '+r[FI.market]):''}</div></div>
+            <div><div class="k">감사인 / 의견</div><div class="v">${r[FI.auditor]||'—'} ${r[FI.audit_opinion]?('/ '+r[FI.audit_opinion]):''}</div></div>
+            <div><div class="k">매출액</div><div class="v tabular">${fmtWon(r[FI.revenue])}</div></div>
+            <div><div class="k">자산총계</div><div class="v tabular">${fmtWon(r[FI.assets])}</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-rail"><div class="flow-dot"></div><div class="flow-line"></div></div>
+        <div class="flow-body">
+          <h4>충남 생산거점${outsideHq ? ' (본사 외 지역)' : ''}</h4>
+          <div class="kv-grid">
+            <div><div class="k">소재 시군</div><div class="v">${r[FI.region]||'—'}</div></div>
+            <div><div class="k">산업단지</div><div class="v">${r[FI.ind_complex]||'—'}</div></div>
+            <div><div class="k">공장 수(충남)</div><div class="v">${r[FI.site_count]||'—'}</div></div>
+            <div><div class="k">종업원수</div><div class="v">${fmtNum(r[FI.emp])}명</div></div>
+            <div style="grid-column:1/-1;"><div class="k">공장주소</div><div class="v">${r[FI.addr]||'—'}</div></div>
+            <div style="grid-column:1/-1;"><div class="k">주요 생산품·업종</div><div class="v">${r[FI.product]||'—'} · ${r[FI.industry]||'—'}</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-rail"><div class="flow-dot" style="background:var(--good);"></div></div>
+        <div class="flow-body">
+          <h4 style="color:var(--good);">PwC Relationship</h4>
+          ${r[FI.sf_client] ? `
+            <div class="service-badges">${services.map(s => `<span class="service-badge">${s}</span>`).join('')}</div>
+            <div class="kv-grid">
+              <div><div class="k">SF 고객명</div><div class="v">${r[FI.sf_client]}</div></div>
+              <div><div class="k">프로젝트 수</div><div class="v">${r[FI.sf_proj_cnt]||0}건</div></div>
+              <div style="grid-column:1/-1;"><div class="k">담당자</div><div class="v">${r[FI.sf_staff]||'—'}</div></div>
+            </div>
+            <div class="modal-proj-list">${projList}</div>
+          ` : `<div style="color:var(--ink-muted); font-size: 15px; font-weight:600;">기존 PwC 접점 이력 없음 — 신규 접촉 대상</div>`}
+          ${r[FI.homepage] ? `<div style="margin-top:10px; font-size: 14.5px;"><a href="https://${r[FI.homepage].replace(/^https?:\/\//,'')}" target="_blank" rel="noopener">${r[FI.homepage]} ↗</a></div>` : ''}
+        </div>
+      </div>
+    </div>
+  `;
+  document.getElementById('modalClose').onclick = closeDetail;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeDetail() { document.getElementById('modalOverlay').classList.remove('open'); }
+
+/* ---------- CSV export (current filtered+sorted result, all fields) ---------- */
+const CSV_LABELS = {
+  n: '표준기업명', ind_complex: '산업단지명', region: '소재시군', addr: '공장주소', site_count: '충남공장수',
+  product: '주요생산품', industry: '업종', ind_cat: '산업대분류', emp: '종업원수',
+  sf_client: 'SF고객명', sf_proj_cnt: '프로젝트수', sf_proj: '프로젝트명', sf_staff: '담당자', sf_services: 'PwC서비스유형',
+  fin_year: '재무기준연도', revenue: '매출액', op_income: '영업이익', assets: '자산총계', liabilities: '부채총계', equity: '자본총계',
+  audit_opinion: '감사의견', auditor: '감사인', listed: '상장여부', market: '상장시장', phone: '전화번호', homepage: '홈페이지',
+  dart_corp: 'DART법인명', dart_bizno: 'DART사업자번호', hq_addr: '본사주소', hq_region: '본사지역', ceo: '대표자',
+};
+function csvEscape(v) {
+  if (v === null || v === undefined) return '';
+  if (Array.isArray(v)) v = v.join(';');
+  const s = String(v).replace(/"/g, '""');
+  return /[",\n]/.test(s) ? `"${s}"` : s;
+}
+function buildCsvString(rows) {
+  const headers = FIELDS.map(f => CSV_LABELS[f] || f);
+  const lines = [headers.map(csvEscape).join(',')];
+  rows.forEach(r => { lines.push(FIELDS.map((f, i) => csvEscape(r[i])).join(',')); });
+  return '﻿' + lines.join('\r\n');
+}
+
+let downloadsApi = null;
+let downloadsReady = (async () => {
+  try { downloadsApi = await claude.use('downloads'); } catch (e) { downloadsApi = null; }
+  const btn = document.getElementById('exportCsv');
+  if (!downloadsApi && btn) btn.style.display = 'none';
+})();
+
+async function exportFilteredCsv() {
+  let rows = getFiltered();
+  if (filterState.sortKey) {
+    const key = filterState.sortKey;
+    rows = rows.slice().sort((a, b) => {
+      let av = a[FI[key]], bv = b[FI[key]];
+      if (av === null || av === undefined) av = typeof bv === 'number' ? -Infinity : '';
+      if (bv === null || bv === undefined) bv = typeof av === 'number' ? -Infinity : '';
+      if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * filterState.sortDir;
+      return String(av).localeCompare(String(bv), 'ko') * filterState.sortDir;
+    });
+  }
+  await downloadsReady;
+  if (!downloadsApi) { alert('이 화면에서는 파일 저장 기능을 사용할 수 없습니다.'); return; }
+  const csv = buildCsvString(rows);
+  const baseName = `충남AX기업Pool_필터결과_${rows.length}건`;
+  try {
+    await downloadsApi.save({ filename: baseName + '.csv', data: csv });
+  } catch (err) {
+    if (err && err.code === 'extension_not_enabled') {
+      try {
+        await downloadsApi.save({ filename: baseName + '.txt', data: csv });
+      } catch (err2) {
+        if (err2 && err2.code !== 'declined') alert('내보내기에 실패했습니다: ' + (err2.message || err2.code));
+      }
+    } else if (err && err.code !== 'declined') {
+      alert('내보내기에 실패했습니다: ' + (err.message || err.code));
+    }
+  }
+}
+document.getElementById('exportCsv').addEventListener('click', exportFilteredCsv);
+document.getElementById('modalOverlay').addEventListener('click', (e) => { if (e.target.id === 'modalOverlay') closeDetail(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDetail(); });
+
+/* ---------- theme ---------- */
+const themeToggle = document.getElementById('themeToggle');
+function applyTheme(mode) {
+  if (mode) { document.documentElement.setAttribute('data-theme', mode); }
+  else { document.documentElement.removeAttribute('data-theme'); }
+  themeToggle.textContent = (document.documentElement.getAttribute('data-theme') === 'dark') ? '라이트모드' : '다크모드';
+}
+themeToggle.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const effectiveDark = current === 'dark' || (!current && prefersDark);
+  applyTheme(effectiveDark ? 'light' : 'dark');
+});
+applyTheme('light');
+
+/* ================= PLEDGE TRACKER ================= */
+const PLEDGES = __PLEDGE_JSON__;
+
+const PLEDGE_FILTER_DEFAULT = { region: '', group: '', stage: '', grade: '', search: '', bizType: '', hideClosed: true, verifiedOnly: false };
+let pledgeFilter = { ...PLEDGE_FILTER_DEFAULT };
+
+const GRADE_KEYS = ['1순위: 선제 제안 대상', '2순위: 공식 입찰 대상', '3순위: 경쟁열위', '미조사'];
+const GRADE_ORDER = { '1순위: 선제 제안 대상': 0, '2순위: 공식 입찰 대상': 1, '미조사': 2, '3순위: 경쟁열위': 3 };
+const GRADE_SHORT = { '1순위: 선제 제안 대상': '기획단계', '2순위: 공식 입찰 대상': '공고단계', '3순위: 경쟁열위': '경쟁단계', '미조사': '미조사' };
+const GRADE_CLASS = { '1순위: 선제 제안 대상': 'grade1', '2순위: 공식 입찰 대상': 'grade2', '3순위: 경쟁열위': 'grade3', '미조사': 'grade0' };
+
+function regionMatches(pRegion, filterRegion) {
+  if (!filterRegion) return true;
+  if (pRegion === filterRegion) return true;
+  return String(pRegion || '').split('·').map(s => s.trim()).includes(filterRegion);
+}
+
+function pledgeFiltered() {
+  const q = pledgeFilter.search.trim().toLowerCase();
+  return PLEDGES.filter(p => {
+    if (pledgeFilter.hideClosed && pledgeFilter.grade !== '3순위: 경쟁열위' && p.entry_grade === '3순위: 경쟁열위') return false;
+    if (pledgeFilter.grade && p.entry_grade !== pledgeFilter.grade) return false;
+    if (pledgeFilter.verifiedOnly && !p.has_source) return false;
+    if (pledgeFilter.stage && p.stage !== pledgeFilter.stage) return false;
+    if (!regionMatches(p.region, pledgeFilter.region)) return false;
+    if (pledgeFilter.group && p.group !== pledgeFilter.group) return false;
+    if (pledgeFilter.bizType && p.biz_type !== pledgeFilter.bizType) return false;
+    if (q && !String(p.name).toLowerCase().includes(q) && !String(p.region).toLowerCase().includes(q)) return false;
+    return true;
+  });
+}
+
+function renderPledgeStageFilters() {
+  const counts = {};
+  PLEDGES.forEach(p => { counts[p.entry_grade] = (counts[p.entry_grade] || 0) + 1; });
+  document.getElementById('pledgeStageFilters').innerHTML = GRADE_KEYS.map(g => `
+    <button class="quick-filter ${pledgeFilter.grade === g ? 'active' : ''}" data-grade="${g}">
+      ${GRADE_SHORT[g]}<span class="qf-count">${counts[g] || 0}</span>
+    </button>
+  `).join('');
+  document.querySelectorAll('#pledgeStageFilters [data-grade]').forEach(el => {
+    el.addEventListener('click', () => {
+      pledgeFilter.grade = (pledgeFilter.grade === el.dataset.grade) ? '' : el.dataset.grade;
+      renderPledgeTracker();
+    });
+  });
+}
+
+function renderPledgeFilterPanel() {
+  const regions = Array.from(new Set(PLEDGES.map(p => p.region))).sort();
+  const groups = Array.from(new Set(PLEDGES.map(p => p.group))).sort();
+  const opt = (arr, cur) => arr.map(v => `<option value="${v}" ${cur===v?'selected':''}>${v}</option>`).join('');
+  document.getElementById('pledgeFilterPanel').innerHTML = `
+    <div class="f-item f-full">
+      <label>사업명·지역 검색</label>
+      <input type="text" id="pf-search" placeholder="검색..." value="${pledgeFilter.search}" />
+    </div>
+    <div class="f-item"><label>권역(5극3특)</label>
+      <select id="pf-group"><option value="">전체</option>${opt(groups, pledgeFilter.group)}</select>
+    </div>
+    <div class="f-item"><label>지역</label>
+      <select id="pf-region"><option value="">전체</option>${opt(regions, pledgeFilter.region)}</select>
+    </div>
+    <div class="f-item"><label>공약 단계</label>
+      <select id="pf-stage"><option value="">전체</option>${opt(['확정','유력','미정'], pledgeFilter.stage)}</select>
+    </div>
+    <div class="filter-actions"><button id="pf-reset" type="button">필터 초기화</button></div>
+  `;
+  document.getElementById('pf-search').addEventListener('input', e => { pledgeFilter.search = e.target.value; renderPledgeTracker(); });
+  document.getElementById('pf-group').addEventListener('change', e => { pledgeFilter.group = e.target.value; renderPledgeTracker(); });
+  document.getElementById('pf-region').addEventListener('change', e => { pledgeFilter.region = e.target.value; renderPledgeTracker(); });
+  document.getElementById('pf-stage').addEventListener('change', e => { pledgeFilter.stage = e.target.value; renderPledgeTracker(); });
+  document.getElementById('pf-reset').addEventListener('click', () => { pledgeFilter = { ...PLEDGE_FILTER_DEFAULT }; renderPledgeTracker(); });
+}
+
+function renderPledgeTable() {
+  const rows = pledgeFiltered().slice().sort((a, b) => (GRADE_ORDER[a.entry_grade] ?? 9) - (GRADE_ORDER[b.entry_grade] ?? 9));
+  document.getElementById('pledgeCount').textContent = rows.length.toLocaleString('ko-KR');
+  const closedCount = PLEDGES.filter(p => p.entry_grade === '3순위: 경쟁열위').length;
+  const hideToggleBtn = document.getElementById('pledgeHideClosedToggle');
+  if (hideToggleBtn) {
+    hideToggleBtn.textContent = pledgeFilter.hideClosed
+      ? `경쟁열위 ${closedCount}건 숨김 · 전체 보기`
+      : '경쟁열위 다시 숨기기';
+    hideToggleBtn.classList.toggle('active', !pledgeFilter.hideClosed);
+  }
+  document.getElementById('pledgeTableBody').innerHTML = rows.map(p => {
+    const gClass = GRADE_CLASS[p.entry_grade] || 'grade0';
+    const trustDot = p.entry_grade === '미조사' ? '<span class="row-trust-dot unresearched" title="리서치 미완료">●</span>'
+      : (p.has_evidence ? '<span class="row-trust-dot verified" title="출처 링크 확인됨">●</span>' : '<span class="row-trust-dot unverified" title="AI 추정 · 출처 미확인">●</span>');
+    return `
+    <div class="pledge-row ${gClass === 'grade3' ? 'grade3-row' : ''}" data-no="${p.no}">
+      <span>${p.region||'—'}</span>
+      <span class="pn-name" title="${p.name||''}">${trustDot}${p.name||'—'}</span>
+      <span>${p.biz_type||'—'}</span>
+      <span><span class="entry-grade-badge ${gClass}" style="margin-left:0;">${GRADE_SHORT[p.entry_grade]||p.entry_grade}</span></span>
+      <span title="${p.executor||''}" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${p.executor||'미정'}</span>
+      <span title="${p.anchor||''}" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${p.anchor||'—'}</span>
+      <span class="pn-news" title="${(p.latest_news||'').replace(/"/g,'&quot;')}">${p.latest_news||'등록된 동향 없음'}</span>
+    </div>
+    <div class="pledge-detail-slot" data-slot-no="${p.no}"></div>`;
+  }).join('');
+  document.querySelectorAll('.pledge-row[data-no]').forEach(el => {
+    el.addEventListener('click', () => showPledgeDetail(el.dataset.no));
+  });
+  // re-attach the currently-open detail card (if it survived this filter) into its slot —
+  // the node itself always lives in #pledgeDetails at this point (showPledgeDetail parks it
+  // there before triggering a re-render), so it's safe from the innerHTML reset above.
+  if (openPledgeNo) {
+    const slot = document.querySelector(`.pledge-detail-slot[data-slot-no="${CSS.escape(openPledgeNo)}"]`);
+    const detail = document.getElementById('pd-' + openPledgeNo);
+    if (slot && detail) {
+      slot.appendChild(detail);
+      detail.classList.add('open');
+    } else {
+      openPledgeNo = null;
+    }
+  }
+}
+
+let openPledgeNo = null;
+function showPledgeDetail(no) {
+  no = String(no);
+  const pledgeDetailsHome = document.getElementById('pledgeDetails');
+  document.querySelectorAll('.pledge-detail.open').forEach(d => {
+    d.classList.remove('open');
+    pledgeDetailsHome.appendChild(d); // park back in the safe home before any re-render
+  });
+  openPledgeNo = (openPledgeNo === no) ? null : no;
+  renderPledgeTable();
+  if (openPledgeNo) {
+    const target = document.getElementById('pd-' + openPledgeNo);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function renderPledgeTracker() {
+  renderPledgeStageFilters();
+  renderPledgeFilterPanel();
+  renderPledgeTable();
+}
+document.getElementById('pledgeHideClosedToggle')?.addEventListener('click', () => {
+  pledgeFilter.hideClosed = !pledgeFilter.hideClosed;
+  renderPledgeTracker();
+});
+document.querySelectorAll('.pledge-kpi-grid .kpi[data-kpi-action]').forEach(el => {
+  el.addEventListener('click', () => {
+    const action = el.dataset.kpiAction;
+    if (action === 'goto-anchors') {
+      switchView('anchors');
+      return;
+    }
+    if (action === 'filter-grade') {
+      pledgeFilter.grade = el.dataset.kpiValue || '';
+      pledgeFilter.verifiedOnly = false;
+      if (!pledgeFilter.grade) pledgeFilter.hideClosed = false; // "전체" tile means literally everything
+    } else if (action === 'filter-has-source') {
+      pledgeFilter.grade = '';
+      pledgeFilter.verifiedOnly = true;
+    }
+    renderPledgeTracker();
+    document.getElementById('pledgeFilterPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+/* ---------- 선제 진입 기회: KPI 클릭 시 카드 필터링 (실제 DB 필드 기반) ---------- */
+let oppFilterKey = null;
+const OPP_FILTER_PREDICATE = {
+  opp_ready: el => el.dataset.grade === 'grade1',
+  opp_pre_concrete: el => el.dataset.stageUndecided === '1',
+  opp_exec_undecided: el => el.dataset.executorUndecided === '1',
+  opp_anchor: el => el.dataset.anchor === '1',
+  opp_budget_undecided: el => el.dataset.budgetUndecided === '1',
+  opp_filing_soon: el => el.dataset.filingSoon === '1',
+};
+function renderOpportunityFilter() {
+  const cards = document.querySelectorAll('#oppCardGrid .opp-card, #oppTimeline .opp-card');
+  const mainCards = document.querySelectorAll('#oppCardGrid .opp-card');
+  let visible = 0;
+  cards.forEach(card => {
+    const pred = OPP_FILTER_PREDICATE[oppFilterKey];
+    const show = !oppFilterKey || (pred && pred(card));
+    card.classList.toggle('opp-hidden', !show);
+  });
+  mainCards.forEach(card => { if (!card.classList.contains('opp-hidden')) visible++; });
+  const countEl = document.getElementById('oppCount');
+  if (countEl) countEl.textContent = oppFilterKey ? `필터 적용됨 · ${visible}건 표시 · 다시 눌러 해제` : `대표 ${Math.min(mainCards.length, document.querySelectorAll('#oppCardGrid .opp-card:not(.opp-extra)').length)}건 표시 중 · 전체 ${mainCards.length}건`;
+  document.querySelectorAll('#oppKpiGrid .kpi[data-opp-filter]').forEach(k => k.classList.toggle('active-filter', k.dataset.oppFilter === oppFilterKey));
+  // KPI 필터가 걸리면 "대표 항목만" 접어둔 상태로는 결과가 다 안 보일 수 있으니 자동으로 펼침
+  const grid = document.getElementById('oppCardGrid');
+  const showAllBtn = document.getElementById('oppShowAllBtn');
+  if (oppFilterKey && grid) {
+    grid.classList.add('show-all');
+    if (showAllBtn) showAllBtn.classList.add('is-expanded');
+  }
+}
+document.querySelectorAll('#oppKpiGrid .kpi[data-opp-filter]').forEach(el => {
+  el.addEventListener('click', () => {
+    const key = el.dataset.oppFilter;
+    oppFilterKey = (oppFilterKey === key) ? null : key;
+    renderOpportunityFilter();
+    document.getElementById('oppCardGrid')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+document.getElementById('oppShowAllBtn')?.addEventListener('click', function () {
+  document.getElementById('oppCardGrid')?.classList.add('show-all');
+  this.classList.add('is-expanded');
+});
+renderOpportunityFilter();
+
+/* korea map interactivity */
+document.querySelectorAll('.map-tile, .map-pin').forEach(el => {
+  const activate = () => {
+    pledgeFilter.region = el.dataset.region;
+    switchView('pledges');
+    renderPledgeTracker();
+    document.getElementById('pledgeFilterPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  el.addEventListener('click', activate);
+  el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+});
+
+/* A4 reference search (client-side text filter, no data re-render needed) */
+const a4SearchInput = document.getElementById('a4Search');
+if (a4SearchInput) {
+  a4SearchInput.addEventListener('input', (e) => {
+    const q = e.target.value.trim().toLowerCase();
+    document.querySelectorAll('.a4-row').forEach(row => {
+      const hay = (row.dataset.search || '').toLowerCase();
+      row.classList.toggle('hidden-by-search', q.length > 0 && !hay.includes(q));
+    });
+  });
+}
+
+/* live-doc edit: append a new log entry as a real DOM mutation inside the artifact-sync region */
+function addLogEntry(btn) {
+  const form = btn.closest('.log-add-form');
+  const dateInput = form.querySelector('.le-date-input');
+  const textInput = form.querySelector('.le-text-input');
+  const urlInput = form.querySelector('.le-url-input');
+  const text = textInput.value.trim();
+  if (!text) { textInput.focus(); return; }
+  const panel = form.closest('.pd-panel');
+  const list = panel.querySelector('.log-list');
+
+  const li = document.createElement('li');
+  li.className = 'log-entry';
+  const textDiv = document.createElement('div');
+  textDiv.className = 'le-text';
+  textDiv.textContent = (dateInput.value.trim() ? `[${dateInput.value.trim()}] ` : '') + text;
+  li.appendChild(textDiv);
+  if (urlInput.value.trim()) {
+    const urlDiv = document.createElement('div');
+    urlDiv.className = 'le-url';
+    const a = document.createElement('a');
+    a.href = urlInput.value.trim();
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = '근거 링크 ↗';
+    urlDiv.appendChild(a);
+    li.appendChild(urlDiv);
+  }
+  list.appendChild(li);
+
+  dateInput.value = ''; textInput.value = ''; urlInput.value = '';
+}
+
+/* read-only viewers: hide add-forms once the platform reports sync is off for a region */
+document.addEventListener('claude:sync-off', (e) => {
+  const region = e.target;
+  const form = region && region.parentElement ? region.parentElement.querySelector('.log-add-form') : null;
+  if (form) form.style.display = 'none';
+});
+
+/* ---------- cross-tab navigation helpers ---------- */
+function jumpToPledge(no) {
+  switchView('pledges');
+  showPledgeDetail(String(no));
+}
+function jumpToAnchor(name) {
+  switchView('anchors');
+  const card = Array.from(document.querySelectorAll('.anchor-card')).find(c => c.dataset.name === name);
+  if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+document.querySelectorAll('[data-jump-no]').forEach(el => {
+  el.addEventListener('click', () => jumpToPledge(el.dataset.jumpNo));
+});
+document.querySelectorAll('.anchor-chip[data-anchor-name]').forEach(el => {
+  el.addEventListener('click', () => jumpToAnchor(el.dataset.anchorName));
+});
+
+/* ---------- recommended action cards (navigation only, never generative) ---------- */
+document.querySelectorAll('.pd-action').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const action = btn.dataset.action;
+    if (action === 'anchor' && btn.dataset.anchor) jumpToAnchor(btn.dataset.anchor);
+    else if (action === 'evidence' && btn.dataset.url) window.open(btn.dataset.url, '_blank', 'noopener');
+    else if (action === 'similar') {
+      switchView('pledges');
+      pledgeFilter = { ...PLEDGE_FILTER_DEFAULT, bizType: btn.dataset.biztype || '' };
+      renderPledgeTracker();
+      document.getElementById('pledgeFilterPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (action === 'log') {
+      const target = document.getElementById(btn.dataset.target);
+      if (target) target.querySelector('.log-list').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+});
+
+/* ---------- favorites (per-viewer local, not shared via artifact-sync) ---------- */
+let favorites = new Set();
+try { favorites = new Set(JSON.parse(localStorage.getItem('pledgeFavorites') || '[]')); } catch (e) {}
+function saveFavorites() { try { localStorage.setItem('pledgeFavorites', JSON.stringify(Array.from(favorites))); } catch (e) {} }
+function applyFavoriteStates() {
+  document.querySelectorAll('.pd-fav-btn').forEach(btn => {
+    const on = favorites.has(btn.dataset.favNo);
+    btn.classList.toggle('active', on);
+    btn.textContent = on ? '★ 즐겨찾기' : '☆';
+  });
+}
+document.querySelectorAll('.pd-fav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const no = btn.dataset.favNo;
+    if (favorites.has(no)) favorites.delete(no); else favorites.add(no);
+    saveFavorites();
+    applyFavoriteStates();
+  });
+});
+applyFavoriteStates();
+
+/* ---------- global omnibox search (pledges + company pool) ---------- */
+const omniBtn = document.getElementById('omniSearchBtn');
+const omniPanel = document.getElementById('omniPanel');
+const omniInput = document.getElementById('omniInput');
+const omniResults = document.getElementById('omniResults');
+
+function omniSearch(q) {
+  q = q.trim().toLowerCase();
+  if (!q) return [];
+  const out = [];
+  for (const p of PLEDGES) {
+    if (out.length >= 6) break;
+    if (String(p.name||'').toLowerCase().includes(q) || String(p.region||'').toLowerCase().includes(q)) {
+      out.push({ type: '사업', label: p.name, sub: p.region, action: () => jumpToPledge(p.no) });
+    }
+  }
+  for (const r of ROWS) {
+    if (out.length >= 10) break;
+    if (String(r[FI.n]||'').toLowerCase().includes(q)) {
+      out.push({ type: '기업', label: r[FI.n], sub: r[FI.region]||'', action: () => { switchView('explorer'); openDetail(r[FI.n]); } });
+    }
+  }
+  return out;
+}
+
+function renderOmniResults() {
+  const results = omniSearch(omniInput.value);
+  omniResults.innerHTML = results.length ? results.map((r, i) => `
+    <button type="button" class="omni-result" data-idx="${i}">
+      <span class="or-type">${r.type}</span>
+      <span class="or-label">${r.label||''}</span>
+      <span class="or-sub">${r.sub||''}</span>
+    </button>`).join('') : (omniInput.value.trim() ? '<div class="omni-empty">결과 없음</div>' : '');
+  omniResults.querySelectorAll('.omni-result').forEach((el, i) => {
+    el.addEventListener('click', () => { results[i].action(); closeOmni(); });
+  });
+}
+function openOmni() { omniPanel.classList.add('open'); omniInput.focus(); }
+function closeOmni() { omniPanel.classList.remove('open'); omniInput.value = ''; omniResults.innerHTML = ''; }
+omniBtn.addEventListener('click', () => { omniPanel.classList.contains('open') ? closeOmni() : openOmni(); });
+omniInput.addEventListener('input', renderOmniResults);
+document.addEventListener('click', (e) => { if (omniPanel.classList.contains('open') && !omniPanel.contains(e.target) && e.target !== omniBtn) closeOmni(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeOmni(); });
+
+/* ---------- anchor tab search ---------- */
+const anchorSearchInput = document.getElementById('anchorSearch');
+if (anchorSearchInput) {
+  anchorSearchInput.addEventListener('input', (e) => {
+    const q = e.target.value.trim().toLowerCase();
+    document.querySelectorAll('.anchor-card').forEach(card => {
+      const match = !q || card.dataset.name.toLowerCase().includes(q);
+      card.style.display = match ? '' : 'none';
+    });
+  });
+}
+
+renderKpis();
+renderRegionCards();
+renderIndustryCards();
+renderExplorer();
+renderPledgeTracker();
+</script>

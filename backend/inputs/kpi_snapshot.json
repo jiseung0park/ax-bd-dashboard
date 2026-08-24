@@ -1,0 +1,885 @@
+{
+ "counts": {
+  "grade1": 55,
+  "grade2": 29,
+  "grade3": 25,
+  "total": 109,
+  "anchors": 12,
+  "verified": 19,
+  "has_source": 99
+ },
+ "projects": {
+  "1": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "UN AI 허브 유치"
+  },
+  "2": {
+   "executor": "충남테크노파크",
+   "budget_text": "1조원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 수도 충남 조성"
+  },
+  "3": {
+   "executor": "충남테크노파크",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "중소기업 AI 전환 지원"
+  },
+  "4": {
+   "executor": "충남테크노파크",
+   "budget_text": "298억원",
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": "삼성그룹",
+   "name": "제조현장 AX 확산"
+  },
+  "5": {
+   "executor": "미정",
+   "budget_text": "228억원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 오픈랩 구축"
+  },
+  "6": {
+   "executor": "충남대, 네이버클라우드",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "GPU·NPU 클라우드 인프라 구축"
+  },
+  "7": {
+   "executor": "충남대(충남RISE 컨소시엄)",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "현장형 AX 인재양성"
+  },
+  "8": {
+   "executor": "미정",
+   "budget_text": "45억원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 기반 의료·돌봄 서비스"
+  },
+  "9": {
+   "executor": "충남농업기술원",
+   "budget_text": "274억원",
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "AI 농어업 혁신"
+  },
+  "10": {
+   "executor": "미래산업혁신연구단",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "삼성그룹",
+   "name": "ABC+EF 전략 추진"
+  },
+  "12": {
+   "executor": "인천테크노파크",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "자율주행•피지컬 AI 사이언스파크 조성"
+  },
+  "13": {
+   "executor": "미정\n(피지컬 AI항만의 경우: 인천대 등)",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "한진(대한항공)",
+   "name": "물류 AI 중심 도시도약"
+  },
+  "14": {
+   "executor": "인천테크노파크",
+   "budget_text": "1조원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 커넥티드카 산업 집중 육성"
+  },
+  "16": {
+   "executor": "인천테크노파크",
+   "budget_text": null,
+   "filing_status": "공고중",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "AI 인재양성 및 스타트업 혁신 생태계 조성 "
+  },
+  "17": {
+   "executor": "원주의료기기산업진흥원",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "강원 의료 AX 산업 실증허브\n(18,19,23와 통합됨.8월 7일 확인)"
+  },
+  "18": {
+   "executor": "원주의료기기산업진흥원",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "AI 기반 암 치료 실증체계 구축"
+  },
+  "19": {
+   "executor": "원주의료기기산업진흥원",
+   "budget_text": "450억원",
+   "filing_status": "공고중",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "의료 AX 데이터 실증환경 구축"
+  },
+  "20": {
+   "executor": "강원테크노파크",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "AI 헬스케어 기업육성"
+  },
+  "21": {
+   "executor": "미정",
+   "budget_text": "350억원",
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "디지털헬스케어 AI 융합혁신 교육허브"
+  },
+  "22": {
+   "executor": "KT, GS 등",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "AI 데이터센터 유치"
+  },
+  "23": {
+   "executor": "원주의료기기산업진흥원, 강원테크노파크",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "바이오의료 AX 산업 육성"
+  },
+  "24": {
+   "executor": "충북과학기술혁신원(CBIST)",
+   "budget_text": "60억원",
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": "LG",
+   "name": "충북형 AI 대전환 융합벨트 구축"
+  },
+  "25": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "글로벌 AI 허브 유치"
+  },
+  "26": {
+   "executor": "충북과학기술혁신원(CBIST), SK하이닉스, 충북교육청,충북도청소년종합진흥원, 충북사회복지공동모금회",
+   "budget_text": "1억원",
+   "filing_status": "공고전",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "AI 선제돌봄 서비스"
+  },
+  "27": {
+   "executor": "충북과학기술혁신원(CBIST), 정보통신산업진흥원 (NIPA)",
+   "budget_text": "76억원",
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "AI 도정 모니터링 체계 구축"
+  },
+  "28": {
+   "executor": "충북테크노파크",
+   "budget_text": null,
+   "filing_status": "공고중",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": "SK",
+   "name": "반도체·바이오 산업 AI 융합"
+  },
+  "29": {
+   "executor": "충북창조경제혁신센터",
+   "budget_text": "2조7,000억원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 창업생태계 조성"
+  },
+  "30": {
+   "executor": "포스텍, 한동대학교, 한국로봇융합연구원(KIRO) 등",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "아시아·태평양 AI 수도 조성"
+  },
+  "31": {
+   "executor": "구미국가산업단지",
+   "budget_text": "481억원",
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": "SK",
+   "name": "AI·반도체 산업벨트 구축"
+  },
+  "32": {
+   "executor": "미정",
+   "budget_text": "20.9억원",
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": "포스코",
+   "name": "AI 기반 배터리 산업 고도화"
+  },
+  "33": {
+   "executor": "미정",
+   "budget_text": "720억원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "바이오메디컬 AI 벨트 구축"
+  },
+  "34": {
+   "executor": "경북농업기술원",
+   "budget_text": "20억원",
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "AI 스마트농업 확산"
+  },
+  "35": {
+   "executor": "포항테크노파크, 한국로봇융합연구원(KIRO), 한국로봇산업진흥원(KIRIA) + 대구시, 대구디지털혁신진흥원(DIP)",
+   "budget_text": "100억원",
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "AI 기반 국방·방산 산업 육성"
+  },
+  "36": {
+   "executor": "전북에이아이데이터센터",
+   "budget_text": "3007억원",
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": "OCI",
+   "name": "재생에너지 기반 AI 데이터센터 구축"
+  },
+  "37": {
+   "executor": "정보통신산업진흥원\n재난로봇: 전북테크노파크, 한국로봇융합연구원",
+   "budget_text": "1조원",
+   "filing_status": "공고중",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": "현대자동차",
+   "name": "피지컬 AI 실증·테스트베드 구축(글로벌 피지컬ai 딥테크 허브 구축, 산업특화 ai 데이터 실증 허브 구축)"
+  },
+  "38": {
+   "executor": "한국산업기술기획평가원",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": " 농업 피지컬 AI (농업기계 AX)"
+  },
+  "39": {
+   "executor": "전북바이오융합산업진흥원",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "식품바이오 AI 산업 육성"
+  },
+  "40": {
+   "executor": "전북중기청",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "두산",
+   "name": "전북형 중소기업 체감형 ax 체계 구축 "
+  },
+  "41": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "SK",
+   "name": "AI 허브 세종 조성"
+  },
+  "42": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 전자정부 구축"
+  },
+  "43": {
+   "executor": "세종시설공단",
+   "budget_text": "1.7억원",
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "AI 기반 행정도시 전환"
+  },
+  "44": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 특별위원회 설치"
+  },
+  "45": {
+   "executor": "세종테크노파크",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "삼성그룹",
+   "name": "AI·로봇 산업 육성"
+  },
+  "46": {
+   "executor": "세종창조경제혁신센터",
+   "budget_text": null,
+   "filing_status": "공고중",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "Gov-Tech 창업생태계 조성"
+  },
+  "47": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "케이티",
+   "name": "디지털 상권 혁신"
+  },
+  "48": {
+   "executor": "국책사업 기획 용역사: 전략컨설팅집현",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "제주 그린 AI 데이터센터 구축 (100대 과제中1)"
+  },
+  "49": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 기반 스마트물류 거점 구축"
+  },
+  "50": {
+   "executor": "국책사업 기획 용역사: 7월 전략컨설팅집현으로 선정",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "AX 대전환 (7대 전략과제 中 하나)\n(& 동시에국책사업임 (국책사업은 데이터 센터, 제주 특화 산업에 ai 접목, 전문인력 양성 포함)"
+  },
+  "51": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 행정혁신"
+  },
+  "52": {
+   "executor": "미정",
+   "budget_text": "3.8조원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "7대 과제: AI 고등교육"
+  },
+  "53": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 실증산업 육성-> 삭제 "
+  },
+  "54": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "도민혁신펀드 기반 AI 기업육성"
+  },
+  "55": {
+   "executor": "조타코(부산 스타트업), 울산항만공사,여수광양항만공사,HD현대상호",
+   "budget_text": "950억원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "산업 AX 실증기반 구축"
+  },
+  "56": {
+   "executor": "울산정보산업진흥원(UIPA), HD현대중공업, SK에너지,네이버클라우드,SKT",
+   "budget_text": null,
+   "filing_status": "공고중",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": "현대자동차",
+   "name": "제조업 AI 대전환"
+  },
+  "57": {
+   "executor": "울산테크노파크",
+   "budget_text": "140억원",
+   "filing_status": "공고중",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": "HD현대 (현대중공업)",
+   "name": "중소기업 AX 전환 지원"
+  },
+  "58": {
+   "executor": "UNIST, 울산대학교 등",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "SK",
+   "name": "산업 AX 인재양성"
+  },
+  "59": {
+   "executor": "현대자동차HD현대중공업, SK에너지, 네이버클라우드, SKT)",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 산업거점 조성"
+  },
+  "60": {
+   "executor": "경남테크노파크",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "두산",
+   "name": "경남 제조 AI 전환(G-M.AX)"
+  },
+  "61": {
+   "executor": "경남테크노파크, 두산에너빌리티, 현대위아",
+   "budget_text": "21조1,64억원",
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": "한국항공우주산업(KAI)",
+   "name": "제조AI 혁신밸리 조성"
+  },
+  "62": {
+   "executor": "경남테크노파크",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "제조AI 특화 스마트공장 구축"
+  },
+  "63": {
+   "executor": "경남테크노파크",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": "LG",
+   "name": "AI 솔루션 개발·실증 지원"
+  },
+  "64": {
+   "executor": "경남테크노파크",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": "한화",
+   "name": "피지컬 AI·첨단제조로봇 육성"
+  },
+  "65": {
+   "executor": "경남테크노파크, 인제대",
+   "budget_text": "1200억원",
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "제조 AI 전문인력 양성"
+  },
+  "66": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 통합민원 플랫폼 구축"
+  },
+  "67": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "도지사 직속 AI 수석 신설"
+  },
+  "68": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 기반 응급의료체계 구축"
+  },
+  "69": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 생활서비스 확대"
+  },
+  "70": {
+   "executor": "경기테크노파크",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "SK",
+   "name": "K-반도체 클러스터 생태계 완성"
+  },
+  "71": {
+   "executor": "버넥트 컨소시엄 (피지컬 AI확산센터 구축 및 운영)",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": "삼성그룹",
+   "name": "스마트제조 AX 확산\n(->산업단지 피지컬 AI 확산)"
+  },
+  "72": {
+   "executor": "미정",
+   "budget_text": "350억원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "초대형 GPU 데이터센터 구축"
+  },
+  "73": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 전략기구 신설"
+  },
+  "74": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 융합 국가실증단지 구축"
+  },
+  "75": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "케이티",
+   "name": "글로벌 AI 융합도시 조성"
+  },
+  "76": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "한화",
+   "name": "방산 AI·반도체 클러스터 조성"
+  },
+  "77": {
+   "executor": "대전테크노파크, ㈜바이오니아, 한국과학기술원(KAIST)",
+   "budget_text": "35억원",
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "의료·바이오 AI 혁신클러스터 구축"
+  },
+  "78": {
+   "executor": "대전창조경제혁신센터",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "AI 스타트업/딥테크 성장지원"
+  },
+  "79": {
+   "executor": "한국로봇산업진흥원",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": "HD현대 (현대중공업)",
+   "name": "국가로봇테스트필드 구축"
+  },
+  "80": {
+   "executor": "한국로봇산업진흥원(총괄), 고등기술연구원, 대구기계부품연구원, 계명대학교, 지능형자동차부품진흥원",
+   "budget_text": "186.5억원",
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": "HD현대 (현대중공업)",
+   "name": "국가로봇테스트필드 내 휴머노이드 로봇 안전인증센터 구축"
+  },
+  "82": {
+   "executor": "대구기계부품연구원",
+   "budget_text": "150억원",
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "제조AI 데이터 밸류체인 구축"
+  },
+  "83": {
+   "executor": "미정",
+   "budget_text": "2조원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AX 촉진펀드 조성"
+  },
+  "84": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "HD현대 (현대중공업)",
+   "name": "HD현대로보틱스 R&D 캠퍼스 유치"
+  },
+  "85": {
+   "executor": "부산정보산업진흥원, 부산항만공사",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "K-해양 AI 벨트 조성"
+  },
+  "86": {
+   "executor": "부산항만공사",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 항만물류 체계 구축"
+  },
+  "87": {
+   "executor": "부산정보산업진흥원, 부산대, 네이버클라우드",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "제조업 AX 플랫폼 구축"
+  },
+  "88": {
+   "executor": "부산정보산업진흥원",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "제조기업 AI 전환 지원"
+  },
+  "89": {
+   "executor": "부산정보산업진흥원, LG CNS",
+   "budget_text": "80억원",
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "부산 AI 실증지원센터 확대"
+  },
+  "90": {
+   "executor": "부산정보산업진흥원",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 산업생태계 육성"
+  },
+  "91": {
+   "executor": "부산정보산업진흥원",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "게임산업 AX 전환"
+  },
+  "92": {
+   "executor": "서울시 서울런 사업단",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "서울런 AI 고도화"
+  },
+  "93": {
+   "executor": "서울특별시",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "LG",
+   "name": "AI 기반 신속통합기획"
+  },
+  "94": {
+   "executor": "서울AI재단",
+   "budget_text": "200억원",
+   "filing_status": "공고중",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": "삼성그룹",
+   "name": "AI 도시행정 혁신"
+  },
+  "95": {
+   "executor": "서울경제진흥원(SBA)",
+   "budget_text": "4조원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "넥스트 이코노미 서울"
+  },
+  "96": {
+   "executor": "서울경제진흥원(SBA), 서울AI허브",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "AI 창업생태계 확대"
+  },
+  "97": {
+   "executor": "서울경제진흥원(SBA), 서울AI허브",
+   "budget_text": "425억원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "케이티",
+   "name": "첨단•창조산업 클러스터 (AI, 바이오, 콘텐츠, 뿌리산업 융합 도시)"
+  },
+  "98": {
+   "executor": "인공지능산업융합단",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": "현대자동차",
+   "name": "국가 AI 집적단지 2단계"
+  },
+  "99": {
+   "executor": "AICA, 심성SDS, 네이버클라우드, 삼성물산, 카카오, 삼성전자, 클러쉬, KT 등",
+   "budget_text": null,
+   "filing_status": "공고마감",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "국가 AI 데이터센터 고도화"
+  },
+  "100": {
+   "executor": "AICA",
+   "budget_text": "1153억원",
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 실증밸리 조성"
+  },
+  "101": {
+   "executor": "AICA",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": "LG",
+   "name": "AI 융합산업 육성"
+  },
+  "102": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AI 영재고 설립"
+  },
+  "103": {
+   "executor": null,
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "도민체감형 기후 AX(기후테크)"
+  },
+  "104": {
+   "executor": null,
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "(가칭) 경기도 농축산 AX 플랫폼 조성"
+  },
+  "900": {
+   "executor": "미정",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "인천형 물류 AI 통합 운영시스템 구축"
+  },
+  "901": {
+   "executor": "인천항만공사, 인천국제공항공사  \n지역대학, 연구원, 기업 등 (미정)",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "AX 가속화를 위한 물류AI 융합원 구축"
+  },
+  "902": {
+   "executor": "인천항만공사\n민간투자자 (미정)",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "글로벌 AI 오토밸리 조성"
+  },
+  "903": {
+   "executor": "인천테크노파크, 인천도시공사",
+   "budget_text": null,
+   "filing_status": "공고전",
+   "entry_grade": "1순위: 선제 제안 대상",
+   "anchor": null,
+   "name": "인천 로봇랜드에 피지컬AI 거점 육성"
+  },
+  "904": {
+   "executor": "대구디지털혁신진흥원, 포항테크노파크, 한국로봇산업진흥원, 한국로봇융합연구원",
+   "budget_text": null,
+   "filing_status": "공고중",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "로봇 • AI • 반도체 클러스터 조성 및 대기업 유치"
+  },
+  "905": {
+   "executor": "대구테크노파크",
+   "budget_text": "8억원",
+   "filing_status": "공고중",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "수성알파시티의 글로벌 AI • 로봇 하브 성장 방안"
+  },
+  "906": {
+   "executor": "한국산업기술시험원",
+   "budget_text": null,
+   "filing_status": "공고중",
+   "entry_grade": "2순위: 공식 입찰 대상",
+   "anchor": null,
+   "name": "AI의료기기 및 휴머노이드 로봇 관련 대기업 투자 유치"
+  },
+  "907": {
+   "executor": "한국섬유개발연구원(대구), 한국섬유소재연구원(경기)",
+   "budget_text": "100억원",
+   "filing_status": "공고중",
+   "entry_grade": "3순위: 경쟁열위",
+   "anchor": null,
+   "name": "AI를 활용한 섬유산업 활성화"
+  }
+ }
+}

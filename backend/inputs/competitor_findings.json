@@ -1,0 +1,928 @@
+{
+ "1": {
+  "no": 1,
+  "name": "UN AI 허브 유치",
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "충남 관련 공식 공고·수요조사·용역 근거 미확인. UN AI 허브 유치 논의는 서울(용산특구화) 등 타 지자체 위주로 확인됨",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "7": {
+  "no": 7,
+  "name": "현장형 AX 인재양성",
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "충남대-충남대병원 헬스케어 인재양성 MOU 체결(8/18), 직업계고 실무교육과정 개발 등 사전 협력 단계로 정식 사업공고 미확인",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "14": {
+  "no": 14,
+  "name": "AI 커넥티드카 산업 집중 육성",
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "박찬대 시장 주재 TF 점검회의 개최, 1조원 규모 국비사업 유치전 착수 단계로 공식 공고 전",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "21": {
+  "no": 21,
+  "name": "디지털헬스케어 AI 융합혁신 교육허브",
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "원주미래산업진흥재단(사업운영), NVIDIA(참여)",
+  "evidence_summary": "'디지털헬스케어 AI 융합혁신 허브 조성사업' 이미 선정되어 본격 추진 중 (원주, 5년간 350억원, 과기정통부·KIAT 관리감독, 원주미래산업진흥재단 운영, NVIDIA 인증센터 참여)",
+  "evidence_url": "https://m.kwnews.co.kr/page/view/2026031709573325415",
+  "is_yeta": "해당없음"
+ },
+ "27": {
+  "no": 27,
+  "name": "AI 도정 모니터링 체계 구축",
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "'온디바이스 AI 서비스 실증·확산 사업' 참여기업 모집 이미 완료 (총사업비 76억원, 국비57억+지방비19억)",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "33": {
+  "no": 33,
+  "name": "바이오메디컬 AI 벨트 구축",
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "'AI 역노화 산업 거점 조성' 정책방향 연구용역 최종보고회 개최, 총사업비 1,300억원(국비720억) 로드맵 확정, 대형 국책사업화 위해 예비타당성 심사 대비 사전타당성 연구용역 예산 확보에 집중 중",
+  "evidence_url": null,
+  "is_yeta": "예타대상"
+ },
+ "39": {
+  "no": 39,
+  "name": "식품바이오 AI 산업 육성",
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "한풍제약(총괄주관), 전북바이오융합산업진흥원",
+  "evidence_summary": "'AI 기술 기반 글로벌 케어푸드 전략소재 개발 및 사업화' 과제, 한풍제약이 총괄주관기관으로 이미 선정되어 사업화 진행 중으로 추정",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "45": {
+  "no": 45,
+  "name": "AI·로봇 산업 육성",
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "세종TP-한국인공지능협회 MOU 체결(방향성만 제시), 레인보우로보틱스 본사이전 계기로 클러스터 조성 계획 발표 단계, 정식 사업공고 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "51": {
+  "no": 51,
+  "name": "AI 행정혁신",
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "정책비서 앱·복지톡·제주위키 등 기존 서비스는 이미 운영 중이며 하반기 AI행정서비스 시범 시작 예정. 공약실천계획 발표 후 재확인 필요",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "57": {
+  "no": 57,
+  "name": "중소기업 AX 전환 지원",
+  "filing_status": "공고중",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "'AI-on Ulsan' 사업단 출범(26.08.07), 국비140억 포함 총 240.6억원 투입, 기업진단·컨설팅 150개사 등 지원목표 확정. 세부 참여기업·컨설팅사 모집공고가 진행 중일 것으로 추정되나 구체 공고문은 미확인",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "63": {
+  "no": 63,
+  "name": "AI 솔루션 개발·실증 지원",
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "'AI 솔루션 개발·실증지원 사업' 공고 이미 마감(26.03.25), 'LAM 개발·글로벌실증' 공모 발표(26.06.26), 'AI 팩토리 구축'은 향후 단계적 추진 예정 단계",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "69": {
+  "no": 69,
+  "name": "AI 생활서비스 확대",
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "경기준비위 120대 도정과제에 'AI기반 장애인 콜택시 통합시스템' 신규 포함(공고전). 노인말벗·이주민포털·경기똑D 등은 이미 운영 중",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "75": {
+  "no": 75,
+  "name": "글로벌 AI 융합도시 조성",
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "대전교육정보원 'AI교육지원센터' 구축 착수(총사업비 24.7억, 교육부 특교금+시교육청 대응투자)는 별개 사업이며, '글로벌 AI 융합도시' 자체의 공식 공고는 미확인",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "82": {
+  "no": 82,
+  "name": "제조AI 데이터 밸류체인 구축",
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "대구기계부품연구원",
+  "evidence_summary": "산업통상부 공모사업 선정, 국비150억 등 총사업비225억, 7/9 킥오프 회의 개최하고 대구기계부품연구원 주관으로 이미 착수",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "88": {
+  "no": 88,
+  "name": "제조기업 AI 전환 지원",
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "'2026년 1차 제조업 AI융합 기반 조성 사업 AX클리닉' 지원기업 모집공고(26.06.12) 이미 마감",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "94": {
+  "no": 94,
+  "name": "AI 도시행정 혁신",
+  "filing_status": "공고중",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "서울시 AI 예측행정 본격화 보도(7/31), 약 200억원 규모 '2026년 정보자원 통합구축 사업'(서버·스토리지 등 IT인프라) 사업자 선정 완료(8/5, 낙찰업체명 미확인), '인공지능 및 데이터 기반 행정 활성화법' 8/28 시행 예정으로 관련 후속 컨설팅 수요 발생 가능",
+  "evidence_url": "https://www.newspim.com/news/view/20260805000338",
+  "is_yeta": "해당없음"
+ },
+ "100": {
+  "no": 100,
+  "name": "AI 실증밸리 조성",
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "광주 AI 2단계(AX실증밸리) 사업 예타 면제 확정, 5년간 6000억원 투입 계획, 2026년 국비 1153억원 요구 중이며 세부 사업자 공고는 아직 전 단계",
+  "evidence_url": "https://www.investkorea.org/gj-kr/bbs/i-1080/detail.do?ntt_sn=491682",
+  "is_yeta": "해당없음"
+ },
+ "2": {
+  "no": 2,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "5극 충남권 AX 대전환 기획사업 수요조사·사전기획 단계, AX혁신위 발족, 2028년 본사업 추진목표",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "8": {
+  "no": 8,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "충남도 45억원 규모 AI기반 고위험환자 지역완결형 의료전달체계 구축(2030목표) 및 AI 어르신 돌봄 통합지원체계 공약, 아직 기획단계로 공고 없음",
+  "evidence_url": "https://www.medicaldaily.co.kr/post/20937",
+  "is_yeta": "해당없음"
+ },
+ "16": {
+  "no": 16,
+  "filing_status": "공고중",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "인천테크노파크 AI혁신센터 2026년 AI 전문인력 양성사업 교육생 모집중(2026.3.25~11.30, 8/19 기준 진행중)",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "22": {
+  "no": 22,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "GS(동해), 삼성SDS(춘천), KT(원주), 메가데이터코리아(원주)",
+  "evidence_summary": "민간 데이터센터 사업자 이미 선정, 원주 메가데이터코리아 토목공사 진행중(11월 건축공사 착수, 2028.9 준공목표)",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "28": {
+  "no": 28,
+  "filing_status": "공고중",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "충북TP '지능형첨단부품산업 디지털전환 거점구축-데이터 수집기반구축 지원사업' 수혜기업 모집중(~8/26, 8/19 기준 진행중). 단, 8/12·8/14 마감 건은 이미 마감됨",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "34": {
+  "no": 34,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "㈜유비엔 외(성주참외과채류연구소, 칠곡군농업기술센터 등 컨소시엄)",
+  "evidence_summary": "농림축산식품부 'AI응용제품 신속상용화 지원사업' 최종 선정(20억원, 1년 추진), 스마트APC 사업도 2023년부터 26개소 대상 진행중",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "40": {
+  "no": 40,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "7/2 전북중기청 AX세미나 개최(당선 이전부터 진행되던 협의회 활동 연장선), 공식 공고 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "46": {
+  "no": 46,
+  "filing_status": "공고중",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "세종창조경제혁신센터 '스타트업 원스톱지원센터 아카데미' 2차 참가기업 모집중(~8/24, 8/19 기준 진행중)",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "52": {
+  "no": 52,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "4대 과기원(KAIST 등) 제주 연합캠퍼스 설립 추진, 2030년 제주과학기술원(JIST) 전환 목표. 사전 추진단계로 공식 공고 미확인. 제주 AI·에너지 3.8조원 투자계획 별도 보도됨",
+  "evidence_url": "https://www.khan.co.kr/article/202603311526001/",
+  "is_yeta": "불명"
+ },
+ "58": {
+  "no": 58,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "울산 산업AX 중장기 로드맵상 'AI 인재양성벨트'·'울산형 이노코어 연구단' 신설 검토 단계, 공식 공고 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "64": {
+  "no": 64,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "2026년 첨단제조로봇 실증사업 2차공모 16개 실증과제 선정 완료(창원·진주·김해·함안 4개사, 26.08.02). 선정 대상은 실증기업이며 컨설팅 경쟁사 정보는 없음",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "70": {
+  "no": 70,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "경기미래투자공사 설립추진 TF 구성(26.7.6), 설립타당성검토·중앙정부협의 진행중, 2027년 여름 출범목표. 아직 외부 용역/공고 확인 안됨",
+  "evidence_url": "https://www.newspim.com/news/view/20260706001138",
+  "is_yeta": "불명"
+ },
+ "76": {
+  "no": 76,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "대전시 국방산업 육성계획(2026~2030) 수립 완료 단계, 국방혁신클러스터 등 세부사업 공고는 미확인",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "83": {
+  "no": 83,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "선거공약(2조원 규모 AX 촉진펀드) 이후 업데이트 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "89": {
+  "no": 89,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "LG CNS",
+  "evidence_summary": "해양진흥공사-LG CNS, 희망 선사 대상 AI수준진단·컨설팅 착수(26.7.23). 센텀시티 스마트도시 특화단지(168억, 2026~2028)는 별도로 계획단계",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "95": {
+  "no": 95,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "4조원 규모 '넥스트이코노미 서울펀드' 조성·운용 기본계획 마련 후 행안부 중앙투자심사 의뢰(7.20), 필요성·타당성 검증 단계",
+  "evidence_url": null,
+  "is_yeta": "예타진행중"
+ },
+ "101": {
+  "no": 101,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "그린바이오 생산단지 조성 5개년 기본계획 수립 목표, 154개사 수요조사 완료 단계(국가AI컴퓨팅센터는 별도 사안으로 이미 착공)",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "3": {
+  "no": 3,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "충남테크노파크 '지역주도형 AI대전환 기업지원' 모집공고가 8/18 마감 (오늘 8/19 기준 마감 처리, 결과발표/사업 진행 단계로 전환 추정)",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "9": {
+  "no": 9,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "민선8기부터 이어온 253만평 스마트팜 조성사업의 연장선으로 이미 진행중인 사업(2027년 완료 목표), 신규 공고 단계 아님",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "17": {
+  "no": 17,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "혁신기업 공모가 6/19 마감됨(오늘 8/19 기준 이미 마감), 이후 18·19·23번과 통합되어 실증허브로 재편 중",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "23": {
+  "no": 23,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "관련 로그 없음. 8/7 기준 17번(강원 의료 AX 산업 실증허브)에 통합된 것으로 별도 기록됨 - 실질적으로 별도 추적 불필요할 수 있음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "29": {
+  "no": 29,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "K-바이오 스퀘어(오송) 선도사업, 총 2.7조원 규모의 대형 국책사업으로 아직 착공 전 기획단계. 충북 지자체가 예타 면제를 정부에 요청 중이나 아직 미확정 (2025.09 기준 면제 불발, 계속 요구 중)",
+  "evidence_url": "https://www.newsis.com/view/NISX20250902_0003312493",
+  "is_yeta": "예타대상"
+ },
+ "35": {
+  "no": 35,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "경북·대구가 과기부·KISA 주관 '2026년 지역거점 정보보호 클러스터 구축사업' 공모에 이미 최종 선정되어 5년간 200억원 사업 추진 확정",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "41": {
+  "no": 41,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "세종시 인수위(제5기 시정)가 8/14 정책방향 발표에서 공약으로 재확인한 수준, 아직 사전기획/방향설정 단계이며 집행기관도 미정",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "47": {
+  "no": 47,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "관련 뉴스/로그 없음, 세종시 공약 단계에서 추가 진전 확인되지 않음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "53": {
+  "no": 53,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "프로젝트명에 '삭제' 표기됨, 관련 정보 전무",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "59": {
+  "no": 59,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "울주군 선바위지구 산업AX 실증연구단지는 2026년 현재 기획안 마련 단계로, 2027년 착공/국비신청 목표. 아직 공식 공고 전이며 산·학·연·관 협의체 단계",
+  "evidence_url": "https://www.hankyung.com/article/2026070960841",
+  "is_yeta": "불명"
+ },
+ "65": {
+  "no": 65,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "인제대",
+  "evidence_summary": "과기부 신규 공모사업 'AI 중심대학'/'인공지능 혁신인재양성(AX 대학원)'에 인제대가 이미 선정됨(26.03.01), 6년 1200억원 사업 진행중",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "71": {
+  "no": 71,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "버넥트 컨소시엄",
+  "evidence_summary": "경기도가 민간사업자 버넥트 컨소시엄에 위탁 확정, 착수보고회까지 진행되어 시흥 피지컬AI 확산센터 구축 중 (7/21 협의체 구성 등 후속 진행)",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "77": {
+  "no": 77,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "㈜바이오니아, KAIST",
+  "evidence_summary": "산업부 'AI 자율제조 선도 프로젝트' 공모에 이미 선정되어 국비 35억원 확보, 2024~2027 사업 진행중 (수행기관 바이오니아·KAIST 확정)",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "84": {
+  "no": 84,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "대구 테크노폴리스 유치 공약 이후 추가 업데이트 없음, 사전기획 단계에도 못 미침",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "90": {
+  "no": 90,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "확보된 뉴스가 관광·문화 융합 관련 내용으로 'AI 산업생태계 육성' 공약과 직접 관련성이 낮음, 구체적 추진 근거 부족",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "96": {
+  "no": 96,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "서울AI허브 '2026년 2차 신규 입주기업'(21개사) 모집이 8/11 마감됨(기사 26.08.10자, 오늘 8/19 기준 이미 마감), 입주기업 모집 성격으로 컨설팅 발주 아님",
+  "evidence_url": "https://zdnet.co.kr/view/?no=20260810151221",
+  "is_yeta": "해당없음"
+ },
+ "102": {
+  "no": 102,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "프로젝트 추진단 구성 방침 단계, 법령/조례 정비 및 예산 확보 전이라 사전기획 초기 단계 (미니팹 등 실습센터 구축은 추진 중이나 발주 전)",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "4": {
+  "no": 4,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "충남테크노파크 수혜기업 모집 8/18 마감, 오늘(8/19) 기준 이미 마감 상태",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "10": {
+  "no": 10,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "인천연구원 인수위 단계로 전략/공약 고도화 진행 중, 공식 공고 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "18": {
+  "no": 18,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "암특화 의료 AX 로보틱스 AX 사업화 재공모 7/20 마감, 오늘(8/19) 기준 이미 마감",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "24": {
+  "no": 24,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "충북에너지산학융합원(주관기관), 충북과학기술혁신원(컨소시엄)",
+  "evidence_summary": "산업통상부 '2026년 제조AX 산학혁신파크 사업' 공모 최종 선정, 주관·컨소시엄 기관 이미 확정되어 사업 진행 단계",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "30": {
+  "no": 30,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "과기정통부가 공모방식/정책지정방식 여부조차 내부 검토 중인 초기 구상 단계",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "36": {
+  "no": 36,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "KT(전남전북광역본부), 한국마이크로소프트, SPC ㈜전북에이아이데이터센터(JBAIDC)",
+  "evidence_summary": "전주시-JBAIDC 업무협약 체결, KT·MS 컨소시엄 참여 확정, 총사업비 3007억 원, 2027년 완공 목표로 이미 실행 단계",
+  "evidence_url": "https://www.newscj.com/news/articleView.html?idxno=3386736",
+  "is_yeta": "해당없음"
+ },
+ "42": {
+  "no": 42,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "세종시장이 행안부 장관에 국가정보자원관리원 유치 등을 건의한 초기 단계, 사업 형태 미확정",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "48": {
+  "no": 48,
+  "filing_status": "공고전",
+  "competition_status": "이미확정",
+  "competitor_name": "전략컨설팅집현",
+  "evidence_summary": "과기정통부 국책사업 기획용역, 7월 공개입찰·협상을 거쳐 전략컨설팅집현이 기획 용역사로 선정됨(현재 기획 단계, 본사업은 2028년 목표)",
+  "evidence_url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597188",
+  "is_yeta": "예타대상"
+ },
+ "54": {
+  "no": 54,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "후보 시절 공약 언급 수준으로, 구체적 사업화나 공고 근거 없음",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "60": {
+  "no": 60,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "경남 스마트제조 AX 민관협의체 출범식(7/7)만 진행, 구체적 용역/공고 근거 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "66": {
+  "no": 66,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "경기준비위 120대 정책 중 구상 단계('AI원스톱 공정신문고'), 공식 공고 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "72": {
+  "no": 72,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "KAIST 자체 데이터센터 설계 착수 단계, 외부 공고/용역 근거 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "78": {
+  "no": 78,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "창업도시 프로젝트 참여기업 모집 7/7 완료, 이미 사업 수행 중",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "85": {
+  "no": 85,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "부산항만공사·부산정보산업진흥원이 'K-해양 AI 벨트 조성 전략 수립 연구용역' 착수보고회를 5/29 개최, 향후 국가 예타 대응 계획을 명시. 용역 수행사명은 확인 안됨",
+  "evidence_url": "https://www.economicpost.co.kr/169983",
+  "is_yeta": "예타대상"
+ },
+ "91": {
+  "no": 91,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "게임개발 인공지능 전환사업 공고 8/1 마감, 오늘(8/19) 기준 이미 마감",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "97": {
+  "no": 97,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "양재 AI테크시티(2028 착공목표), 수서 로봇클러스터 추진 중이나 구체적 용역/공고 근거 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "103": {
+  "no": 103,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "입력 데이터 전무(biz_type/executor/latest_news 모두 null). 검색으로도 '도민체감형 기후AX'라는 명칭의 구체 사업은 확인 안됨(경기도 기후테크 클러스터·유니콘 육성 정책은 존재하나 본 프로젝트와의 직접 연결 근거 부족)",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "5": {
+  "no": 5,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "로드맵 구체화 및 사업기획 단계로 명시(log_texts), 천안 2·3·4산단 228억원 투입 계획이나 아직 공고/사업자 선정 단계 아님",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "12": {
+  "no": 12,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "'피지컬 AI 특구' 조성 추진 및 '피지컬 AI 사이언스파크' 조성 계획 단계, 구체적 공고나 예산 정보 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "19": {
+  "no": 19,
+  "filing_status": "공고중",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "강원 의료AX 실증허브 조성사업(2026-2030, 총 450억원)에서 원주의료기기산업진흥원이 4월 총괄운영기관으로 확정, '암 특화 의료 AX 데이터 실증환경 조성(9억원)'이 공모 분야로 진행 중",
+  "evidence_url": "https://www.medicaldaily.co.kr/post/20067",
+  "is_yeta": "해당없음"
+ },
+ "25": {
+  "no": 25,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "김영환 충북지사(민선9기) 'AI충북특별도' 공약 차원의 비전 단계, 충주·제천 AI밸류체인·데이터센터 유치 등 구상만 있고 '글로벌 AI 허브 유치' 관련 구체적 공고·사업 없음",
+  "evidence_url": "https://www.segye.com/newsView/20260526514029",
+  "is_yeta": "불명"
+ },
+ "31": {
+  "no": 31,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "산업통상부 '2026년 AX 실증산단 구축사업'에 구미·포항 국가산단 최종 선정 완료(총사업비 481억, 2026-2029). 지역/산단 선정은 끝났으나 세부 사업관리·컨설팅 위탁기관 정보는 확인 안됨",
+  "evidence_url": "https://www.kyongbuk.co.kr/news/articleView.html?idxno=4078010",
+  "is_yeta": "불명"
+ },
+ "37": {
+  "no": 37,
+  "filing_status": "공고중",
+  "competition_status": "경쟁사있음(추정)",
+  "competitor_name": "현대차·SKT·네이버·리벨리온 등 16개 기관 컨소시엄(피지컬AI 전략 PoC 사업, 전북대·카이스트·성균관대·전북TP·캠틱 포함)",
+  "evidence_summary": "log_texts: '협업지능 피지컬AI 기반 SW플랫폼 생태계 조성사업 공고 게시 완료, 수행기관 미정'. 검색 결과 1조원 규모 사업 예타면제 확정(2026-2030), 별도 'PoC 공모'는 이미 16개 기관 컨소시엄이 선정되어 국비 219억 확보",
+  "evidence_url": "https://www.jeonbuk.go.kr/newsroom/board/view.jeonbuk?boardId=BBS_0000090&menuCd=DOM_000001101000000000&orderBy=REGISTER_DATE:DESC&paging=ok&startPage=3&searchType=DATA_TITLE&dataSid=626797",
+  "is_yeta": "해당없음"
+ },
+ "43": {
+  "no": 43,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": null,
+  "evidence_summary": "세종시설공단이 2026년 중기부 '민관협력 오픈이노베이션 지원사업' 공모에 이미 당선(국비 1.7억원 확보), 실행기관 확정된 소규모 사업",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "49": {
+  "no": 49,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "후보 시절 'AI 기반 초저온 스마트 물류거점' 언급 수준에 불과, 구체적 사업화·공고 정보 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "55": {
+  "no": 55,
+  "filing_status": "공고전",
+  "competition_status": "경쟁사있음(추정)",
+  "competitor_name": "조타코·울산항만공사·여수광양항만공사·HD현대삼호(인접 PoC 실증), 현대차·HD현대중공업·SK에너지·네이버클라우드·SKT(울산산업AX전환협의체)",
+  "evidence_summary": "'산업 AX 실증연구단지'는 2027년 착수 예정인 로드맵 단계(1단계 950억/총 5,000억). 인접 영역에서 조타코가 UPA·여수광양항만공사·HD현대삼호와 PoC 실증 중이며 K-테스트베드·오픈이노베이션 사업에 이미 선정됨",
+  "evidence_url": null,
+  "is_yeta": "예타대상"
+ },
+ "61": {
+  "no": 61,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "두산에너빌리티, 현대위아, 삼현",
+  "evidence_summary": "제조AX 산학혁신파크 구축사업(66.36억, 2026.8-2028.12)은 2025년 8월 공모를 거쳐 3개 기업 참여 확정, 1·2차년도 협약까지 체결 완료",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "67": {
+  "no": 67,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "도지사 직속 AI수석 신설 조례는 공포(7/30)되었으나 인선 미완료(공석)인 조직·인사 사안으로 외부 용역 공고 대상 아님",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "73": {
+  "no": 73,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "대전시 민선9기 핵심공약으로 'AI 육성계획' 수립 착수, 시장 직속 AI 전략 총괄기구 및 가칭 'AI혁신전략위원회' 구성 계획 단계. AI혁신관 신설 등 조직개편은 진행됐으나 외부 용역 공고는 확인 안됨",
+  "evidence_url": "https://www.etnews.com/20260715000234",
+  "is_yeta": "해당없음"
+ },
+ "79": {
+  "no": 79,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "산업통상부 예타 통과(2023.8) 이후 2024년부터 인프라 구축이 이미 진행 중(2028년 운영 목표)이라 사업자 선정은 완료된 것으로 판단, 세부 컨설팅 발주 여부는 불명",
+  "evidence_url": null,
+  "is_yeta": "예타대상"
+ },
+ "86": {
+  "no": 86,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "부산 진해신항 1단계를 '피지컬 AI 항만 선도 모델'로 구축하기로 결정(계획 발표) 단계, 구체적 공고 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "92": {
+  "no": 92,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "'서울런 AI' 1000명 대상 유료 AI 9종 지원 모집이 6.9~6.26 완료됨(log_texts 명시)",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "98": {
+  "no": 98,
+  "filing_status": "공고마감",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "log_texts상 '국가 AI데이터센터 고도화사업 이용자 추가모집(상시3차)'가 8/5까지였고 조사 시점(8/19) 기준 이미 마감됨. '국가 AI 집적단지 2단계' 자체의 별도 공고는 확인 안됨",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "104": {
+  "no": 104,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "'(가칭) 경기농축산 AX플랫폼'은 비전·방향 수립 후 구체적 사업으로 전환 중인 초기 단계, 공고 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "6": {
+  "no": 6,
+  "filing_status": "공고전",
+  "competition_status": "이미확정",
+  "competitor_name": "네이버클라우드",
+  "evidence_summary": "충남대-네이버클라우드-충남대병원-세종충남대병원 MOU체결로 인프라 파트너(네이버클라우드) 이미 확정, 2030년까지 단계적 조성",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "13": {
+  "no": 13,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "인천대-한국해양수산개발원 MOU 등 초기 협력단계, 공약 이후 구체적 공고나 사업자 선정 소식 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "20": {
+  "no": 20,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": null,
+  "evidence_summary": "AI헬스케어 기업육성 지원사업 신청기간(~7/13) 마감, 7/24 지원기업 선정결과 발표, 8월 협약체결 예정",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "26": {
+  "no": 26,
+  "filing_status": "공고전",
+  "competition_status": "이미확정",
+  "competitor_name": null,
+  "evidence_summary": "충북교육청 등 5개 기관 업무협약 체결로 개발 주체 및 예산(총 약 6억원 규모) 이미 확정",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "32": {
+  "no": 32,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": null,
+  "evidence_summary": "포항시가 산업부·KEIT 주관 2026년 기계장비산업 기술개발사업 공모에 최종 선정(총사업비 20.9억원)",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "38": {
+  "no": 38,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": null,
+  "evidence_summary": "김제시가 산업통상부 주관 시설농업 AI로봇 실증기반 구축사업 공모에 선정됨",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "44": {
+  "no": 44,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "관련 뉴스 및 로그 없음, 공약 발표 이후 진행상황 확인 불가",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "50": {
+  "no": 50,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "전략컨설팅집현(주)",
+  "evidence_summary": "과기정통부 주관 국책사업(제주·충남·강원 권역) 기획 용역사로 전략컨설팅집현(주)이 7월 공개입찰·협상을 거쳐 이미 선정, 8월말 용역 보고회 예정",
+  "evidence_url": "https://www.mediajeju.com/news/articleView.html?idxno=365128",
+  "is_yeta": "예타대상"
+ },
+ "56": {
+  "no": 56,
+  "filing_status": "공고중",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "울산정보산업진흥원 AI 도입 컨설팅 지원사업 수요기업 모집 공고 진행중(~11/26), 별도로 산업AX협의체(현대차·HD현대중공업 등 13개 기관) 출범(8/7)",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "62": {
+  "no": 62,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": null,
+  "evidence_summary": "경남테크노파크 제조AI특화 스마트공장 구축지원사업 공고(3/19) 이후 참여기업 모집 완료, 7월 협약 마무리",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "68": {
+  "no": 68,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "경기준비위원회 120개 과제 중 하나로 정책 확정 단계, 구체적 공고나 사업자 선정 소식 없음",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "74": {
+  "no": 74,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "관련 뉴스 및 로그 없음, 웹검색으로도 구체적 추진현황 확인 불가",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "80": {
+  "no": 80,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "한국로봇산업진흥원 외 컨소시엄(고등기술연구원, 대구기계부품연구원, 계명대, 지능형자동차부품진흥원)",
+  "evidence_summary": "4월 산업부 공모로 총괄·참여기관 모두 확정, 협약체결 및 착수보고회 완료, 총사업비 186.5억원(2026~2030)",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "87": {
+  "no": 87,
+  "filing_status": "공고마감",
+  "competition_status": "경쟁사있음(추정)",
+  "competitor_name": "엘리스그룹, 네이버클라우드",
+  "evidence_summary": "엘리스그룹이 산업부 산업단지 엣지AIDC 실증시범사업을 통해 부산 조선·해양 엣지AI데이터센터 구축사업 참여 확정, 부산대-네이버클라우드 MOU 체결(8/5)",
+  "evidence_url": null,
+  "is_yeta": "불명"
+ },
+ "93": {
+  "no": 93,
+  "filing_status": "공고전",
+  "competition_status": "확인안됨",
+  "competitor_name": null,
+  "evidence_summary": "오세훈 시장이 5/7 신통AI기획 신설 계획 발표(정비계획 교차검증), 구체적 사업자 선정이나 공고 소식 없음",
+  "evidence_url": null,
+  "is_yeta": "해당없음"
+ },
+ "99": {
+  "no": 99,
+  "filing_status": "공고마감",
+  "competition_status": "이미확정",
+  "competitor_name": "삼성SDS 컨소시엄(네이버클라우드, 삼성물산, 카카오, 삼성전자, 클러쉬, KT 등)",
+  "evidence_summary": "삼성SDS 컨소시엄이 지난해 사업공모에 단독입찰해 최종사업자로 확정(200MW+20MW 구축); 광주시는 별도 2단계 고도화(2025-2029, 2조원 규모) 예비타당성 용역 준비중",
+  "evidence_url": "https://smartcity.go.kr/2026/02/17/ai%EC%88%98%EB%8F%84-%EC%A0%84%EB%82%A8-%EC%83%88%EC%B6%9C%EB%B0%9C2026%EB%85%84-ai-%EB%8C%80%EC%A0%84%ED%99%98-%EC%9B%90%EB%85%84-%EC%84%A0%ED%8F%AC/",
+  "is_yeta": "예타진행중"
+ }
+}
