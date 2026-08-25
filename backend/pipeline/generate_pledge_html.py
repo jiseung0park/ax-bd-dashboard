@@ -732,7 +732,7 @@ def opportunity_card(p, extra=False, inline_slot=False):
     # 바로 아래에 상세페이지가 그대로 펼쳐지도록 빈 슬롯을 같이 렌더링해둔다.
     slot_html = f'<div class="opp-detail-slot" data-slot-no="{p["no"]}"></div>' if inline_slot else ""
     return f'''
-<div class="opp-card{extra_cls}" data-jump-no="{p['no']}" data-executor-undecided="{1 if (not p.get('executor') or p.get('executor')=='미정') else 0}" data-anchor="{1 if p.get('anchor') else 0}" data-budget-undecided="{1 if not p.get('budget_text') else 0}" data-stage-undecided="{1 if p.get('stage')=='미정' else 0}" data-filing-soon="{1 if p.get('filing_estimate') else 0}" data-grade="{gclass}">
+<div class="opp-card{extra_cls}" data-jump-no="{p['no']}" data-executor-undecided="{1 if (not p.get('executor') or p.get('executor')=='미정') else 0}" data-anchor="{1 if p.get('anchor') else 0}" data-budget-undecided="{1 if not p.get('budget_text') else 0}" data-stage-undecided="{1 if p.get('stage')=='미정' else 0}" data-filing-soon="{1 if p.get('filing_estimate') else 0}" data-grade="{gclass}" data-region="{esc(p['region'])}">
   <div class="opp-card-top">
     <span class="entry-grade-badge {gclass}" style="margin-left:0;">{esc(GRADE_SHORT.get(grade, grade))}</span>
     <span class="opp-region">{esc(p['region'])}</span>
@@ -805,6 +805,9 @@ top_opp_panel_html = f'''
   <div class="top-opp-list">{top_opp_html}</div>
 </div>'''
 
+opp_regions = sorted({p["region"] for p in opportunity_projects if p.get("region")})
+opp_region_options = "".join(f'<option value="{esc(r)}">{esc(r)}</option>' for r in opp_regions)
+
 intel_fragment = f'''
 <div class="exec-head">
   <h1>선제 진입 기회</h1>
@@ -815,7 +818,14 @@ intel_fragment = f'''
 
 <div class="opp-main-grid">
   <div class="opp-main-col">
-    <div class="section-head"><h2>선제 진입 기회 리스트</h2><div class="hint" id="oppCount"></div></div>
+    <div class="section-head">
+      <h2>선제 진입 기회 리스트</h2>
+      <div class="hint" id="oppCount"></div>
+    </div>
+    <div class="opp-region-filter">
+      <label for="oppRegionSelect">지역으로 좁혀보기</label>
+      <select id="oppRegionSelect"><option value="">전체 지역</option>{opp_region_options}</select>
+    </div>
     <div class="opp-card-grid" id="oppCardGrid">{opportunity_cards_html}</div>
     {opp_show_all_html}
 

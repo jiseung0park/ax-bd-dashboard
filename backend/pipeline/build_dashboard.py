@@ -17,12 +17,15 @@ with open(OUTPUT_DIR / "anchor_fragment.html", "r", encoding="utf-8") as f:
     anchor_html = f.read()
 with open(OUTPUT_DIR / "intel_fragment.html", "r", encoding="utf-8") as f:
     intel_html = f.read()
+with open(OUTPUT_DIR / "anchor_summary.json", "r", encoding="utf-8") as f:
+    anchor_json = f.read()
 
 out = template.replace("__FONT_FACE_CSS__", font_css)
 out = out.replace("__DATA_JSON__", data_json)
 out = out.replace("__PLEDGE_HTML__", pledge_html)
 out = out.replace("__PLEDGE_JSON__", pledge_json)
 out = out.replace("__ANCHOR_HTML__", anchor_html)
+out = out.replace("__ANCHOR_JSON__", anchor_json)
 out = out.replace("__INTEL_HTML__", intel_html)
 
 out_path = FRONTEND_DIR / "dashboard_v2.html"
