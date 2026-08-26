@@ -67,6 +67,34 @@ def refine_news(text):
     refined = re.sub(r"\bax\b", "AX", refined)
     return refined
 
+# 2026-08-26 웹서치로 직접 확인한 신규 동향 — 발표 임박 요청으로, 우선순위 높은
+# 사업 몇 건만 실시간 검색해 진짜로 새로 나온 기사만 반영했다(추정/가공 없음, 전부
+# 실제 URL 첨부). 기존 최근동향 텍스트는 지우지 않고 log 이력에 남긴 채, 이 신규
+# 항목을 최신 항목으로 승격한다.
+WEB_VERIFIED_FINDINGS = {
+    "AI 수도 충남 조성": {
+        "text": "충남도가 민선 9기 첫 조직개편을 통해 'AI 수도 충남' 실현 체제를 갖췄다. 7대 목표·21개 전략·201개 정책과제로 구성된 로드맵이 확정됐으며, 지역 AI데이터센터 구축과 AI전환 성장펀드 조성이 핵심 과제로 포함됐다.",
+        "url": "https://www.ajunews.com/view/20260709095922204",
+    },
+    "UN AI 허브 유치": {
+        "text": "정부가 UN AI 허브 유치를 공식 추진 중이며, 3월 17일 WHO·ILO·UNDP·ITU·WFP·IOM 등 UN 6개 기구가 협력 MOU를 체결했다. 부산·광주 등 타 지역도 유치 경쟁에 나서고 있어, 충남은 재생에너지 발전량 전국 1위·전력자급률 200% 이상의 전력 인프라를 유치 강점으로 내세우고 있다.",
+        "url": "https://www.dtoday.co.kr/news/articleView.html?idxno=764661",
+    },
+    "ABC+EF 전략 추진": {
+        "text": "인천시 인수위가 기존 'ABC+E'(인공지능·바이오·콘텐츠+에너지) 전략에 'F'(기반산업)를 추가해 'ABC+EF' 전략으로 확대했다. 2026~2029년 남동산업단지에 국비·지방비 총 653억원을 투입해 소부장 등 기반산업과 신산업의 동반성장을 추진한다.",
+        "url": "https://www.naewaynews.com/324612",
+    },
+    "현장형 AX 인재양성": {
+        "text": "충남도가 중소벤처기업부 '지역주도형 AI대전환 사업'에 선정돼 국비 140억원을 확보했다. 천안시·아산시와 공동으로 총사업비 298억원 규모로 추진하며, 마음AI가 참여해 반도체·디스플레이·모빌리티 등 제조업 분야의 실무형 AX 인재 양성을 지원한다.",
+        "url": "https://zdnet.co.kr/view/?no=20260605165213",
+    },
+    "AI 기반 의료·돌봄 서비스": {
+        "text": "충남도가 총 45억원 규모로 '지역완결형 의료전달체계' 구축에 나섰다. 고위험 산모·태아, 만성 폐질환자를 대상으로 웨어러블 기기를 통해 심박수·혈압·산소포화도 등 생체정보를 실시간 수집해 재택부터 상급병원까지 연계 관리하며, 2030년 완성을 목표로 한다.",
+        "url": "https://www.medicaldaily.co.kr/post/20937",
+    },
+}
+
+
 REFINED_NEWS_TEXT = {
     '\n인천 특화사업(MRO, 반도체, 바이오)과 강점 (꽁항, 항만)을 반영한 인천 국제물류진흥지역발전계획 수립 \n입주기업 인프라 구축 및 물류 AI 통합 운영 시스템 구축으로 국제 물류 중심도시 조성 기반 마련  \n\n공약 이후 최신 기사는 없음': "인천 특화사업(MRO, 반도체, 바이오)과 강점(공항, 항만)을 반영해 '인천 국제물류진흥지역발전계획'을 수립했다. 입주기업 인프라 구축과 물류 AI 통합 운영 시스템 구축을 통해 국제 물류 중심도시 조성 기반을 마련한다는 계획이다. (공약 이후 최신 기사는 없음)",
     ' (산업 AX 협의체 출범) 현대자동차와 HD현대중공업, SK에너지, 네이버클라우드, SK텔레콤, 대학·연구기관 등 13개 기관이 참여하는 산업 AX 협의체도 출범\n제조산업 특화 sLLM과 피지컬 AI 공동 연구개발·실증, 실증연구단지 데이터 공유를 협력 분야로 명시 (26.08.07)\n': '현대자동차와 HD현대중공업, SK에너지, 네이버클라우드, SK텔레콤, 대학·연구기관 등 13개 기관이 참여하는 산업 AX 협의체가 출범했다. 제조산업 특화 sLLM과 피지컬 AI 공동 연구개발·실증, 실증연구단지 데이터 공유를 협력 분야로 명시했다. (26.08.07)',
@@ -271,6 +299,18 @@ for r in rows[2:]:
     for a, b in log_pairs:
         if r[a] or r[b]:
             log.append({"text": refine_news(r[a]), "url": r[b]})
+
+    latest_news_val = refine_news(r[idx.get('최근동향')])
+    latest_url_val = r[idx.get('근거URL')]
+    web_finding = WEB_VERIFIED_FINDINGS.get(name)
+    if web_finding:
+        prev_text = (latest_news_val or "").strip()
+        if prev_text and not any((e.get("text") or "").strip() == prev_text for e in log):
+            log.append({"text": latest_news_val, "url": latest_url_val})
+        log.append({"text": web_finding["text"], "url": web_finding["url"]})
+        latest_news_val = web_finding["text"]
+        latest_url_val = web_finding["url"]
+
     proj = {
         "no": no_val,
         "region": region,
@@ -283,8 +323,8 @@ for r in rows[2:]:
         "org": r[idx.get('주관기관')],
         "ministry": r[idx.get('소관부처')],
         "executor": r[idx.get('수행기관')],
-        "latest_news": refine_news(r[idx.get('최근동향')]),
-        "latest_url": r[idx.get('근거URL')],
+        "latest_news": latest_news_val,
+        "latest_url": latest_url_val,
         "anchor": r[idx.get('앵커기업 목록')],
         "grp_partner": r[idx.get('GRP/시니어파트너')],
         "leader": r[idx.get('리더')],
