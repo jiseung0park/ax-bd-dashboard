@@ -842,7 +842,7 @@ function repCompany(arr) {
 
 function renderRegionCards() {
   const counts = {};
-  ROWS.forEach(r => { if (r[FI.region]) (counts[r[FI.region]] = counts[r[FI.region]]||[]).push(r); });
+  ROWS.forEach(r => { splitRegions(r[FI.region]).forEach(reg => (counts[reg] = counts[reg]||[]).push(r)); });
   const regions = Object.entries(counts).sort((a,b)=>b[1].length-a[1].length).slice(0, 15);
   document.getElementById('regionCards').innerHTML = regions.map(([name, arr]) => {
     const sfCount = arr.filter(r => r[FI.sf_client]).length;
@@ -919,8 +919,24 @@ function renderQuickFilters() {
   });
 }
 
+/* 시군 필드가 "아산시, 천안시, 예산군" 처럼 여러 시군이 콤마로 묶여 들어있는 경우가
+   많다(복수 생산거점 보유 기업) — 드롭다운엔 실제 시군 단위로만 보여주고, 어느 시군을
+   골라도 그 시군이 포함된 조합 값을 가진 기업까지 다 걸리게 한다. */
+function splitRegions(raw) {
+  return String(raw || '').split(',').map(s => s.trim()).filter(Boolean);
+}
+function uniqueSplitRegions() {
+  const s = new Set();
+  ROWS.forEach(r => splitRegions(r[FI.region]).forEach(v => s.add(v)));
+  return Array.from(s).sort();
+}
+function regionFieldIncludes(rawRegion, filterRegion) {
+  if (!filterRegion) return true;
+  return splitRegions(rawRegion).includes(filterRegion);
+}
+
 function renderFilterPanel() {
-  const regions = uniqueSorted(r => r[FI.region]);
+  const regions = uniqueSplitRegions();
   const indCats = uniqueSorted(r => r[FI.ind_cat]);
   const hqRegions = uniqueSorted(r => r[FI.hq_region]);
   const opt = (arr, cur) => arr.map(v => `<option value="${v}" ${cur===v?'selected':''}>${v}</option>`).join('');
@@ -984,7 +1000,7 @@ function getFiltered() {
   const revMin = filterState.revMin ? parseFloat(filterState.revMin) * 1e8 : null;
   return ROWS.filter(r => {
     if (q && !String(r[FI.n]).toLowerCase().includes(q) && !String(r[FI.product]||'').toLowerCase().includes(q)) return false;
-    if (filterState.region && r[FI.region] !== filterState.region) return false;
+    if (!regionFieldIncludes(r[FI.region], filterState.region)) return false;
     if (filterState.indCat && r[FI.ind_cat] !== filterState.indCat) return false;
     if (filterState.hqRegion && r[FI.hq_region] !== filterState.hqRegion) return false;
     if (filterState.listed === '상장' && r[FI.listed] !== '상장') return false;
