@@ -36,7 +36,7 @@ MANUAL_RESEARCH_OVERRIDES = {
         "filing_status": "공고전", "competition_status": None,
         "evidence_summary": "최신동향: '협의체 출범...전략과 과제 도출할 계획'—초기 논의 단계.",
     },
-    "로봇 • AI • 반도체 클러스터 조성 및 대기업 유치": {
+    "로봇 • AI • 반도체 클러스터 조성 및 대기업 유치 (ax와의 관련성 확인 필요)": {
         "filing_status": "공고중", "competition_status": None,
         "evidence_summary": "최신동향: '공모 최종 선정 + 착수보고회 개최'—이미 집행 시작, 공고·추진 국면으로 판단.",
     },

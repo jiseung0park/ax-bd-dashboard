@@ -1,12 +1,12 @@
 {
  "counts": {
-  "grade1": 55,
+  "grade1": 54,
   "grade2": 29,
   "grade3": 25,
-  "total": 109,
+  "total": 108,
   "anchors": 12,
   "verified": 19,
-  "has_source": 99
+  "has_source": 102
  },
  "projects": {
   "1": {
@@ -66,7 +66,7 @@
    "name": "현장형 AX 인재양성"
   },
   "8": {
-   "executor": "미정",
+   "executor": "충남대, 네이버클라우드",
    "budget_text": "45억원",
    "filing_status": "공고전",
    "entry_grade": "1순위: 선제 제안 대상",
@@ -210,7 +210,7 @@
    "name": "AI 도정 모니터링 체계 구축"
   },
   "28": {
-   "executor": "충북테크노파크",
+   "executor": "SK그룹",
    "budget_text": null,
    "filing_status": "공고중",
    "entry_grade": "2순위: 공식 입찰 대상",
@@ -226,7 +226,7 @@
    "name": "AI 창업생태계 조성"
   },
   "30": {
-   "executor": "포스텍, 한동대학교, 한국로봇융합연구원(KIRO) 등",
+   "executor": null,
    "budget_text": null,
    "filing_status": "공고전",
    "entry_grade": "1순위: 선제 제안 대상",
@@ -409,14 +409,6 @@
    "anchor": null,
    "name": "7대 과제: AI 고등교육"
   },
-  "53": {
-   "executor": "미정",
-   "budget_text": null,
-   "filing_status": "공고전",
-   "entry_grade": "1순위: 선제 제안 대상",
-   "anchor": null,
-   "name": "AI 실증산업 육성-> 삭제 "
-  },
   "54": {
    "executor": "미정",
    "budget_text": null,
@@ -458,8 +450,8 @@
    "name": "산업 AX 인재양성"
   },
   "59": {
-   "executor": "현대자동차HD현대중공업, SK에너지, 네이버클라우드, SKT)",
-   "budget_text": null,
+   "executor": "\tUNIST(울산과학기술원), SK",
+   "budget_text": "1조637억원",
    "filing_status": "공고전",
    "entry_grade": "1순위: 선제 제안 대상",
    "anchor": null,
@@ -474,7 +466,7 @@
    "name": "경남 제조 AI 전환(G-M.AX)"
   },
   "61": {
-   "executor": "경남테크노파크, 두산에너빌리티, 현대위아",
+   "executor": "경남테크노파크",
    "budget_text": "21조1,64억원",
    "filing_status": "공고마감",
    "entry_grade": "3순위: 경쟁열위",
@@ -491,7 +483,7 @@
   },
   "63": {
    "executor": "경남테크노파크",
-   "budget_text": null,
+   "budget_text": "1조2496억원",
    "filing_status": "공고마감",
    "entry_grade": "2순위: 공식 입찰 대상",
    "anchor": "LG",
@@ -578,8 +570,8 @@
    "name": "AI 전략기구 신설"
   },
   "74": {
-   "executor": "미정",
-   "budget_text": null,
+   "executor": "대전열병합발전㈜, 대전테크노파크, 위엠비, 디엑스랩즈, 영남대",
+   "budget_text": "22억원",
    "filing_status": "공고전",
    "entry_grade": "1순위: 선제 제안 대상",
    "anchor": null,
@@ -595,7 +587,7 @@
   },
   "76": {
    "executor": "미정",
-   "budget_text": null,
+   "budget_text": "4,715억원",
    "filing_status": "공고전",
    "entry_grade": "1순위: 선제 제안 대상",
    "anchor": "한화",
@@ -655,7 +647,7 @@
    "filing_status": "공고전",
    "entry_grade": "1순위: 선제 제안 대상",
    "anchor": "HD현대 (현대중공업)",
-   "name": "HD현대로보틱스 R&D 캠퍼스 유치"
+   "name": "HD현대로보틱스 R&D 캠퍼스 유치(ax와의 관련성 확인 필요)"
   },
   "85": {
    "executor": "부산정보산업진흥원, 부산항만공사",
@@ -698,7 +690,7 @@
    "name": "부산 AI 실증지원센터 확대"
   },
   "90": {
-   "executor": "부산정보산업진흥원",
+   "executor": "부산창조경제혁신센터",
    "budget_text": null,
    "filing_status": "공고전",
    "entry_grade": "1순위: 선제 제안 대상",
@@ -770,7 +762,7 @@
    "name": "국가 AI 집적단지 2단계"
   },
   "99": {
-   "executor": "AICA, 심성SDS, 네이버클라우드, 삼성물산, 카카오, 삼성전자, 클러쉬, KT 등",
+   "executor": "AICA, 심성SDS, 네이버클라우드 등",
    "budget_text": null,
    "filing_status": "공고마감",
    "entry_grade": "3순위: 경쟁열위",
@@ -786,8 +778,8 @@
    "name": "AI 실증밸리 조성"
   },
   "101": {
-   "executor": "AICA",
-   "budget_text": null,
+   "executor": "\t인공지능산학연합회, 한국모빌리티학회, 한국전자기술연구원, \n광주과학기술원(GIST)",
+   "budget_text": "580억원",
    "filing_status": "공고전",
    "entry_grade": "1순위: 선제 제안 대상",
    "anchor": "LG",
@@ -855,7 +847,7 @@
    "filing_status": "공고중",
    "entry_grade": "2순위: 공식 입찰 대상",
    "anchor": null,
-   "name": "로봇 • AI • 반도체 클러스터 조성 및 대기업 유치"
+   "name": "로봇 • AI • 반도체 클러스터 조성 및 대기업 유치 (ax와의 관련성 확인 필요)"
   },
   "905": {
    "executor": "대구테크노파크",
