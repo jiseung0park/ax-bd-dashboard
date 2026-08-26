@@ -75,6 +75,15 @@ def region_of_address(addr):
     return m.group(1) if m else first.split(" ")[0]
 
 
+# 원본 엑셀 "소재 시군" 컬럼에 있는 확인된 오타 — 사용자가 직접 확인해준 것만 고침
+# (임의로 다른 값을 추정해서 합치지 않음)
+REGION_TYPO_FIXES = {"아신시": "아산시"}
+
+
+def fix_region_typo(region):
+    return REGION_TYPO_FIXES.get(region, region)
+
+
 # ---- 4) load master pool file ----
 wb = openpyxl.load_workbook(PATH, data_only=True, read_only=True)
 ws = wb["통합 DB"]
@@ -131,8 +140,8 @@ for row in rows:
     rec = [
         g(row, "표준기업명"),
         first_line(g(row, "산업단지명")),
-        g(row, "소재 시군"),
-        first_line(g(row, "공장주소")),
+        fix_region_typo(g(row, "소재 시군")),
+        (first_line(g(row, "공장주소")) or "").replace("아신시", "아산시") or None,
         g(row, "충남공장수"),
         product,
         industry,
