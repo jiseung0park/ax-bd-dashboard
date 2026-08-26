@@ -400,16 +400,13 @@ for p in projects:
         evidence_html = f'<div style="grid-column:1/-1;"><div class="k">리서치 근거 (자동조사, 참고용)</div><div class="v" style="font-weight:500;">{esc(p["evidence_summary"])}{url_part}</div></div>'
     competitor_line = f'<div><div class="k">경쟁사(추정)</div><div class="v">{esc(p["competitor_name"])}</div></div>' if p.get("competitor_name") else ""
 
-    pgrade = p.get("potential_grade")
-    pgrade_badge = f'<div class="stat-cell"><div class="sc-k">잠재등급</div><div class="sc-v"><span class="potential-badge p{esc(pgrade)}">{esc(pgrade or "미정")}</span></div></div>'
     bd_stage_badge = f'<div class="stat-cell"><div class="sc-k">BD 단계</div><div class="sc-v">{esc(BD_STAGE_LABEL.get(grade, BD_STAGE_LABEL["미조사"]))}</div></div>'
     budget_note = ' <span class="stat-asterisk">*텍스트 추정</span>' if p.get("budget_text") else ""
     header_stats = f'''
     <div class="pd-stats">
       {bd_stage_badge}
-      {pgrade_badge}
       <div class="stat-cell"><div class="sc-k">공고상태</div><div class="sc-v">{esc(p["filing_status"]) or "확인필요"}</div></div>
-      <div class="stat-cell"><div class="sc-k">공고기관</div><div class="sc-v">{esc(p["org"]) or "확인필요"}</div></div>
+      <div class="stat-cell"><div class="sc-k">주관기관</div><div class="sc-v">{esc(p["org"]) or "확인필요"}</div></div>
       <div class="stat-cell"><div class="sc-k">투자예산규모</div><div class="sc-v">{esc(p.get("budget_text")) or "확인필요"}{budget_note}</div></div>
       <div class="stat-cell"><div class="sc-k">예상공고시점</div><div class="sc-v">{esc(p.get("filing_estimate")) or "미정"}</div></div>
       <div class="stat-cell"><div class="sc-k">현재공약단계</div><div class="sc-v">{esc(p["stage"])}</div></div>
@@ -456,6 +453,7 @@ for p in projects:
   <div class="pd-panel" style="margin:16px 0;">
     <h4>진입전략 {trust_badge(p)}</h4>
     <div class="strategy-box {grade_class}">{esc(STRATEGY_TEMPLATE.get(grade, STRATEGY_TEMPLATE["미조사"]))}</div>
+    <div class="aip-note" style="margin:-2px 0 10px;">※ 진입등급({esc(GRADE_SHORT.get(grade, grade))})별 공통 가이드입니다 — 이 사업만을 위한 개별 분석이 아닙니다.</div>
     <div class="kv-grid">
       <div><div class="k">공고상태</div><div class="v">{esc(p['filing_status']) or '미조사'}</div></div>
       <div><div class="k">경쟁현황</div><div class="v">{esc(p['competition_status']) or '미조사'}</div></div>
@@ -543,7 +541,7 @@ fragment = f"""
   <h1>전국 AI·AX 정책사업 Pipeline</h1>
   <div class="sub">전국 AI·AX 정책사업을 공약 단계부터 추적하여, 발주 이전의 기획제안 기회를 선제적으로 포착합니다.</div>
 </div>
-<div class="kpi-refresh-note">최근 갱신: {esc(kpi["updated_at"])} · 신규 리서치·공고 반영 시 지표가 자동 갱신됩니다</div>
+<div class="kpi-refresh-note">최근 갱신: {esc(kpi["updated_at"])} · 신규 리서치·공고가 반영될 때마다 최신화됩니다</div>
 <div class="kpi-grid pledge-kpi-grid kpi-grid-5">{pledge_kpi_html}</div>
 
 <div class="section-head"><h2>기획제안형 BD 프로세스</h2></div>
