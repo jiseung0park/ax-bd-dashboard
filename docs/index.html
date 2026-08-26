@@ -130,9 +130,12 @@
   .nav-chapter-btn:hover { color: var(--ink); background: var(--bg-sunken); }
   .nav-chapter.active .nav-chapter-btn { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-line); }
   .nav-chapter-menu {
-    display: none; position: absolute; top: 100%; left: 0; margin-top: 4px; min-width: 210px; z-index: 55;
+    display: none; position: absolute; top: 100%; left: 0; margin-top: 0; min-width: 210px; z-index: 55;
     flex-direction: column; gap: 2px; background: var(--surface); border: 1px solid var(--border-strong);
     border-radius: var(--radius); box-shadow: var(--shadow); padding: 6px;
+    /* 버튼과 메뉴 사이 빈틈이 있으면 그 틈에서 :hover가 끊겨 메뉴가 즉시 닫힌다 —
+       margin 대신 투명 테두리로 여백을 줘서, 여백까지 이 요소의 호버 판정 박스에 포함시킨다 */
+    border-top: 4px solid transparent; background-clip: padding-box;
   }
   .nav-chapter:hover .nav-chapter-menu, .nav-chapter.open .nav-chapter-menu { display: flex; }
   .nav-chapter-menu .nav-tab { text-align: left; width: 100%; border-radius: var(--radius-sm); }
@@ -735,7 +738,7 @@
   <h1>전국 AI·AX 정책사업 Pipeline</h1>
   <div class="sub">전국 AI·AX 정책사업을 공약 단계부터 추적하여, 발주 이전의 기획제안 기회를 선제적으로 포착합니다.</div>
 </div>
-<div class="kpi-refresh-note">최근 갱신: 2026-08-26 10:13 · 신규 리서치·공고가 반영될 때마다 최신화됩니다</div>
+<div class="kpi-refresh-note">최근 갱신: 2026-08-26 11:10 · 신규 리서치·공고가 반영될 때마다 최신화됩니다</div>
 <div class="kpi-grid pledge-kpi-grid kpi-grid-5">
     <div class="kpi " data-kpi-action="filter-grade" data-kpi-value="">
       <div class="label">전체 트래킹 사업</div>
@@ -1011,7 +1014,7 @@
 <div class="ai-insight-panel" id="aiInsightPanel">
   <div class="aip-head">
     <span class="aip-ic">▤</span> 핵심 지표 요약
-    <span class="aip-updated">2026-08-26 10:13 기준</span>
+    <span class="aip-updated">2026-08-26 11:10 기준</span>
   </div>
   <ul class="aip-list">
     <li><b>수도권</b> 권역이 선제 제안 대상 <b>18건</b>으로 가장 많아 우선 접촉 후보 지역입니다.</li><li>전체 트래킹 사업 중 <b>제조AX</b> 유형이 <b>15건</b>으로 가장 큰 비중을 차지합니다.</li><li>예비타당성조사 대상/진행 사업이 <b>9건</b> 확인되어 초기 자문 진입 여지가 있습니다.</li><li>앵커기업 <b>12개사</b> 중 <b>12개사</b>가 기존 PwC 계정과 매핑되어 관계 기반 접근이 가능합니다.</li><li>예산 규모가 텍스트에서 확인된 사업은 <b>43/108건</b>이며, 나머지는 근거자료 확인이 필요합니다.</li>

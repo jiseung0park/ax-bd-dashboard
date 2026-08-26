@@ -116,9 +116,12 @@ __FONT_FACE_CSS__
   .nav-chapter-btn:hover { color: var(--ink); background: var(--bg-sunken); }
   .nav-chapter.active .nav-chapter-btn { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-line); }
   .nav-chapter-menu {
-    display: none; position: absolute; top: 100%; left: 0; margin-top: 4px; min-width: 210px; z-index: 55;
+    display: none; position: absolute; top: 100%; left: 0; margin-top: 0; min-width: 210px; z-index: 55;
     flex-direction: column; gap: 2px; background: var(--surface); border: 1px solid var(--border-strong);
     border-radius: var(--radius); box-shadow: var(--shadow); padding: 6px;
+    /* 버튼과 메뉴 사이 빈틈이 있으면 그 틈에서 :hover가 끊겨 메뉴가 즉시 닫힌다 —
+       margin 대신 투명 테두리로 여백을 줘서, 여백까지 이 요소의 호버 판정 박스에 포함시킨다 */
+    border-top: 4px solid transparent; background-clip: padding-box;
   }
   .nav-chapter:hover .nav-chapter-menu, .nav-chapter.open .nav-chapter-menu { display: flex; }
   .nav-chapter-menu .nav-tab { text-align: left; width: 100%; border-radius: var(--radius-sm); }
